@@ -53,8 +53,8 @@
 
         /* Glassmorphism */
         .glass-card, .glass-form {
-            background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.4); border-radius: 20px; padding: 2rem;
+            background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.4); border-radius: 20px; padding: 2.5rem;
         }
 
         /* Hero Section */
@@ -96,7 +96,7 @@
         .close-btn:hover { color: var(--accent); transform: rotate(90deg); }
         
         .modal-form input, .modal-form textarea, .modal-form select {
-            width: 100%; padding: 12px; margin-bottom: 12px; border: 1px solid rgba(255,255,255,0.2);
+            width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid rgba(255,255,255,0.2);
             border-radius: 8px; background: rgba(255,255,255,0.1); color: white; font-family: var(--font-body); outline: none;
         }
         .modal-form input::placeholder, .modal-form textarea::placeholder { color: rgba(255,255,255,0.5); }
@@ -124,7 +124,7 @@
         .card-overlay .number { font-size: 0.85rem; color: var(--accent); letter-spacing: 2px; margin-bottom: 5px; font-weight: bold; }
         .card-overlay h4 { font-size: 1.5rem; margin-bottom: 8px; font-family: var(--font-heading); }
 
-        /* --- PACKAGES SECTION (3 Cards in a Row, Smaller 3D Flip Cards) --- */
+        /* --- PACKAGES SECTION (3D FLIP CARDS) --- */
         .packages-section { padding: 6rem 5%; background-color: #f3efe6; }
         .packages-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 3rem; }
         
@@ -188,7 +188,7 @@
         .process-card h4 { font-size: 1.3rem; margin-bottom: 10px; }
         .process-card p { font-size: 0.9rem; opacity: 0.75; line-height: 1.5; }
 
-        /* --- TESTIMONIALS SECTION (Cinematic with Client Images) --- */
+        /* --- TESTIMONIALS SECTION --- */
         .testimonials-section { padding: 6rem 5%; background-color: #f7f4ee; }
         .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem; margin-top: 3rem; }
         .testimonial-card { 
@@ -197,7 +197,7 @@
             display: flex; flex-direction: column; transition: 0.3s;
         }
         .testimonial-card:hover { transform: translateY(-5px); }
-        .testimonial-img-wrap { width: 100%; height: 260px; overflow: hidden; position: relative; }
+        .testimonial-img-wrap { width: 100%; height: 260px; overflow: hidden; position: relative; cursor: pointer; }
         .testimonial-img-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform 0.6s ease; }
         .testimonial-card:hover .testimonial-img-wrap img { transform: scale(1.05); }
         .testimonial-body { padding: 30px; display: flex; flex-direction: column; justify-content: space-between; flex: 1; }
@@ -205,7 +205,7 @@
         .client-info h5 { font-size: 1.2rem; font-family: var(--font-heading); color: #111; }
         .client-info span { font-size: 0.8rem; color: #b89753; text-transform: uppercase; letter-spacing: 1px; font-weight: bold; }
 
-        /* --- BLOGS SECTION (Aesthetic Cards with Images) --- */
+        /* --- BLOGS SECTION --- */
         .blogs-section { padding: 6rem 5%; background-color: var(--primary-light); }
         .blogs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 2.5rem; margin-top: 3rem; }
         .blog-card { 
@@ -222,7 +222,26 @@
         .blog-body h3 { font-size: 1.4rem; margin-bottom: 12px; line-height: 1.3; }
         .blog-body p { font-size: 0.9rem; opacity: 0.75; line-height: 1.5; }
 
-        /* Booking Section - Proportional & Compact */
+        /* Cinematic 3D Blog Reading Modal */
+        #blogModal .modal-content {
+            background: linear-gradient(135deg, #141414 0%, #1f1b18 100%);
+            border: 1px solid rgba(229, 213, 197, 0.4);
+            max-width: 900px;
+            padding: 3.5rem;
+            transform: perspective(1000px) rotateX(0deg);
+            animation: blogModalPop 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+        }
+        @keyframes blogModalPop {
+            0% { transform: perspective(1000px) rotateX(10deg) translateY(30px); opacity: 0; }
+            100% { transform: perspective(1000px) rotateX(0deg) translateY(0); opacity: 1; }
+        }
+        .blog-modal-header { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 10px; font-weight: bold; }
+        .blog-modal-title { font-size: 2.8rem; font-family: var(--font-heading); margin-bottom: 25px; line-height: 1.2; color: #fff; }
+        .blog-modal-img { width: 100%; height: 380px; object-fit: cover; border-radius: 14px; margin-bottom: 30px; box-shadow: 0 15px 35px rgba(0,0,0,0.6); }
+        .blog-modal-body { font-size: 1.1rem; line-height: 1.8; opacity: 0.85; font-family: var(--font-body); color: #f0ebe1; }
+        .blog-modal-body p { margin-bottom: 20px; }
+
+        /* Booking Section */
         .booking-section { padding: 5rem 5%; display: flex; gap: 4rem; align-items: center; background: #f0ebe1; }
         .booking-form-wrap { flex: 1; }
         .booking-form-wrap h2 { font-size: 2.2rem; margin-bottom: 5px; }
@@ -436,6 +455,14 @@
         <div id="singleMediaContainer" onclick="event.stopPropagation()"></div>
     </div>
 
+    <!-- Cinematic 3D Blog Reading Modal -->
+    <div id="blogModal" class="modal-overlay" onclick="closeBlogModal()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <button class="close-btn" onclick="closeBlogModal()">✖️</button>
+            <div id="blogModalContent"></div>
+        </div>
+    </div>
+
     <!-- Locations Section -->
     <section id="locations" class="locations-section">
         <div class="section-header">
@@ -450,7 +477,7 @@
         </div>
     </section>
 
-    <!-- --- PACKAGES SECTION (3 Cards in a Row, Smaller 3D Flip Cards) --- -->
+    <!-- --- PACKAGES SECTION (3D FLIP CARDS) --- -->
     <section id="packages" class="packages-section">
         <div class="section-header">
             <span class="eyebrow">Investment</span>
@@ -463,8 +490,8 @@
                 <div class="flip-card-inner">
                     <div class="flip-card-front">
                         <div>
-               <div class="package-title">The Classic Package</div>
-<div class="package-short-desc">Perfect for couples who want a beautiful and intimate pre-weddin experience in Dubai.<br><br><br>A Classic Dubai Package typically spans 4 to 5 days and offers the perfect balance between the city’s futuristic ultra-modern landmarks and its rich, traditional cultural heritag</div>
+                            <div class="package-title">The Classic Package</div>
+                            <div class="package-short-desc">Perfect for couples who want a beautiful and intimate pre-wedding experience in Dubai[cite: 1].<br><br><br>A Classic Dubai Package typically spans 4 to 5 days and offers the perfect balance between the city’s futuristic ultra-modern landmarks and its rich, traditional cultural heritage.</div>
                         </div>
                         <div class="flip-hint">Hover / Tap to View Inclusions ↻</div>
                     </div>
@@ -490,7 +517,7 @@
                     <div class="flip-card-front">
                         <div>
                             <div class="package-title">The Premium Package</div>
- <div class="package-short-desc">Designed for high-end couples seeking absolute elegance and privacy, this elite tier covers extensive cinematic coverage, private transport, high-end styling, and full professional crew support.<br><br><br>Elevate your pre-wedding experience with extensive multi-location luxury coverage.</div>
+                            <div class="package-short-desc">Designed for high-end couples seeking absolute elegance and privacy, this elite tier covers extensive cinematic coverage, private transport, high-end styling, and full professional crew support.<br><br><br>Elevate your pre-wedding experience with extensive multi-location luxury coverage[cite: 1].</div>
                         </div>
                         <div class="flip-hint">Hover / Tap to View Inclusions ↻</div>
                     </div>
@@ -505,7 +532,7 @@
                                 <li>End-to-end Assistance</li>
                             </ul>
                         </div>
-                        <a href="#booking" class="btn-primary" style="text-align:center; display:block;" onclick="setPackageSelection('Premium Package (Multi-Location Dubai)')">Enquire Now</a>
+                        <a href="#booking" class="btn-primary" style="text-align:center; display:block;" onclick="setPackageSelection('Premium Package (Multi-Location Dubai)')">Inquire Now</a>
                     </div>
                 </div>
             </div>
@@ -574,7 +601,7 @@
         </div>
     </section>
 
-    <!-- --- TESTIMONIALS SECTION (Cinematic with Client Images) --- -->
+    <!-- --- TESTIMONIALS SECTION --- -->
     <section id="testimonials" class="testimonials-section">
         <div class="section-header">
             <span class="eyebrow">Client Love</span>
@@ -621,15 +648,15 @@
         </div>
     </section>
 
-    <!-- --- BLOGS SECTION (Aesthetic Cards with Images) --- -->
+    <!-- --- BLOGS SECTION --- -->
     <section id="blogs" class="blogs-section">
         <div class="section-header">
             <span class="eyebrow">Journal</span>
             <h2>Cinematic Tips & Stories</h2>
-            <p>Expert guides for your upcoming Dubai photography session.</p>
+            <p>Expert guides for your upcoming Dubai photography session. Click any blog to read the full story.</p>
         </div>
         <div class="blogs-grid">
-            <div class="blog-card" onclick="openSingleMedia('img', 'frame 02 dubai.png')">
+            <div class="blog-card" onclick="openBlogModal('Top 5 Iconic Locations in Dubai', 'August 15, 2026', 'frame 02 dubai.png', `Dubai is a canvas of architectural marvels and timeless golden landscapes, making it the ultimate destination for a cinematic pre-wedding shoot.<br><br><strong>1. The Burj Khalifa & Downtown Fountains:</strong> Offering a dramatic urban skyline backdrop that lights up the night with unmatchable glamour.<br><br><strong>2. The Vast Dubai Desert Conservation Reserve:</strong> For endless golden dunes, ethereal sunset hues, and intimate candle-lit setups under the starlit Arabian sky.<br><br><strong>3. Palm Jumeirah Waterfronts & Luxury Yachts:</strong> Bringing an oceanic, high-end European Riviera vibe to your love story frames.<br><br>Choosing the right mix of modern luxury and traditional heritage creates a wholesome, breathtaking album that tells your unique narrative forever.`)">
                 <div class="blog-img-wrap">
                     <img src="frame 02 dubai.png" alt="Top 5 Iconic Locations in Dubai">
                 </div>
@@ -639,7 +666,8 @@
                     <p>Discover the best spots offering timeless cinematic backdrops from Burj Khalifa to heritage alleys.</p>
                 </div>
             </div>
-            <div class="blog-card" onclick="openSingleMedia('img', 'p.jpg')">
+
+            <div class="blog-card" onclick="openBlogModal('Styling Guide: What to Wear for Your Shoot', 'August 02, 2026', 'p.jpg', `Your wardrobe sets the tone and aesthetic grade of your entire pre-wedding cinematic film. Here is how our expert stylists recommend curating your outfits for Dubai.<br><br><strong>Bold Contrasts:</strong> Vibrant reds, deep emeralds, or royal blues create a striking, magical contrast against Dubai's neutral desert sands and sleek glass skyscrapers.<br><br><strong>Flowing Silhouettes:</strong> Long trail gowns, sarees with dramatic pallus, or sleek evening suits catch the gentle breeze of the Marina and desert winds, adding organic motion to video frames.<br><br><strong>Comfort Meets Luxury:</strong> Since moving across iconic locations involves walking and quick outfit transitions, packing a pair of comfortable walking shoes alongside your statement footwear ensures you stay fresh and radiant throughout the day.`)">
                 <div class="blog-img-wrap">
                     <img src="p.jpg" alt="Styling Guide: What to Wear">
                 </div>
@@ -671,6 +699,7 @@
                     <option value="">Select Package</option>
                     <option value="Classic Package (Downtown / Burj View)">Classic Package</option>
                     <option value="Premium Package (Multi-Location Dubai)">Premium Package</option>
+                    <option value="Royal Dubai Elite">Royal Dubai Elite</option>
                     <option value="Custom Theme Request">Custom Theme Request</option>
                 </select>
                 <textarea id="bookMessage" rows="2" placeholder="Any other enquiry or custom requirements..."></textarea>
@@ -718,7 +747,6 @@
             <div class="footer-col-center">
                 <nav class="footer-nav">
                     <a href="#home">Home</a>
-                    <a href="#locations">Locations</a>
                     <a href="#packages">Packages</a>
                     <a href="#process">Process</a>
                     <a href="#testimonials">Testimonials</a>
@@ -789,6 +817,25 @@
         function closeSingleMedia() {
             document.getElementById('singleImageModal').style.display = 'none';
             document.getElementById('singleMediaContainer').innerHTML = '';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Open Cinematic 3D Blog Reading Modal
+        function openBlogModal(title, date, imgSrc, contentHtml) {
+            const container = document.getElementById('blogModalContent');
+            container.innerHTML = `
+                <div class="blog-modal-header">${date}</div>
+                <h2 class="blog-modal-title">${title}</h2>
+                <img src="${imgSrc}" alt="${title}" class="blog-modal-img">
+                <div class="blog-modal-body">${contentHtml}</div>
+            `;
+            document.getElementById('blogModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeBlogModal() {
+            document.getElementById('blogModal').style.display = 'none';
+            document.getElementById('blogModalContent').innerHTML = '';
             document.body.style.overflow = 'auto';
         }
 
