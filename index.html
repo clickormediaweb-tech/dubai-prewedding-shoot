@@ -147,42 +147,58 @@
         .story-thumb img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; transition: transform 0.6s ease; }
         .story-thumb:hover img { transform: scale(1.08); }
 
-        /* Full-Page Cinematic Gallery View (No Cutting, Full Photos & Videos) */
+        /* Light Theme Gallery Modal Styling */
+        #galleryModal .modal-content {
+            background: #F9F8F6; /* Website ki light theme */
+            color: #1A1A1A;
+            border: 1px solid #E5D5C5;
+            max-width: 1100px;
+            padding: 3rem;
+        }
+        #galleryModal h3 {
+            color: #1A1A1A;
+        }
+        #galleryModal p {
+            color: #666;
+        }
         .full-gallery-grid { 
             display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
-            gap: 25px; 
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* Chote aur compact boxes */
+            gap: 20px; 
             margin-top: 25px; 
         }
         .gallery-item {
             position: relative;
-            border-radius: 16px;
+            border-radius: 12px;
             overflow: hidden;
-            background: #000;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.7);
-            border: 1px solid rgba(255,255,255,0.1);
+            background: #eae5de; /* Light background taaki empty space achhi lage */
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+            border: 1px solid #ddd;
+            height: 220px; /* Box ki height choti ki */
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         .gallery-item img, .gallery-item video { 
             width: 100%; 
-            height: 380px; 
-            object-fit: cover; 
+            height: 100%; 
+            object-fit: contain; /* Yeh ensure karega ki image/video kategi nahi, poori dikhegi */
+            background: #f4f1ea;
             display: block; 
-            background: #000;
-            transition: transform 0.6s ease; 
+            transition: transform 0.4s ease; 
         }
         .gallery-item:hover img, .gallery-item:hover video { 
-            transform: scale(1.05); 
+            transform: scale(1.03); 
         }
         .gallery-label {
             position: absolute;
             bottom: 0; left: 0; width: 100%;
-            padding: 15px 20px;
-            background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
+            padding: 10px 15px;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
             color: #fff;
             font-family: var(--font-heading);
-            font-size: 1.1rem;
-            letter-spacing: 1px;
-            pointer-events: none;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
         }
 
         /* Footer */
@@ -225,6 +241,27 @@
             .modal-content { padding: 1.5rem; width: 95%; }
             .footer-content-wrap, .footer-bottom-bar { flex-direction: column; text-align: center; justify-content: center; }
             .footer-socials { justify-content: center; }
+            /* Clean Date Input Styling for Forms */
+        input[type="date"] {
+            position: relative;
+            color: #333;
+            background: rgba(255, 255, 255, 0.7);
+        }
+        input[type="date"]::-webkit-calendar-picker-indicator {
+            cursor: pointer;
+            opacity: 0.8;
+        }
+        /* Agar browser mein text placeholder jaisa dikhana ho */
+        input[type="date"]::before {
+            content: attr(placeholder);
+            width: 100%;
+            color: #888;
+        }
+        input[type="date"]:focus::before,
+        input[type="date"]:valid::before {
+            content: "";
+            display: none;
+        }
         }
     </style>
 </head>
@@ -292,7 +329,8 @@
             <form class="modal-form" id="themeForm" onsubmit="handleThemeModal(event)">
                 <input type="text" id="themeName" placeholder="Your Name" required>
                 <input type="tel" id="themePhone" placeholder="WhatsApp / Phone Number" required>
-                <input type="date" id="themeDate" required>
+<input type="date" id="bookDate" placeholder="Select Date" required>
+<input type="date" id="themeDate" placeholder="Select Date" required>
                 <select id="themeLocation">
                     <option value="Desert Safari">Desert Safari</option>
                     <option value="Burj Khalifa">Burj Khalifa</option>
