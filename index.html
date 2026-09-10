@@ -10,6 +10,19 @@
     
     <!-- Global Modal Functions in Header -->
     <script>
+        // Simple Admin Authentication Protection
+    function checkAdminAuth() {
+        const adminPassword = "admin123"; // Aap yahan apna manpasand password rakh sakti hain
+        const enteredPass = prompt("🔐 Enter Admin Password to Access Panel:");
+        
+        if (enteredPass !== adminPassword) {
+            alert("❌ Incorrect Password! Access Denied.");
+            window.location.href = "index.html"; // Galat password daalne par main website par bhej dega
+        }
+    }
+    
+    // Page load hote hi password check karega
+    checkAdminAuth();
         function openModal(id) {
             const modal = document.getElementById(id);
             if (modal) {
@@ -277,6 +290,43 @@
             .modal-content {
                 padding: 1.5rem;
                 width: 95%;
+            }
+        }
+        /* --- Responsive Header & Navbar Styles --- */
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 5%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 12px;
+                text-align: center;
+            }
+
+            header .logo, .header-logo {
+                font-size: 1.2rem;
+            }
+
+            nav {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 15px;
+                width: 100%;
+                margin: 5px 0;
+            }
+
+            nav a {
+                font-size: 0.8rem;
+                letter-spacing: 1px;
+                margin: 0;
+            }
+
+            /* Agar header mein koi 'Book Now' ya CTA button hai toh usko bhi mobile mein center karne ke liye */
+            .header-cta, .book-btn-header {
+                width: 100%;
+                text-align: center;
+                margin-top: 5px;
             }
         }
     </style>
