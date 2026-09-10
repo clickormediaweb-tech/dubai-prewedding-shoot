@@ -9,6 +9,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     
     <style>
+        input[type="date"]::-webkit-datetime-edit-text,
+input[type="date"]::-webkit-datetime-edit-month-field,
+input[type="date"]::-webkit-datetime-edit-day-field,
+input[type="date"]::-webkit-datetime-edit-year-field {
+    color: #333;
+}
         :root {
             --primary-light: #F9F8F6;
             --text-dark: #1A1A1A;
@@ -494,103 +500,81 @@
 
     <!-- Scripts -->
     <script>
-        // Single unified global modal control handlers
-        function openModal(id) {
-            const modal = document.getElementById(id);
-            if (modal) {
-                modal.style.display = 'flex';
-                document.body.style.overflow = 'hidden';
-            }
+        /
+    function openModal(id) {
+        const modal = document.getElementById(id);
+        if (modal) {
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
         }
+    }
 
-        function closeModal(id) {
-            const modal = document.getElementById(id);
-            if (modal) {
-                modal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            }
+    function closeModal(id) {
+        const modal = document.getElementById(id);
+        if (modal) {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
         }
+    }
 
-        // Main Booking Form Handler (LocalStorage Sync for Admin)
-        function handleBooking(event) {
-            event.preventDefault();
-            
-            const name = document.getElementById('bookName').value;
-            const phone = document.getElementById('bookPhone').value;
-            const date = document.getElementById('bookDate').value;
-            const location = document.getElementById('bookLocation').value;
-            const packageVal = document.getElementById('bookPackage').value;
-            const message = document.getElementById('bookMessage').value;
+    function handleBooking(event) {
+        event.preventDefault();
+        const name = document.getElementById('bookName').value;
+        const phone = document.getElementById('bookPhone').value;
+        const date = document.getElementById('bookDate').value;
+        const location = document.getElementById('bookLocation').value;
+        const packageVal = document.getElementById('bookPackage').value;
+        const message = document.getElementById('bookMessage').value;
 
-            let bookings = JSON.parse(localStorage.getItem('shootBookings')) || [];
-            bookings.push({ 
-                name, 
-                phone, 
-                date, 
-                location, 
-                package: packageVal, 
-                message, 
-                timestamp: new Date().toLocaleString() 
-            });
-            localStorage.setItem('shootBookings', JSON.stringify(bookings));
+        let bookings = JSON.parse(localStorage.getItem('shootBookings')) || [];
+        bookings.push({ name, phone, date, location, package: packageVal, message, timestamp: new Date().toLocaleString() });
+        localStorage.setItem('shootBookings', JSON.stringify(bookings));
 
-            alert("🎉 Shoot Booked Successfully! The details have been sent to the admin panel.");
-            document.getElementById('bookingForm').reset();
+        alert("🎉 Shoot Booked Successfully! Sent to admin panel.");
+        document.getElementById('bookingForm').reset();
+    }
+
+    function handleThemeModal(event) {
+        event.preventDefault();
+        const name = document.getElementById('themeName').value;
+        const phone = document.getElementById('themePhone').value;
+        const date = document.getElementById('themeDate').value;
+        const location = document.getElementById('themeLocation').value;
+        const packageVal = "Custom Theme: " + document.getElementById('themeIdea').value;
+        const message = document.getElementById('themeMessage').value;
+
+        let bookings = JSON.parse(localStorage.getItem('shootBookings')) || [];
+        bookings.push({ name, phone, date, location, package: packageVal, message, timestamp: new Date().toLocaleString() });
+        localStorage.setItem('shootBookings', JSON.stringify(bookings));
+
+        alert("✨ Custom Theme Request Sent!");
+        document.getElementById('themeForm').reset();
+        closeModal('themeModal');
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const heroBg = localStorage.getItem('heroImage');
+        const loc1Img = localStorage.getItem('loc1Image');
+        const bookingImg = localStorage.getItem('bookingImage');
+
+        if(heroBg) {
+            const homeSec = document.getElementById('home');
+            if(homeSec) homeSec.style.backgroundImage = linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(${heroBg});
         }
-
-        // Custom Theme Modal Form Handler (Synced to Admin)
-        function handleThemeModal(event) {
-            event.preventDefault();
-
-            const name = document.getElementById('themeName').value;
-            const phone = document.getElementById('themePhone').value;
-            const date = document.getElementById('themeDate').value;
-            const location = document.getElementById('themeLocation').value;
-            const packageVal = "Custom Theme: " + document.getElementById('themeIdea').value;
-            const message = document.getElementById('themeMessage').value;
-
-            let bookings = JSON.parse(localStorage.getItem('shootBookings')) || [];
-            bookings.push({ 
-                name, 
-                phone, 
-                date, 
-                location, 
-                package: packageVal, 
-                message, 
-                timestamp: new Date().toLocaleString() 
-            });
-            localStorage.setItem('shootBookings', JSON.stringify(bookings));
-
-            alert("✨ Custom Theme Request Sent Successfully! Details sent to admin panel.");
-            document.getElementById('themeForm').reset();
-            closeModal('themeModal');
+        if(loc1Img) {
+            const loc1 = document.getElementById('loc1-img');
+            const loc2 = document.getElementById('loc2-img');
+            const loc3 = document.getElementById('loc3-img');
+            if(loc1) loc1.src = loc1Img;
+            if(loc2) loc2.src = loc1Img;
+            if(loc3) loc3.src = loc1Img;
         }
+        if(bookingImg) {
+            const bookImgEl = document.getElementById('booking-img');
+            if(bookImgEl) bookImgEl.src = bookingImg;
+        }
+    });
 
-        // Admin Panel Image Fetcher Sync
-        document.addEventListener("DOMContentLoaded", () => {
-            const heroBg = localStorage.getItem('heroImage');
-            const loc1Img = localStorage.getItem('loc1Image');
-            const bookingImg = localStorage.getItem('bookingImage');
-
-            if(heroBg) {
-                const homeSec = document.getElementById('home');
-                if(homeSec) homeSec.style.backgroundImage = linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(${heroBg});
-            }
-            
-            if(loc1Img) {
-                const loc1 = document.getElementById('loc1-img');
-                const loc2 = document.getElementById('loc2-img');
-                const loc3 = document.getElementById('loc3-img');
-                if(loc1) loc1.src = loc1Img;
-                if(loc2) loc2.src = loc1Img;
-                if(loc3) loc3.src = loc1Img;
-            }
-
-            if(bookingImg) {
-                const bookImgEl = document.getElementById('booking-img');
-                if(bookImgEl) bookImgEl.src = bookingImg;
-            }
-        });
     </script>
 </body>
 </html>
