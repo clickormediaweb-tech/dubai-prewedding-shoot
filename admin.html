@@ -3,79 +3,186 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Panel - Dubai Pre-Wedding</title>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600&display=swap" rel="stylesheet">
+    <title>Admin Control Panel - Dubai Pre-Wedding</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Lato', sans-serif; background: #F9F8F6; padding: 40px 20px; color: #1A1A1A; }
-        .admin-container { max-width: 700px; margin: 0 auto; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-        h2 { font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 10px; }
-        p { color: #666; margin-bottom: 25px; }
-        .form-group { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 20px; }
-        label { display: block; font-weight: bold; margin-bottom: 8px; }
-        input[type="file"] { width: 100%; padding: 10px; background: #f9f9f9; border: 1px solid #ddd; border-radius: 8px; margin-bottom: 10px; }
-        .btn-save { background: #1A1A1A; color: white; border: none; padding: 12px 20px; border-radius: 25px; cursor: pointer; font-weight: bold; width: 100%; font-size: 1rem; transition: 0.3s; }
-        .btn-save:hover { background: #333; }
-        .success-msg { color: green; font-weight: bold; text-align: center; margin-top: 15px; display: none; }
+        :root {
+            --primary-light: #F9F8F6;
+            --text-dark: #1A1A1A;
+            --accent: #E5D5C5;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Lato', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-body);
+            background: linear-gradient(135deg, #f0ebe1 0%, #F9F8F6 100%);
+            padding: 50px 20px;
+            color: var(--text-dark);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* 3D Cinematic Glassmorphism Container */
+        .admin-container {
+            max-width: 850px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(229, 213, 197, 0.6);
+            padding: 45px;
+            border-radius: 24px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(255, 255, 255, 0.5) inset;
+            transform: perspective(1000px) rotateX(1deg);
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+            animation: fadeIn 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        .admin-container:hover {
+            transform: perspective(1000px) rotateX(0deg) translateY(-4px);
+            box-shadow: 0 35px 70px rgba(184, 151, 83, 0.15);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: perspective(1000px) translateY(20px) rotateX(5deg); }
+            to { opacity: 1; transform: perspective(1000px) translateY(0) rotateX(1deg); }
+        }
+
+        h2 { font-family: var(--font-heading); font-size: 2.4rem; margin-bottom: 8px; color: #111; }
+        .subtitle { color: #666; margin-bottom: 35px; font-size: 1rem; font-style: italic; font-family: var(--font-heading); }
         
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            margin: 30px 0 15px 0;
+            color: #885f41;
+            border-bottom: 2px solid #E5D5C5;
+            padding-bottom: 8px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            background: rgba(255, 255, 255, 0.6);
+            border: 1px solid #eae5de;
+            padding: 18px 20px;
+            border-radius: 14px;
+            transition: 0.3s ease;
+        }
+        .form-group:hover {
+            background: #fff;
+            border-color: #b89753;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+            transform: translateY(-2px);
+        }
+
+        label { display: block; font-weight: bold; margin-bottom: 10px; font-size: 0.95rem; color: #333; }
+        input[type="file"] {
+            width: 100%; padding: 10px; background: #faf8f5; border: 1px solid #ddd;
+            border-radius: 8px; font-size: 0.9rem; cursor: pointer; transition: 0.3s;
+        }
+        input[type="file"]:hover { border-color: #b89753; }
+
+        .btn-save {
+            background: #1A1A1A; color: white; border: none; padding: 15px 25px;
+            border-radius: 30px; cursor: pointer; font-weight: bold; width: 100%;
+            font-size: 1.05rem; transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15); margin-top: 20px;
+            letter-spacing: 1px; text-transform: uppercase;
+        }
+        .btn-save:hover {
+            background: #b89753; transform: translateY(-3px); box-shadow: 0 12px 25px rgba(184, 151, 83, 0.3);
+        }
+        
+        .success-msg {
+            color: #2e7d32; background: #e8f5e9; border: 1px solid #c8e6c9;
+            padding: 12px; border-radius: 8px; font-weight: bold; text-align: center;
+            margin-top: 15px; display: none; animation: popIn 0.4s ease;
+        }
+        @keyframes popIn {
+            from { transform: scale(0.95); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
         /* Bookings Table Style */
-        .bookings-section { margin-top: 40px; }
-        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
-        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; font-size: 0.9rem; }
-        th { background: #1A1A1A; color: white; }
+        .bookings-section { margin-top: 50px; }
+        .bookings-section h3 { font-family: var(--font-heading); font-size: 1.8rem; margin-bottom: 5px; }
+        .table-responsive { overflow-x: auto; margin-top: 15px; border-radius: 12px; border: 1px solid #eae5de; }
+        table { width: 100%; border-collapse: collapse; background: white; text-align: left; }
+        th, td { padding: 14px 16px; font-size: 0.9rem; border-bottom: 1px solid #eee; }
+        th { background: #1A1A1A; color: white; font-family: var(--font-heading); letter-spacing: 0.5px; }
+        tr:hover { background: #faf8f5; }
+
+        @media(max-width: 768px) {
+            .admin-container { padding: 25px 15px; }
+            h2 { font-size: 1.8rem; }
+        }
     </style>
 </head>
 <body>
 
 <div class="admin-container">
     <h2>Admin Control Panel</h2>
-    <p>Manage website images and check customer shoot bookings here.</p>
+    <p class="subtitle">Manage website visual assets and monitor customer inquiries in real-time.</p>
+
+    <div class="section-title">🖼️ Website Asset Management</div>
 
     <div class="form-group">
-        <label>1. Change Hero Background Image</label>
+        <label>1. Hero Section Background Image</label>
         <input type="file" id="heroFile" accept="image/*">
     </div>
 
     <div class="form-group">
-        <label>2. Change Location Cards Image</label>
+        <label>2. Location Cards Default Image</label>
         <input type="file" id="locFile" accept="image/*">
     </div>
 
     <div class="form-group">
-        <label>3. Change Booking Section Image</label>
+        <label>3. Booking Section Preview Image</label>
         <input type="file" id="bookFile" accept="image/*">
     </div>
 
+    <div class="form-group">
+        <label>4. Gallery Grid Item Images (Select multiple or replace primary gallery items)</label>
+        <input type="file" id="galleryFile" accept="image/*">
+    </div>
+
     <button class="btn-save" onclick="saveImages()">Save & Update Website</button>
-    <div id="successMsg" class="success-msg">✅ Successfully Updated!</div>
+    <div id="successMsg" class="success-msg">✨ Successfully Updated Website Assets!</div>
 
     <!-- Client Booking List Section -->
     <div class="bookings-section">
-        <h3>Customer Shoot Bookings</h3>
-        <p>List of clients who booked a shoot through the calendar form:</p>
-        <table>
-            <thead>
-                <tr>
-                    <th>Date</th>
-                    <th>Location</th>
-                    <th>Package</th>
-                </tr>
-            </thead>
-            <tbody id="bookingTableBody">
-                <!-- Bookings will show here dynamically -->
-            </tbody>
-        </table>
+        <h3>Customer Shoot Inquiries & Bookings</h3>
+        <p style="color: #666; font-size: 0.9rem; margin-bottom: 15px;">List of clients who submitted booking or theme requests:</p>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date & Time</th>
+                        <th>Client Name</th>
+                        <th>Phone</th>
+                        <th>Location</th>
+                        <th>Package / Theme</th>
+                        <th>Message</th>
+                    </tr>
+                </thead>
+                <tbody id="bookingTableBody">
+                    <!-- Bookings will show here dynamically -->
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 
 <script>
-    
-    // Admin panel khulte hi password prompt aayega
+    // Admin password security check
     const password = prompt("🔐 Enter Admin Password:");
-    
-    // Yahan aap apna pasandida password rakh sakti hain
     if (password !== "dubai2026") {
         alert("❌ Incorrect Password! Redirecting to home page.");
-        window.location.href = "index.html"; // Galat password daalne par main website par bhej dega
+        window.location.href = "index.html";
     }
 
     function convertToBase64(file) {
@@ -91,32 +198,37 @@
         const heroInput = document.getElementById('heroFile').files[0];
         const locInput = document.getElementById('locFile').files[0];
         const bookInput = document.getElementById('bookFile').files[0];
+        const galleryInput = document.getElementById('galleryFile').files[0];
 
         if (heroInput) localStorage.setItem('heroImage', await convertToBase64(heroInput));
         if (locInput) localStorage.setItem('loc1Image', await convertToBase64(locInput));
         if (bookInput) localStorage.setItem('bookingImage', await convertToBase64(bookInput));
+        if (galleryInput) localStorage.setItem('galleryNewImage', await convertToBase64(galleryInput));
 
         const msg = document.getElementById('successMsg');
         msg.style.display = 'block';
         setTimeout(() => { msg.style.display = 'none'; }, 4000);
     }
 
-    // Load Bookings into Admin Table
+    // Load Bookings into Admin Table from LocalStorage
     function loadBookings() {
         const bookings = JSON.parse(localStorage.getItem('shootBookings')) || [];
         const tbody = document.getElementById('bookingTableBody');
         tbody.innerHTML = '';
 
         if(bookings.length === 0) {
-            tbody.innerHTML = '<tr><td colspan="3" style="text-align:center; color:#888;">No bookings yet.</td></tr>';
+            tbody.innerHTML = '<tr><td colspan="6" style="text-align:center; color:#885f41; padding: 25px;">No customer bookings or inquiries yet.</td></tr>';
             return;
         }
 
-        bookings.forEach(b => {
+        bookings.reverse().forEach(b => {
             const row = `<tr>
-                <td>${b.date}</td>
-                <td>${b.location}</td>
-                <td>${b.package}</td>
+                <td>${b.timestamp || 'N/A'}</td>
+                <td style="font-weight: bold;">${b.name || 'N/A'}</td>
+                <td>${b.phone || 'N/A'}</td>
+                <td>${b.location || 'N/A'}</td>
+                <td><span style="background: #f0e6dc; padding: 4px 8px; border-radius: 4px; font-size: 0.85rem;">${b.package || 'N/A'}</span></td>
+                <td style="color: #666; font-style: italic;">${b.message || 'None'}</td>
             </tr>`;
             tbody.innerHTML += row;
         });
