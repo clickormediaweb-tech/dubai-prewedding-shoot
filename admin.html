@@ -134,134 +134,69 @@
     <div class="form-group">
         <label>1. Hero Section Background Image</label>
         <input type="file" id="heroFile" accept="image/*">
-        <input type="file" id="locFile" accept="image/*">
-
     </div>
 
     <div class="form-group">
         <label>2. Location Cards Default Image</label>
         <input type="file" id="locFile" accept="image/*">
-                <input type="file" id="locFile" accept="image/*">
-                <input type="file" id="locFile" accept="image/*">
-                <input type="file" id="locFile" accept="image/*">
-                <input type="file" id="locFile" accept="image/*">
-
     </div>
 
     <div class="form-group">
         <label>3. Booking Section Preview Image</label>
         <input type="file" id="bookFile" accept="image/*">
-        <input type="file" id="locFile" accept="image/*">
-
     </div>
 
     <div class="form-group">
         <label>4. Gallery Grid Item Images</label>
         <input type="file" id="galleryFile" accept="image/*">
-                <input type="file" id="locFile" accept="image/*">
-                <input type="file" id="locFile" accept="image/*">
-                <input type="file" id="locFile" accept="image/*">
-                <input type="file" id="locFile" accept="image/*">
-                <input type="file" id="locFile" accept="image/*">
-                <input type="file" id="locFile" accept="image/*">
-                <input type="file" id="locFile" accept="image/*">
-                <input type="file" id="locFile" accept="image/*">
-                <input type="file" id="locFile" accept="image/*">
-                 <input type="file" id="locFile" accept="image/*">
-
-
     </div>
 
-    <div class="section-title">✍️ Content & Text Customization</div>
+    <div class="section-title">📦 Package Content Customization</div>
+
+    <div class="form-group">
+        <label>Classic Package Title & Short Desc</label>
+        <input type="text" id="pkg1Title" placeholder="Package Title">
+        <textarea id="pkg1Desc" placeholder="Package Description..."></textarea>
+    </div>
+
+    <div class="form-group">
+        <label>Premium Package Title & Short Desc</label>
+        <input type="text" id="pkg2Title" placeholder="Package Title">
+        <textarea id="pkg2Desc" placeholder="Package Description..."></textarea>
+    </div>
+
+    <div class="form-group">
+        <label>Royal Dubai Elite Title & Short Desc</label>
+        <input type="text" id="pkg3Title" placeholder="Package Title">
+        <textarea id="pkg3Desc" placeholder="Package Description..."></textarea>
+    </div>
+
+    <div class="section-title">✍️ Testimonials & Blogs Customization</div>
 
     <div class="form-group">
         <label>Testimonial 1 Review Text</label>
+        <textarea id="test1Text" placeholder="Enter review text..."></textarea>
     </div>
-    <div class="form-group">
-        <label>Testimonial 2 Review Text</label>
-    </div>
-
-    <div class="form-group">
-        <label>Testimonial 3 Review Text</label>
-    </div>
-
-    <div class="form-group">
-        <label>Testimonial 4 Review Text</label>
-    </div>
-
 
     <div class="form-group">
         <label>Testimonial 1 Client Name & Details</label>
         <input type="text" id="test1Client" placeholder="e.g. Aarav & Meera (Classic Package)">
-                
-    </div>
-    <div class="form-group">
-        <label>Testimonial 2 Client Name & Details</label>
-        <input type="text" id="test1Client" placeholder="e.g. Aarav & Meera (Classic Package)">
-                
     </div>
 
     <div class="form-group">
-        <label>Testimonial 3 Client Name & Details</label>
-        <input type="text" id="test1Client" placeholder="e.g. Aarav & Meera (Classic Package)">
-                
+        <label>Blog 1 Image / Thumbnail File</label>
+        <input type="file" id="blog1File" accept="image/*">
     </div>
-
-    <div class="form-group">
-        <label>Testimonial 4 Client Name & Details</label>
-        <input type="text" id="test1Client" placeholder="e.g. Aarav & Meera (Classic Package)">
-                
-    </div>
-
 
     <div class="form-group">
         <label>Blog 1 Title</label>
         <input type="text" id="blog1Title" placeholder="Enter blog title...">
-                
     </div>
-    <div class="form-group">
-        <label>Blog 2 Title</label>
-        <input type="text" id="blog1Title" placeholder="Enter blog title...">
-                
-    </div>
-
-    <div class="form-group">
-        <label>Blog 3 Title</label>
-        <input type="text" id="blog1Title" placeholder="Enter blog title...">
-                
-    </div>
-
-    <div class="form-group">
-        <label>Blog 4 Title</label>
-        <input type="text" id="blog1Title" placeholder="Enter blog title...">
-                
-    </div>
-
-    
 
     <div class="form-group">
         <label>Blog 1 Short Description</label>
         <textarea id="blog1Desc" placeholder="Enter short summary..."></textarea>
-                
     </div>
-    <div class="form-group">
-        <label>Blog 2 Short Description</label>
-        <textarea id="blog1Desc" placeholder="Enter short summary..."></textarea>
-                
-    </div>
-
-    <div class="form-group">
-        <label>Blog 3 Short Description</label>
-        <textarea id="blog1Desc" placeholder="Enter short summary..."></textarea>
-                
-    </div>
-
-    <div class="form-group">
-        <label>Blog 4 Short Description</label>
-        <textarea id="blog1Desc" placeholder="Enter short summary..."></textarea>
-                
-    </div>
-
 
     <button class="btn-save" onclick="saveAdminChanges()">Save & Update Website</button>
     <div id="successMsg" class="success-msg">✨ Successfully Updated Website Assets & Content!</div>
@@ -312,17 +247,33 @@
         const locInput = document.getElementById('locFile').files[0];
         const bookInput = document.getElementById('bookFile').files[0];
         const galleryInput = document.getElementById('galleryFile').files[0];
+        const blog1Input = document.getElementById('blog1File').files[0];
 
         if (heroInput) localStorage.setItem('heroImage', await convertToBase64(heroInput));
         if (locInput) localStorage.setItem('loc1Image', await convertToBase64(locInput));
         if (bookInput) localStorage.setItem('bookingImage', await convertToBase64(bookInput));
         if (galleryInput) localStorage.setItem('galleryNewImage', await convertToBase64(galleryInput));
+        if (blog1Input) localStorage.setItem('blog1Image', await convertToBase64(blog1Input));
 
-        // Save dynamic text changes
+        // Save dynamic text changes (Packages, Testimonials, Blogs)
+        const pkg1Title = document.getElementById('pkg1Title').value;
+        const pkg1Desc = document.getElementById('pkg1Desc').value;
+        const pkg2Title = document.getElementById('pkg2Title').value;
+        const pkg2Desc = document.getElementById('pkg2Desc').value;
+        const pkg3Title = document.getElementById('pkg3Title').value;
+        const pkg3Desc = document.getElementById('pkg3Desc').value;
+
         const test1Text = document.getElementById('test1Text').value;
         const test1Client = document.getElementById('test1Client').value;
         const blog1Title = document.getElementById('blog1Title').value;
         const blog1Desc = document.getElementById('blog1Desc').value;
+
+        if(pkg1Title) localStorage.setItem('pkg1Title', pkg1Title);
+        if(pkg1Desc) localStorage.setItem('pkg1Desc', pkg1Desc);
+        if(pkg2Title) localStorage.setItem('pkg2Title', pkg2Title);
+        if(pkg2Desc) localStorage.setItem('pkg2Desc', pkg2Desc);
+        if(pkg3Title) localStorage.setItem('pkg3Title', pkg3Title);
+        if(pkg3Desc) localStorage.setItem('pkg3Desc', pkg3Desc);
 
         if(test1Text) localStorage.setItem('test1Text', test1Text);
         if(test1Client) localStorage.setItem('test1Client', test1Client);
