@@ -366,7 +366,7 @@
                     </video>
                     <div class="gallery-label">Cinematic Highlights Film</div>
                 </div>
-                <!-- Gallery Pictures (Clicking opens only that specific image) -->
+                <!-- Gallery Pictures -->
                 <div class="gallery-item" onclick="openSingleMedia('img', 'f.jpg')">
                     <img src="f.jpg" alt="Gallery">
                     <div class="gallery-label">Downtown Dubai Romance</div>
@@ -471,7 +471,7 @@
         </div>
     </section>
 
-    <!-- Gallery / Recent Stories Section -->
+    <!-- Gallery / Recent Stories Section (Clicking individual stories opens only that image) -->
     <section id="gallery" class="gallery-section">
         <div class="gallery-top-row">
             <div>
@@ -484,14 +484,14 @@
         
         <div class="gallery-scroll-container">
             <div class="gallery-scroll-row">
-                <div class="story-thumb" onclick="openModal('galleryModal')"><img src="frame 01 dubai.png" alt="Story"></div>
-                <div class="story-thumb" onclick="openModal('galleryModal')"><img src="g.jpg" alt="Story"></div>
-                <div class="story-thumb" onclick="openModal('galleryModal')"><img src="f.jpg" alt="Story"></div>
-                <div class="story-thumb" onclick="openModal('galleryModal')"><img src="y.jpg" alt="Story"></div>
-                <div class="story-thumb" onclick="openModal('galleryModal')"><img src="n.jpg" alt="Story"></div>
-                <div class="story-thumb" onclick="openModal('galleryModal')"><img src="p.jpg" alt="Story"></div>
-                <div class="story-thumb" onclick="openModal('galleryModal')"><img src="r.jpeg" alt="Story"></div>
-                <div class="story-thumb" onclick="openModal('galleryModal')"><img src="a.jpeg" alt="Story"></div>
+                <div class="story-thumb" onclick="openSingleMedia('img', 'frame 01 dubai.png')"><img src="frame 01 dubai.png" alt="Story"></div>
+                <div class="story-thumb" onclick="openSingleMedia('img', 'g.jpg')"><img src="g.jpg" alt="Story"></div>
+                <div class="story-thumb" onclick="openSingleMedia('img', 'f.jpg')"><img src="f.jpg" alt="Story"></div>
+                <div class="story-thumb" onclick="openSingleMedia('img', 'y.jpg')"><img src="y.jpg" alt="Story"></div>
+                <div class="story-thumb" onclick="openSingleMedia('img', 'n.jpg')"><img src="n.jpg" alt="Story"></div>
+                <div class="story-thumb" onclick="openSingleMedia('img', 'p.jpg')"><img src="p.jpg" alt="Story"></div>
+                <div class="story-thumb" onclick="openSingleMedia('img', 'r.jpeg')"><img src="r.jpeg" alt="Story"></div>
+                <div class="story-thumb" onclick="openSingleMedia('img', 'a.jpeg')"><img src="a.jpeg" alt="Story"></div>
             </div>
         </div>
     </section>
@@ -562,11 +562,13 @@
                 container.innerHTML = `<img src="${src}" alt="Cinematic Zoom">`;
             }
             document.getElementById('singleImageModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
         }
 
         function closeSingleMedia() {
             document.getElementById('singleImageModal').style.display = 'none';
             document.getElementById('singleMediaContainer').innerHTML = '';
+            document.body.style.overflow = 'auto';
         }
 
         // Main Booking Form Handler (LocalStorage Sync for Admin)
