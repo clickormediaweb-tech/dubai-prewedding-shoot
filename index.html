@@ -719,7 +719,7 @@
             <form id="bookingForm" class="glass-form" onsubmit="handleBooking(event)">
                 <input type="text" id="bookName" placeholder="Your Full Name" required>
                 <input type="tel" id="bookPhone" placeholder="WhatsApp / Phone Number" required>
-                <input type="date" id="bookDate" aria-label="Select Date" required>
+<input type="text" id="bookDate" placeholder="Select Date" onfocus="this.type='date'" required>              
                 <select id="bookLocation" required>
                     <option value="">Choose Location</option>
                     <option value="Desert Safari">Desert Safari</option>
