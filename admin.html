@@ -68,6 +68,16 @@
 </div>
 
 <script>
+    
+    // Admin panel khulte hi password prompt aayega
+    const password = prompt("🔐 Enter Admin Password:");
+    
+    // Yahan aap apna pasandida password rakh sakti hain
+    if (password !== "dubai2026") {
+        alert("❌ Incorrect Password! Redirecting to home page.");
+        window.location.href = "index.html"; // Galat password daalne par main website par bhej dega
+    }
+
     function convertToBase64(file) {
         return new Promise((resolve, reject) => {
             const reader = new FileReader();
