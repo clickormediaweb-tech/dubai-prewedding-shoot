@@ -527,19 +527,19 @@
             <button class="close-btn" onclick="closeModal('galleryModal')">✖️</button>
             <h3>Dubai Cinematic Gallery & Films</h3>
             <p style="margin-bottom: 15px; opacity: 0.7; font-style: italic;">Explore our complete collection. Click any image to view it fully.</p>
-            <div class="full-gallery-grid">
+            <div class="full-gallery-grid" id="dynamicGalleryGrid">
                 <div class="gallery-item" onclick="openSingleMedia('video', 'e70face9970f12f58dee10981c5a674e.mp4')">
                     <video autoplay muted loop playsinline><source src="e70face9970f12f58dee10981c5a674e.mp4" type="video/mp4"></video>
-                    <div class="gallery-label">Cinematic Highlights Film</div>
+                    <div class="gallery-label" id="gal1-label">Cinematic Highlights Film</div>
                 </div>
-                <div class="gallery-item" onclick="openSingleMedia('img', 'f.jpg')"><img src="f.jpg" alt="Gallery"><div class="gallery-label">Downtown Dubai</div></div>
-                <div class="gallery-item" onclick="openSingleMedia('img', 'g.jpg')"><img src="g.jpg" alt="Gallery"><div class="gallery-label">Luxury Yacht Shoot</div></div>
-                <div class="gallery-item" onclick="openSingleMedia('img', 'd.jpg')"><img src="d.jpg" alt="Gallery"><div class="gallery-label">Burj Khalifa View</div></div>
-                <div class="gallery-item" onclick="openSingleMedia('img', 'frame 04 dubai.png')"><img src="frame 04 dubai.png" alt="Gallery"><div class="gallery-label">Royal Palace</div></div>
-                <div class="gallery-item" onclick="openSingleMedia('img', 'frame 01 dubai.png')"><img src="frame 01 dubai.png" alt="Gallery"><div class="gallery-label">Palm Jumeirah</div></div>
-                <div class="gallery-item" onclick="openSingleMedia('img', 'frame 02 dubai.png')"><img src="frame 02 dubai.png" alt="Gallery"><div class="gallery-label">Desert Skyline</div></div>
-                <div class="gallery-item" onclick="openSingleMedia('img', 'p.jpg')"><img src="p.jpg" alt="Gallery"><div class="gallery-label">Desert Safari Sunset</div></div>
-                <div class="gallery-item" onclick="openSingleMedia('img', 'n.jpg')"><img src="n.jpg" alt="Gallery"><div class="gallery-label">Romantic Evening</div></div>
+                <div class="gallery-item" onclick="openSingleMedia('img', 'f.jpg')" id="gal-item-2"><img id="gal2-img" src="f.jpg" alt="Gallery"><div class="gallery-label" id="gal2-label">Downtown Dubai</div></div>
+                <div class="gallery-item" onclick="openSingleMedia('img', 'g.jpg')" id="gal-item-3"><img id="gal3-img" src="g.jpg" alt="Gallery"><div class="gallery-label" id="gal3-label">Luxury Yacht Shoot</div></div>
+                <div class="gallery-item" onclick="openSingleMedia('img', 'd.jpg')" id="gal-item-4"><img id="gal4-img" src="d.jpg" alt="Gallery"><div class="gallery-label" id="gal4-label">Burj Khalifa View</div></div>
+                <div class="gallery-item" onclick="openSingleMedia('img', 'frame 04 dubai.png')" id="gal-item-5"><img id="gal5-img" src="frame 04 dubai.png" alt="Gallery"><div class="gallery-label" id="gal5-label">Royal Palace</div></div>
+                <div class="gallery-item" onclick="openSingleMedia('img', 'frame 01 dubai.png')" id="gal-item-6"><img id="gal6-img" src="frame 01 dubai.png" alt="Gallery"><div class="gallery-label" id="gal6-label">Palm Jumeirah</div></div>
+                <div class="gallery-item" onclick="openSingleMedia('img', 'frame 02 dubai.png')" id="gal-item-7"><img id="gal7-img" src="frame 02 dubai.png" alt="Gallery"><div class="gallery-label" id="gal7-label">Desert Skyline</div></div>
+                <div class="gallery-item" onclick="openSingleMedia('img', 'p.jpg')" id="gal-item-8"><img id="gal8-img" src="p.jpg" alt="Gallery"><div class="gallery-label" id="gal8-label">Desert Safari Sunset</div></div>
+                <div class="gallery-item" onclick="openSingleMedia('img', 'n.jpg')" id="gal-item-9"><img id="gal9-img" src="n.jpg" alt="Gallery"><div class="gallery-label" id="gal9-label">Romantic Evening</div></div>
             </div>
         </div>
     </div>
@@ -566,9 +566,9 @@
             <p>Every love story is different. We’re here to capture yours, beautifully.</p>
         </div>
         <div class="cards-container">
-            <div class="location-card"><img id="loc1-img" src="p.jpg" alt="Desert Safari"><div class="card-overlay"><span class="number">01</span><h4>Burj Lake & Skyline</h4></div></div>
-            <div class="location-card"><img id="loc2-img" src="d.jpg" alt="Burj Khalifa"><div class="card-overlay"><span class="number">02</span><h4>Burj Khalifa & Downtown</h4></div></div>
-            <div class="location-card"><img id="loc3-img" src="frame 01 dubai.png" alt="Palm Jumeirah"><div class="card-overlay"><span class="number">03</span><h4>Palm Jumeirah & Yachts</h4></div></div>
+            <div class="location-card"><img id="loc1-img" src="p.jpg" alt="Desert Safari"><div class="card-overlay"><span class="number">01</span><h4 id="loc1-text">Burj Lake & Skyline</h4></div></div>
+            <div class="location-card"><img id="loc2-img" src="d.jpg" alt="Burj Khalifa"><div class="card-overlay"><span class="number">02</span><h4 id="loc2-text">Burj Khalifa & Downtown</h4></div></div>
+            <div class="location-card"><img id="loc3-img" src="frame 01 dubai.png" alt="Palm Jumeirah"><div class="card-overlay"><span class="number">03</span><h4 id="loc3-text">Palm Jumeirah & Yachts</h4></div></div>
         </div>
     </section>
 
@@ -585,8 +585,8 @@
                 <div class="flip-card-inner">
                     <div class="flip-card-front">
                         <div>
-                            <div class="package-title">The Classic Package</div>
-                            <div class="package-short-desc">Perfect for couples who want a beautiful and intimate pre-wedding experience in Dubai.<br><br><br>A Classic Dubai Package typically spans 4 to 5 days and offers the perfect balance between the city’s futuristic ultra-modern landmarks and its rich, traditional cultural heritage.</div>
+                            <div class="package-title" id="pkg1-title">The Classic Package</div>
+                            <div class="package-short-desc" id="pkg1-desc">Perfect for couples who want a beautiful and intimate pre-wedding experience in Dubai.<br><br><br>A Classic Dubai Package typically spans 4 to 5 days and offers the perfect balance between the city’s futuristic ultra-modern landmarks and its rich, traditional cultural heritage.</div>
                         </div>
                         <div class="flip-hint">Hover / Tap to View Inclusions ↻</div>
                     </div>
@@ -611,8 +611,8 @@
                 <div class="flip-card-inner">
                     <div class="flip-card-front">
                         <div>
-                            <div class="package-title">The Premium Package</div>
-                            <div class="package-short-desc">Designed for high-end couples seeking absolute elegance and privacy, this elite tier covers extensive cinematic coverage, private transport, high-end styling, and full professional crew support.<br><br><br>Elevate your pre-wedding experience with extensive multi-location luxury coverage.</div>
+                            <div class="package-title" id="pkg2-title">The Premium Package</div>
+                            <div class="package-short-desc" id="pkg2-desc">Designed for high-end couples seeking absolute elegance and privacy, this elite tier covers extensive cinematic coverage, private transport, high-end styling, and full professional crew support.<br><br><br>Elevate your pre-wedding experience with extensive multi-location luxury coverage.</div>
                         </div>
                         <div class="flip-hint">Hover / Tap to View Inclusions ↻</div>
                     </div>
@@ -637,8 +637,8 @@
                 <div class="flip-card-inner">
                     <div class="flip-card-front">
                         <div>
-                            <div class="package-title">Royal Dubai Elite</div>
-                            <div class="package-short-desc"><br>A premium pre-wedding package in Dubai typically provides a full-day or multi-day luxury cinematic production across iconic locations like the desert dunes, Burj Khalifa, and private beaches.<br><br><br>The ultimate luxury cinematic experience featuring private yacht and exclusive spots.</div>
+                            <div class="package-title" id="pkg3-title">Royal Dubai Elite</div>
+                            <div class="package-short-desc" id="pkg3-desc"><br>A premium pre-wedding package in Dubai typically provides a full-day or multi-day luxury cinematic production across iconic locations like the desert dunes, Burj Khalifa, and private beaches.<br><br><br>The ultimate luxury cinematic experience featuring private yacht and exclusive spots.</div>
                         </div>
                         <div class="flip-hint">Hover / Tap to View Inclusions ↻</div>
                     </div>
@@ -705,8 +705,8 @@
         </div>
         <div class="testimonials-grid">
             <div class="testimonial-card">
-                <div class="testimonial-img-wrap" onclick="openSingleMedia('img', 'f.jpg')">
-                    <img src="f.jpg" alt="Aarav & Meera">
+                <div class="testimonial-img-wrap" onclick="openSingleMedia('img', document.getElementById('test1-img').src)">
+                    <img id="test1-img" src="f.jpg" alt="Aarav & Meera">
                 </div>
                 <div class="testimonial-body">
                     <p id="test1-text">"Our pre-wedding shoot in Dubai felt like a dream! The team made us feel extremely comfortable, and the Burj Khalifa photos are breathtaking."</p>
@@ -717,25 +717,25 @@
                 </div>
             </div>
             <div class="testimonial-card">
-                <div class="testimonial-img-wrap" onclick="openSingleMedia('img', 'g.jpg')">
-                    <img src="g.jpg" alt="Rohan & Simran">
+                <div class="testimonial-img-wrap" onclick="openSingleMedia('img', document.getElementById('test2-img').src)">
+                    <img id="test2-img" src="g.jpg" alt="Rohan & Simran">
                 </div>
                 <div class="testimonial-body">
-                    <p>"Absolute professionals! From the next-day unedited preview to the final cinematic gallery, everything was handled seamlessly."</p>
+                    <p id="test2-text">"Absolute professionals! From the next-day unedited preview to the final cinematic gallery, everything was handled seamlessly."</p>
                     <div class="client-info">
-                        <h5>Rohan & Simran</h5>
+                        <h5 id="test2-client">Rohan & Simran</h5>
                         <span>Premium Package</span>
                     </div>
                 </div>
             </div>
             <div class="testimonial-card">
-                <div class="testimonial-img-wrap" onclick="openSingleMedia('img', 'd.jpg')">
-                    <img src="d.jpg" alt="Karan & Priya">
+                <div class="testimonial-img-wrap" onclick="openSingleMedia('img', document.getElementById('test3-img').src)">
+                    <img id="test3-img" src="d.jpg" alt="Karan & Priya">
                 </div>
                 <div class="testimonial-body">
-                    <p>"The Indian travel guide and end-to-end assistance made things so stress-free. Absolute best choice in Dubai!"</p>
+                    <p id="test3-text">"The Indian travel guide and end-to-end assistance made things so stress-free. Absolute best choice in Dubai!"</p>
                     <div class="client-info">
-                        <h5>Karan & Priya</h5>
+                        <h5 id="test3-client">Karan & Priya</h5>
                         <span>Custom Shoot</span>
                     </div>
                 </div>
@@ -751,9 +751,9 @@
             <p>Expert guides for your upcoming Dubai photography session. Click any blog to read the full story.</p>
         </div>
         <div class="blogs-grid">
-            <div class="blog-card" onclick="openBlogModal(document.getElementById('blog1-title').innerText, 'August 15, 2026', 'frame 02 dubai.png', document.getElementById('blog1-desc').innerText + `<br><br>Dubai is a canvas of architectural marvels and timeless golden landscapes, making it the ultimate destination for a cinematic pre-wedding shoot.<br><br><strong>1. The Burj Khalifa & Downtown Fountains:</strong> Offering a dramatic urban skyline backdrop.<br><br><strong>2. The Vast Dubai Desert:</strong> For endless golden dunes and ethereal sunset hues.`)">
+            <div class="blog-card" onclick="openBlogModal(document.getElementById('blog1-title').innerText, 'August 15, 2026', document.getElementById('blog1-img').src, document.getElementById('blog1-desc').innerText + `<br><br>Dubai is a canvas of architectural marvels and timeless golden landscapes, making it the ultimate destination for a cinematic pre-wedding shoot.`)">
                 <div class="blog-img-wrap">
-                    <img src="frame 02 dubai.png" alt="Top 5 Iconic Locations in Dubai">
+                    <img id="blog1-img" src="frame 02 dubai.png" alt="Top 5 Iconic Locations in Dubai">
                 </div>
                 <div class="blog-body">
                     <div class="blog-date">August 15, 2026</div>
@@ -762,36 +762,36 @@
                 </div>
             </div>
 
-            <div class="blog-card" onclick="openBlogModal('Styling Guide: What to Wear for Your Shoot', 'August 02, 2026', 'p.jpg', `Your wardrobe sets the tone and aesthetic grade of your entire pre-wedding cinematic film. Here is how our expert stylists recommend curating your outfits for Dubai.<br><br><strong>Bold Contrasts:</strong> Vibrant reds, deep emeralds, or royal blues create a striking, magical contrast against Dubai's neutral desert sands and sleek glass skyscrapers.<br><br><strong>Flowing Silhouettes:</strong> Long trail gowns, sarees with dramatic pallus, or sleek evening suits catch the gentle breeze of the Marina and desert winds, adding organic motion to video frames.`)">
+            <div class="blog-card" onclick="openBlogModal(document.getElementById('blog2-title').innerText, 'August 02, 2026', document.getElementById('blog2-img').src, document.getElementById('blog2-desc').innerText + `<br><br>Your wardrobe sets the tone and aesthetic grade of your entire pre-wedding cinematic film.`)">
                 <div class="blog-img-wrap">
-                    <img src="p.jpg" alt="Styling Guide: What to Wear">
+                    <img id="blog2-img" src="p.jpg" alt="Styling Guide">
                 </div>
                 <div class="blog-body">
                     <div class="blog-date">August 02, 2026</div>
-                    <h3>Styling Guide: What to Wear</h3>
-                    <p>Contrasting colors like rich reds or pastels work absolute magic against Dubai's glass skyscrapers.</p>
+                    <h3 id="blog2-title">Styling Guide: What to Wear</h3>
+                    <p id="blog2-desc">Contrasting colors like rich reds or pastels work absolute magic against Dubai's glass skyscrapers.</p>
                 </div>
             </div>
 
-            <div class="blog-card" onclick="openBlogModal('Best Golden Hour Timing for Desert Shoots', 'July 28, 2026', 'frame 01 dubai.png', `Timing is everything when capturing cinematic frames under the Arabian sun.<br><br>The golden hour just before sunset provides a soft, warm glow that enhances skin tones and casts long, dramatic shadows across the sand dunes. We always schedule our desert sessions to maximize this magical window.`)">
+            <div class="blog-card" onclick="openBlogModal(document.getElementById('blog3-title').innerText, 'July 28, 2026', document.getElementById('blog3-img').src, document.getElementById('blog3-desc').innerText + `<br><br>Timing is everything when capturing cinematic frames under the Arabian sun.`)">
                 <div class="blog-img-wrap">
-                    <img src="frame 01 dubai.png" alt="Golden Hour Timing">
+                    <img id="blog3-img" src="frame 01 dubai.png" alt="Golden Hour">
                 </div>
                 <div class="blog-body">
                     <div class="blog-date">July 28, 2026</div>
-                    <h3>Best Golden Hour Timing</h3>
-                    <p>Learn why timing is everything when capturing cinematic frames under the Arabian sun.</p>
+                    <h3 id="blog3-title">Best Golden Hour Timing</h3>
+                    <p id="blog3-desc">Learn why timing is everything when capturing cinematic frames under the Arabian sun.</p>
                 </div>
             </div>
 
-            <div class="blog-card" onclick="openBlogModal('How to Overcome Camera Shyness', 'July 14, 2026', 'g.jpg', `Most couples are not professional models, and feeling camera-conscious at first is completely normal.<br><br>Our directors and photographers focus on candid interactions, natural movements, and laughter rather than rigid posing, allowing your genuine chemistry to shine effortlessly.`)">
+            <div class="blog-card" onclick="openBlogModal(document.getElementById('blog4-title').innerText, 'July 14, 2026', document.getElementById('blog4-img').src, document.getElementById('blog4-desc').innerText + `<br><br>Most couples are not professional models, and feeling camera-conscious at first is completely normal.`)">
                 <div class="blog-img-wrap">
-                    <img src="g.jpg" alt="Overcome Camera Shyness">
+                    <img id="blog4-img" src="g.jpg" alt="Camera Shyness">
                 </div>
                 <div class="blog-body">
                     <div class="blog-date">July 14, 2026</div>
-                    <h3>Overcoming Camera Shyness</h3>
-                    <p>Tips and tricks to feel natural, relaxed, and confident in front of our professional camera crew.</p>
+                    <h3 id="blog4-title">Overcoming Camera Shyness</h3>
+                    <p id="blog4-desc">Tips and tricks to feel natural, relaxed, and confident in front of our professional camera crew.</p>
                 </div>
             </div>
         </div>
@@ -904,7 +904,6 @@
 
     <!-- Scripts -->
     <script>
-        // Disable Right-Click Globally on Images/Videos to prevent saving/copying
         document.addEventListener('contextmenu', function(e) {
             if (e.target.nodeName === 'IMG' || e.target.nodeName === 'VIDEO') {
                 e.preventDefault();
@@ -934,7 +933,6 @@
             }
         }
 
-        // Open specific single image/video in full screen when clicked
         function openSingleMedia(type, src) {
             const container = document.getElementById('singleMediaContainer');
             if (type === 'video') {
@@ -952,7 +950,6 @@
             document.body.style.overflow = 'auto';
         }
 
-        // Open Cinematic 3D Light Theme Blog Reading Modal
         function openBlogModal(title, date, imgSrc, contentHtml) {
             const container = document.getElementById('blogModalContent');
             container.innerHTML = `
@@ -971,10 +968,8 @@
             document.body.style.overflow = 'auto';
         }
 
-        // Main Booking Form Handler (LocalStorage Sync for Admin)
         function handleBooking(event) {
             event.preventDefault();
-
             const name = document.getElementById('bookName').value;
             const phone = document.getElementById('bookPhone').value;
             const date = document.getElementById('bookDate').value;
@@ -983,25 +978,15 @@
             const message = document.getElementById('bookMessage').value;
 
             let bookings = JSON.parse(localStorage.getItem('shootBookings')) || [];
-            bookings.push({ 
-                name, 
-                phone, 
-                date, 
-                location, 
-                package: packageVal, 
-                message, 
-                timestamp: new Date().toLocaleString() 
-            });
+            bookings.push({ name, phone, date, location, package: packageVal, message, timestamp: new Date().toLocaleString() });
             localStorage.setItem('shootBookings', JSON.stringify(bookings));
 
             alert("🎉 Shoot Booked Successfully! The details have been sent to the admin panel.");
             document.getElementById('bookingForm').reset();
         }
 
-        // Custom Theme Modal Form Handler (Synced to Admin)
         function handleThemeModal(event) {
             event.preventDefault();
-
             const name = document.getElementById('themeName').value;
             const phone = document.getElementById('themePhone').value;
             const date = document.getElementById('themeDate').value;
@@ -1010,15 +995,7 @@
             const message = document.getElementById('themeMessage').value;
 
             let bookings = JSON.parse(localStorage.getItem('shootBookings')) || [];
-            bookings.push({ 
-                name, 
-                phone, 
-                date, 
-                location, 
-                package: packageVal, 
-                message, 
-                timestamp: new Date().toLocaleString() 
-            });
+            bookings.push({ name, phone, date, location, package: packageVal, message, timestamp: new Date().toLocaleString() });
             localStorage.setItem('shootBookings', JSON.stringify(bookings));
 
             alert("✨ Custom Theme Request Sent Successfully! Details sent to admin panel.");
@@ -1026,52 +1003,98 @@
             closeModal('themeModal');
         }
 
-        // Admin Panel Dynamic Sync & Image Fetcher
+        // Full Admin Dynamic Sync (Hero, Booking, Locations, Packages, Testimonials, Blogs, Gallery)
         document.addEventListener("DOMContentLoaded", () => {
             const heroBg = localStorage.getItem('heroImage');
-            const loc1Img = localStorage.getItem('loc1Image');
             const bookingImg = localStorage.getItem('bookingImage');
 
             if(heroBg) {
                 const homeSec = document.getElementById('home');
                 if(homeSec) homeSec.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(${heroBg})`;
             }
-
-            if(loc1Img) {
-                const loc1 = document.getElementById('loc1-img');
-                const loc2 = document.getElementById('loc2-img');
-                const loc3 = document.getElementById('loc3-img');
-                if(loc1) loc1.src = loc1Img;
-                if(loc2) loc2.src = loc1Img;
-                if(loc3) loc3.src = loc1Img;
-            }
-
             if(bookingImg) {
                 const bookImgEl = document.getElementById('booking-img');
                 if(bookImgEl) bookImgEl.src = bookingImg;
             }
 
-            // Sync Admin Text Updates for Testimonial & Blog
-            const savedTestText = localStorage.getItem('test1Text');
-            const savedTestClient = localStorage.getItem('test1Client');
-            const savedBlogTitle = localStorage.getItem('blog1Title');
-            const savedBlogDesc = localStorage.getItem('blog1Desc');
+            // Sync Locations (3)
+            for(let i=1; i<=3; i++) {
+                const img = localStorage.getItem(`loc${i}Img`);
+                const title = localStorage.getItem(`loc${i}Title`);
+                if(img) {
+                    const el = document.getElementById(`loc${i}-img`);
+                    if(el) el.src = img;
+                }
+                if(title) {
+                    const el = document.getElementById(`loc${i}-text`);
+                    if(el) el.innerText = title;
+                }
+            }
 
-            if(savedTestText) {
-                const tEl = document.getElementById('test1-text');
-                if(tEl) tEl.innerText = `"${savedTestText}"`;
+            // Sync Packages (3)
+            for(let i=1; i<=3; i++) {
+                const t = localStorage.getItem(`pkg${i}Title`);
+                const d = localStorage.getItem(`pkg${i}Desc`);
+                if(t) {
+                    const el = document.getElementById(`pkg${i}-title`);
+                    if(el) el.innerText = t;
+                }
+                if(d) {
+                    const el = document.getElementById(`pkg${i}-desc`);
+                    if(el) el.innerText = d;
+                }
             }
-            if(savedTestClient) {
-                const cEl = document.getElementById('test1-client');
-                if(cEl) cEl.innerText = savedTestClient;
+
+            // Sync Testimonials (3)
+            for(let i=1; i<=3; i++) {
+                const img = localStorage.getItem(`test${i}Img`);
+                const txt = localStorage.getItem(`test${i}Text`);
+                const client = localStorage.getItem(`test${i}Client`);
+                if(img) {
+                    const el = document.getElementById(`test${i}-img`);
+                    if(el) el.src = img;
+                }
+                if(txt) {
+                    const el = document.getElementById(`test${i}-text`);
+                    if(el) el.innerText = `"${txt}"`;
+                }
+                if(client) {
+                    const el = document.getElementById(`test${i}-client`);
+                    if(el) el.innerText = client;
+                }
             }
-            if(savedBlogTitle) {
-                const bTitle = document.getElementById('blog1-title');
-                if(bTitle) bTitle.innerText = savedBlogTitle;
+
+            // Sync Blogs (4)
+            for(let i=1; i<=4; i++) {
+                const img = localStorage.getItem(`blog${i}Img`);
+                const t = localStorage.getItem(`blog${i}Title`);
+                const d = localStorage.getItem(`blog${i}Desc`);
+                if(img) {
+                    const el = document.getElementById(`blog${i}-img`);
+                    if(el) el.src = img;
+                }
+                if(t) {
+                    const el = document.getElementById(`blog${i}-title`);
+                    if(el) el.innerText = t;
+                }
+                if(d) {
+                    const el = document.getElementById(`blog${i}-desc`);
+                    if(el) el.innerText = d;
+                }
             }
-            if(savedBlogDesc) {
-                const bDesc = document.getElementById('blog1-desc');
-                if(bDesc) bDesc.innerText = savedBlogDesc;
+
+            // Sync Gallery Grid Items (2 to 9)
+            for(let i=2; i<=9; i++) {
+                const img = localStorage.getItem(`gal${i}Img`);
+                const lbl = localStorage.getItem(`gal${i}Text`);
+                if(img) {
+                    const el = document.getElementById(`gal${i}-img`);
+                    if(el) el.src = img;
+                }
+                if(lbl) {
+                    const el = document.getElementById(`gal${i}-label`);
+                    if(el) el.innerText = lbl;
+                }
             }
         });
     </script>
