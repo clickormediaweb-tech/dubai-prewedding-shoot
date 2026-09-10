@@ -27,29 +27,15 @@
             align-items: center;
         }
 
-        /* 3D Cinematic Glassmorphism Container */
         .admin-container {
             max-width: 900px;
             width: 100%;
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
             border: 1px solid rgba(229, 213, 197, 0.6);
             padding: 45px;
             border-radius: 24px;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(255, 255, 255, 0.5) inset;
-            transform: perspective(1000px) rotateX(1deg);
-            transition: transform 0.5s ease, box-shadow 0.5s ease;
-            animation: fadeIn 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
-        }
-        .admin-container:hover {
-            transform: perspective(1000px) rotateX(0deg) translateY(-4px);
-            box-shadow: 0 35px 70px rgba(184, 151, 83, 0.15);
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: perspective(1000px) translateY(20px) rotateX(5deg); }
-            to { opacity: 1; transform: perspective(1000px) translateY(0) rotateX(1deg); }
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.08);
         }
 
         h2 { font-family: var(--font-heading); font-size: 2.4rem; margin-bottom: 8px; color: #111; }
@@ -58,7 +44,7 @@
         .section-title {
             font-family: var(--font-heading);
             font-size: 1.4rem;
-            margin: 30px 0 15px 0;
+            margin: 35px 0 15px 0;
             color: #885f41;
             border-bottom: 2px solid #E5D5C5;
             padding-bottom: 8px;
@@ -70,141 +56,157 @@
             border: 1px solid #eae5de;
             padding: 18px 20px;
             border-radius: 14px;
-            transition: 0.3s ease;
-        }
-        .form-group:hover {
-            background: #fff;
-            border-color: #b89753;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
-            transform: translateY(-2px);
         }
 
-        label { display: block; font-weight: bold; margin-bottom: 10px; font-size: 0.95rem; color: #333; }
+        label { display: block; font-weight: bold; margin-bottom: 8px; font-size: 0.95rem; color: #333; }
         input[type="file"], input[type="text"], textarea {
             width: 100%; padding: 12px; background: #faf8f5; border: 1px solid #ddd;
-            border-radius: 8px; font-size: 0.9rem; font-family: var(--font-body); outline: none; transition: 0.3s;
+            border-radius: 8px; font-size: 0.9rem; font-family: var(--font-body); outline: none; margin-bottom: 10px;
         }
         input[type="file"]:hover, input[type="text"]:focus, textarea:focus { border-color: #b89753; background: #fff; }
-        textarea { resize: vertical; height: 90px; }
+        textarea { resize: vertical; height: 80px; }
 
         .btn-save {
             background: #1A1A1A; color: white; border: none; padding: 15px 25px;
             border-radius: 30px; cursor: pointer; font-weight: bold; width: 100%;
-            font-size: 1.05rem; transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15); margin-top: 20px;
+            font-size: 1.05rem; transition: all 0.4s ease; margin-top: 30px;
             letter-spacing: 1px; text-transform: uppercase;
         }
-        .btn-save:hover {
-            background: #b89753; transform: translateY(-3px); box-shadow: 0 12px 25px rgba(184, 151, 83, 0.3);
-        }
+        .btn-save:hover { background: #b89753; transform: translateY(-3px); }
         
         .success-msg {
             color: #2e7d32; background: #e8f5e9; border: 1px solid #c8e6c9;
             padding: 12px; border-radius: 8px; font-weight: bold; text-align: center;
-            margin-top: 15px; display: none; animation: popIn 0.4s ease;
-        }
-        @keyframes popIn {
-            from { transform: scale(0.95); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
+            margin-top: 15px; display: none;
         }
 
-        /* Bookings Table Style */
         .bookings-section { margin-top: 50px; }
         .bookings-section h3 { font-family: var(--font-heading); font-size: 1.8rem; margin-bottom: 5px; }
         .table-responsive { overflow-x: auto; margin-top: 15px; border-radius: 12px; border: 1px solid #eae5de; }
         table { width: 100%; border-collapse: collapse; background: white; text-align: left; }
         th, td { padding: 14px 16px; font-size: 0.9rem; border-bottom: 1px solid #eee; }
-        th { background: #1A1A1A; color: white; font-family: var(--font-heading); letter-spacing: 0.5px; }
-        tr:hover { background: #faf8f5; }
-
-        @media(max-width: 768px) {
-            .admin-container { padding: 25px 15px; }
-            h2 { font-size: 1.8rem; }
-        }
+        th { background: #1A1A1A; color: white; font-family: var(--font-heading); }
     </style>
 </head>
 <body>
 
 <div class="admin-container">
     <h2>Admin Control Panel</h2>
-    <p class="subtitle">Manage website visual assets, text content, and monitor customer inquiries in real-time.</p>
+    <p class="subtitle">Complete website content & asset customization control.</p>
 
-    <div class="section-title">🖼️ Website Asset Management</div>
-
+    <!-- 1. HERO & BOOKING ASSETS -->
+    <div class="section-title">🖼️ Hero & Booking Section Images</div>
     <div class="form-group">
-        <label>1. Hero Section Background Image</label>
+        <label>Hero Background Image</label>
         <input type="file" id="heroFile" accept="image/*">
     </div>
-
     <div class="form-group">
-        <label>2. Location Cards Default Image</label>
-        <input type="file" id="locFile" accept="image/*">
-    </div>
-
-    <div class="form-group">
-        <label>3. Booking Section Preview Image</label>
+        <label>Booking Section Preview Image</label>
         <input type="file" id="bookFile" accept="image/*">
     </div>
 
+    <!-- 2. LOCATION CARDS (3 CARDS) -->
+    <div class="section-title">📍 Location Cards (3 Cards)</div>
     <div class="form-group">
-        <label>4. Gallery Grid Item Images</label>
-        <input type="file" id="galleryFile" accept="image/*">
+        <label>Location Card 1 (Image & Title)</label>
+        <input type="file" id="loc1File" accept="image/*">
+        <input type="text" id="loc1Title" placeholder="Location 1 Title">
+    </div>
+    <div class="form-group">
+        <label>Location Card 2 (Image & Title)</label>
+        <input type="file" id="loc2File" accept="image/*">
+        <input type="text" id="loc2Title" placeholder="Location 2 Title">
+    </div>
+    <div class="form-group">
+        <label>Location Card 3 (Image & Title)</label>
+        <input type="file" id="loc3File" accept="image/*">
+        <input type="text" id="loc3Title" placeholder="Location 3 Title">
     </div>
 
-    <div class="section-title">📦 Package Content Customization</div>
-
+    <!-- 3. PACKAGES CARDS (3 CARDS) -->
+    <div class="section-title">📦 Packages Cards (3 Cards)</div>
     <div class="form-group">
-        <label>Classic Package Title & Short Desc</label>
-        <input type="text" id="pkg1Title" placeholder="Package Title">
-        <textarea id="pkg1Desc" placeholder="Package Description..."></textarea>
+        <label>Package 1 (Classic)</label>
+        <input type="text" id="pkg1Title" placeholder="Title">
+        <textarea id="pkg1Desc" placeholder="Short Description"></textarea>
+    </div>
+    <div class="form-group">
+        <label>Package 2 (Premium)</label>
+        <input type="text" id="pkg2Title" placeholder="Title">
+        <textarea id="pkg2Desc" placeholder="Short Description"></textarea>
+    </div>
+    <div class="form-group">
+        <label>Package 3 (Royal Elite)</label>
+        <input type="text" id="pkg3Title" placeholder="Title">
+        <textarea id="pkg3Desc" placeholder="Short Description"></textarea>
     </div>
 
+    <!-- 4. TESTIMONIALS (3 CARDS) -->
+    <div class="section-title">💬 Testimonials (3 Cards)</div>
     <div class="form-group">
-        <label>Premium Package Title & Short Desc</label>
-        <input type="text" id="pkg2Title" placeholder="Package Title">
-        <textarea id="pkg2Desc" placeholder="Package Description..."></textarea>
+        <label>Testimonial 1 (Image, Review & Client Name)</label>
+        <input type="file" id="test1File" accept="image/*">
+        <textarea id="test1Text" placeholder="Review Text"></textarea>
+        <input type="text" id="test1Client" placeholder="Client Name & Package">
+    </div>
+    <div class="form-group">
+        <label>Testimonial 2 (Image, Review & Client Name)</label>
+        <input type="file" id="test2File" accept="image/*">
+        <textarea id="test2Text" placeholder="Review Text"></textarea>
+        <input type="text" id="test2Client" placeholder="Client Name & Package">
+    </div>
+    <div class="form-group">
+        <label>Testimonial 3 (Image, Review & Client Name)</label>
+        <input type="file" id="test3File" accept="image/*">
+        <textarea id="test3Text" placeholder="Review Text"></textarea>
+        <input type="text" id="test3Client" placeholder="Client Name & Package">
     </div>
 
+    <!-- 5. BLOGS (4 CARDS) -->
+    <div class="section-title">📝 Blogs (4 Cards)</div>
     <div class="form-group">
-        <label>Royal Dubai Elite Title & Short Desc</label>
-        <input type="text" id="pkg3Title" placeholder="Package Title">
-        <textarea id="pkg3Desc" placeholder="Package Description..."></textarea>
-    </div>
-
-    <div class="section-title">✍️ Testimonials & Blogs Customization</div>
-
-    <div class="form-group">
-        <label>Testimonial 1 Review Text</label>
-        <textarea id="test1Text" placeholder="Enter review text..."></textarea>
-    </div>
-
-    <div class="form-group">
-        <label>Testimonial 1 Client Name & Details</label>
-        <input type="text" id="test1Client" placeholder="e.g. Aarav & Meera (Classic Package)">
-    </div>
-
-    <div class="form-group">
-        <label>Blog 1 Image / Thumbnail File</label>
+        <label>Blog 1 (Image, Title & Description)</label>
         <input type="file" id="blog1File" accept="image/*">
+        <input type="text" id="blog1Title" placeholder="Blog Title">
+        <textarea id="blog1Desc" placeholder="Blog Description"></textarea>
+    </div>
+    <div class="form-group">
+        <label>Blog 2 (Image, Title & Description)</label>
+        <input type="file" id="blog2File" accept="image/*">
+        <input type="text" id="blog2Title" placeholder="Blog Title">
+        <textarea id="blog2Desc" placeholder="Blog Description"></textarea>
+    </div>
+    <div class="form-group">
+        <label>Blog 3 (Image, Title & Description)</label>
+        <input type="file" id="blog3File" accept="image/*">
+        <input type="text" id="blog3Title" placeholder="Blog Title">
+        <textarea id="blog3Desc" placeholder="Blog Description"></textarea>
+    </div>
+    <div class="form-group">
+        <label>Blog 4 (Image, Title & Description)</label>
+        <input type="file" id="blog4File" accept="image/*">
+        <input type="text" id="blog4Title" placeholder="Blog Title">
+        <textarea id="blog4Desc" placeholder="Blog Description"></textarea>
     </div>
 
-    <div class="form-group">
-        <label>Blog 1 Title</label>
-        <input type="text" id="blog1Title" placeholder="Enter blog title...">
-    </div>
-
-    <div class="form-group">
-        <label>Blog 1 Short Description</label>
-        <textarea id="blog1Desc" placeholder="Enter short summary..."></textarea>
-    </div>
+    <!-- 6. GALLERY ITEMS (9 ITEMS) -->
+    <div class="section-title">📸 Gallery Grid Items (9 Items)</div>
+    <div class="form-group"><label>Gallery Item 1</label><input type="file" id="gal1File" accept="image/*"><input type="text" id="gal1Text" placeholder="Label"></div>
+    <div class="form-group"><label>Gallery Item 2</label><input type="file" id="gal2File" accept="image/*"><input type="text" id="gal2Text" placeholder="Label"></div>
+    <div class="form-group"><label>Gallery Item 3</label><input type="file" id="gal3File" accept="image/*"><input type="text" id="gal3Text" placeholder="Label"></div>
+    <div class="form-group"><label>Gallery Item 4</label><input type="file" id="gal4File" accept="image/*"><input type="text" id="gal4Text" placeholder="Label"></div>
+    <div class="form-group"><label>Gallery Item 5</label><input type="file" id="gal5File" accept="image/*"><input type="text" id="gal5Text" placeholder="Label"></div>
+    <div class="form-group"><label>Gallery Item 6</label><input type="file" id="gal6File" accept="image/*"><input type="text" id="gal6Text" placeholder="Label"></div>
+    <div class="form-group"><label>Gallery Item 7</label><input type="file" id="gal7File" accept="image/*"><input type="text" id="gal7Text" placeholder="Label"></div>
+    <div class="form-group"><label>Gallery Item 8</label><input type="file" id="gal8File" accept="image/*"><input type="text" id="gal8Text" placeholder="Label"></div>
+    <div class="form-group"><label>Gallery Item 9</label><input type="file" id="gal9File" accept="image/*"><input type="text" id="gal9Text" placeholder="Label"></div>
 
     <button class="btn-save" onclick="saveAdminChanges()">Save & Update Website</button>
-    <div id="successMsg" class="success-msg">✨ Successfully Updated Website Assets & Content!</div>
+    <div id="successMsg" class="success-msg">✨ Successfully Updated All Website Content & Assets!</div>
 
-    <!-- Client Booking List Section -->
+    <!-- Bookings Table -->
     <div class="bookings-section">
         <h3>Customer Shoot Inquiries & Bookings</h3>
-        <p style="color: #666; font-size: 0.9rem; margin-bottom: 15px;">List of clients who submitted booking or theme requests:</p>
         <div class="table-responsive">
             <table>
                 <thead>
@@ -217,19 +219,16 @@
                         <th>Message</th>
                     </tr>
                 </thead>
-                <tbody id="bookingTableBody">
-                    <!-- Bookings will show here dynamically -->
-                </tbody>
+                <tbody id="bookingTableBody"></tbody>
             </table>
         </div>
     </div>
 </div>
 
 <script>
-    // Admin password security check
     const password = prompt("🔐 Enter Admin Password:");
     if (password !== "dubai2026") {
-        alert("❌ Incorrect Password! Redirecting to home page.");
+        alert("❌ Incorrect Password! Redirecting.");
         window.location.href = "index.html";
     }
 
@@ -243,72 +242,73 @@
     }
 
     async function saveAdminChanges() {
-        const heroInput = document.getElementById('heroFile').files[0];
-        const locInput = document.getElementById('locFile').files[0];
-        const bookInput = document.getElementById('bookFile').files[0];
-        const galleryInput = document.getElementById('galleryFile').files[0];
-        const blog1Input = document.getElementById('blog1File').files[0];
+        // Hero & Booking
+        const heroFile = document.getElementById('heroFile').files[0];
+        const bookFile = document.getElementById('bookFile').files[0];
+        if (heroFile) localStorage.setItem('heroImage', await convertToBase64(heroFile));
+        if (bookFile) localStorage.setItem('bookingImage', await convertToBase64(bookFile));
 
-        if (heroInput) localStorage.setItem('heroImage', await convertToBase64(heroInput));
-        if (locInput) localStorage.setItem('loc1Image', await convertToBase64(locInput));
-        if (bookInput) localStorage.setItem('bookingImage', await convertToBase64(bookInput));
-        if (galleryInput) localStorage.setItem('galleryNewImage', await convertToBase64(galleryInput));
-        if (blog1Input) localStorage.setItem('blog1Image', await convertToBase64(blog1Input));
+        // Locations (3)
+        for(let i=1; i<=3; i++) {
+            const f = document.getElementById(`loc${i}File`).files[0];
+            const t = document.getElementById(`loc${i}Title`).value;
+            if(f) localStorage.setItem(`loc${i}Img`, await convertToBase64(f));
+            if(t) localStorage.setItem(`loc${i}Title`, t);
+        }
 
-        // Save dynamic text changes (Packages, Testimonials, Blogs)
-        const pkg1Title = document.getElementById('pkg1Title').value;
-        const pkg1Desc = document.getElementById('pkg1Desc').value;
-        const pkg2Title = document.getElementById('pkg2Title').value;
-        const pkg2Desc = document.getElementById('pkg2Desc').value;
-        const pkg3Title = document.getElementById('pkg3Title').value;
-        const pkg3Desc = document.getElementById('pkg3Desc').value;
+        // Packages (3)
+        for(let i=1; i<=3; i++) {
+            const t = document.getElementById(`pkg${i}Title`).value;
+            const d = document.getElementById(`pkg${i}Desc`).value;
+            if(t) localStorage.setItem(`pkg${i}Title`, t);
+            if(d) localStorage.setItem(`pkg${i}Desc`, d);
+        }
 
-        const test1Text = document.getElementById('test1Text').value;
-        const test1Client = document.getElementById('test1Client').value;
-        const blog1Title = document.getElementById('blog1Title').value;
-        const blog1Desc = document.getElementById('blog1Desc').value;
+        // Testimonials (3)
+        for(let i=1; i<=3; i++) {
+            const f = document.getElementById(`test${i}File`).files[0];
+            const txt = document.getElementById(`test${i}Text`).value;
+            const client = document.getElementById(`test${i}Client`).value;
+            if(f) localStorage.setItem(`test${i}Img`, await convertToBase64(f));
+            if(txt) localStorage.setItem(`test${i}Text`, txt);
+            if(client) localStorage.setItem(`test${i}Client`, client);
+        }
 
-        if(pkg1Title) localStorage.setItem('pkg1Title', pkg1Title);
-        if(pkg1Desc) localStorage.setItem('pkg1Desc', pkg1Desc);
-        if(pkg2Title) localStorage.setItem('pkg2Title', pkg2Title);
-        if(pkg2Desc) localStorage.setItem('pkg2Desc', pkg2Desc);
-        if(pkg3Title) localStorage.setItem('pkg3Title', pkg3Title);
-        if(pkg3Desc) localStorage.setItem('pkg3Desc', pkg3Desc);
+        // Blogs (4)
+        for(let i=1; i<=4; i++) {
+            const f = document.getElementById(`blog${i}File`).files[0];
+            const t = document.getElementById(`blog${i}Title`).value;
+            const d = document.getElementById(`blog${i}Desc`).value;
+            if(f) localStorage.setItem(`blog${i}Img`, await convertToBase64(f));
+            if(t) localStorage.setItem(`blog${i}Title`, t);
+            if(d) localStorage.setItem(`blog${i}Desc`, d);
+        }
 
-        if(test1Text) localStorage.setItem('test1Text', test1Text);
-        if(test1Client) localStorage.setItem('test1Client', test1Client);
-        if(blog1Title) localStorage.setItem('blog1Title', blog1Title);
-        if(blog1Desc) localStorage.setItem('blog1Desc', blog1Desc);
+        // Gallery (9)
+        for(let i=1; i<=9; i++) {
+            const f = document.getElementById(`gal${i}File`).files[0];
+            const l = document.getElementById(`gal${i}Text`).value;
+            if(f) localStorage.setItem(`gal${i}Img`, await convertToBase64(f));
+            if(l) localStorage.setItem(`gal${i}Text`, l);
+        }
 
         const msg = document.getElementById('successMsg');
         msg.style.display = 'block';
         setTimeout(() => { msg.style.display = 'none'; }, 4000);
     }
 
-    // Load Bookings into Admin Table from LocalStorage
     function loadBookings() {
         const bookings = JSON.parse(localStorage.getItem('shootBookings')) || [];
         const tbody = document.getElementById('bookingTableBody');
         tbody.innerHTML = '';
-
         if(bookings.length === 0) {
-            tbody.innerHTML = '<tr><td colspan="6" style="text-align:center; color:#885f41; padding: 25px;">No customer bookings or inquiries yet.</td></tr>';
+            tbody.innerHTML = '<tr><td colspan="6" style="text-align:center; padding: 20px;">No inquiries yet.</td></tr>';
             return;
         }
-
         bookings.reverse().forEach(b => {
-            const row = `<tr>
-                <td>${b.timestamp || 'N/A'}</td>
-                <td style="font-weight: bold;">${b.name || 'N/A'}</td>
-                <td>${b.phone || 'N/A'}</td>
-                <td>${b.location || 'N/A'}</td>
-                <td><span style="background: #f0e6dc; padding: 4px 8px; border-radius: 4px; font-size: 0.85rem;">${b.package || 'N/A'}</span></td>
-                <td style="color: #666; font-style: italic;">${b.message || 'None'}</td>
-            </tr>`;
-            tbody.innerHTML += row;
+            tbody.innerHTML += `<tr><td>${b.timestamp}</td><td style="font-weight:bold;">${b.name}</td><td>${b.phone}</td><td>${b.location}</td><td>${b.package}</td><td>${b.message || 'None'}</td></tr>`;
         });
     }
-
     window.onload = loadBookings;
 </script>
 
