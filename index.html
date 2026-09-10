@@ -11,18 +11,6 @@
     <!-- Global Modal Functions in Header -->
     <script>
     
-    // Jaise hi koi admin.html kholega, password puchenge
-    const password = prompt("🔐 Enter Admin Password:");
-    
-    // Yahan aap apna manpasand password set kar sakti hain (jaise: dubai2026)
-    if (password !== "dubai2026") {
-        alert("❌ Incorrect Password! Redirecting to home page.");
-        window.location.href = "index.html"; // Galat password hone par website ke home page par bhej dega
-    }
-
-    
-    // Page load hote hi password check karega
-    checkAdminAuth();
         function openModal(id) {
             const modal = document.getElementById(id);
             if (modal) {
