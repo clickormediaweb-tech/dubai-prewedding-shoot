@@ -96,7 +96,7 @@
         .close-btn:hover { color: var(--accent); transform: rotate(90deg); }
 
         .modal-form input, .modal-form textarea, .modal-form select {
-            width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid rgba(255,255,255,0.2);
+            width: 100%; padding: 12px; margin-bottom: 12px; border: 1px solid rgba(255,255,255,0.2);
             border-radius: 8px; background: rgba(255,255,255,0.1); color: white; font-family: var(--font-body); outline: none;
         }
         .modal-form input::placeholder, .modal-form textarea::placeholder { color: rgba(255,255,255,0.5); }
@@ -335,12 +335,12 @@
         }
         .footer-logo { font-family: var(--font-heading); font-size: 1.5rem; line-height: 1.2; }
         .footer-logo span { font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; display: block; opacity: 0.7; font-family: var(--font-body); }
-        
+
         .footer-col-center { text-align: center; }
         .footer-nav { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
         .footer-nav a { color: white; text-decoration: none; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; opacity: 0.7; transition: 0.3s; }
         .footer-nav a:hover { opacity: 1; color: var(--accent); }
-        
+
         .footer-legal { font-size: 0.8rem; }
         .footer-legal a { color: rgba(255,255,255,0.7); text-decoration: none; margin: 0 8px; transition: 0.3s; }
         .footer-legal a:hover { color: var(--accent); text-decoration: underline; }
@@ -643,9 +643,9 @@
                     <img src="f.jpg" alt="Aarav & Meera">
                 </div>
                 <div class="testimonial-body">
-                    <p>"Our pre-wedding shoot in Dubai felt like a dream! The team made us feel extremely comfortable, and the Burj Khalifa photos are breathtaking."</p>
+                    <p id="test1-text">"Our pre-wedding shoot in Dubai felt like a dream! The team made us feel extremely comfortable, and the Burj Khalifa photos are breathtaking."</p>
                     <div class="client-info">
-                        <h5>Aarav & Meera</h5>
+                        <h5 id="test1-client">Aarav & Meera</h5>
                         <span>Classic Package</span>
                     </div>
                 </div>
@@ -685,18 +685,18 @@
             <p>Expert guides for your upcoming Dubai photography session. Click any blog to read the full story.</p>
         </div>
         <div class="blogs-grid">
-            <div class="blog-card" onclick="openBlogModal('Top 5 Iconic Locations in Dubai', 'August 15, 2026', 'frame 02 dubai.png', `Dubai is a canvas of architectural marvels and timeless golden landscapes, making it the ultimate destination for a cinematic pre-wedding shoot.<br><br><strong>1. The Burj Khalifa & Downtown Fountains:</strong> Offering a dramatic urban skyline backdrop that lights up the night with unmatchable glamour.<br><br><strong>2. The Vast Dubai Desert Conservation Reserve:</strong> For endless golden dunes, ethereal sunset hues, and intimate candle-lit setups under the starlit Arabian sky.<br><br><strong>3. Palm Jumeirah Waterfronts & Luxury Yachts:</strong> Bringing an oceanic, high-end European Riviera vibe to your love story frames.<br><br>Choosing the right mix of modern luxury and traditional heritage creates a wholesome, breathtaking album that tells your unique narrative forever.`)">
+            <div class="blog-card" onclick="openBlogModal(document.getElementById('blog1-title').innerText, 'August 15, 2026', 'frame 02 dubai.png', document.getElementById('blog1-desc').innerText + `<br><br>Dubai is a canvas of architectural marvels and timeless golden landscapes, making it the ultimate destination for a cinematic pre-wedding shoot.<br><br><strong>1. The Burj Khalifa & Downtown Fountains:</strong> Offering a dramatic urban skyline backdrop.<br><br><strong>2. The Vast Dubai Desert:</strong> For endless golden dunes and ethereal sunset hues.`)">
                 <div class="blog-img-wrap">
                     <img src="frame 02 dubai.png" alt="Top 5 Iconic Locations in Dubai">
                 </div>
                 <div class="blog-body">
                     <div class="blog-date">August 15, 2026</div>
-                    <h3>Top 5 Iconic Locations in Dubai</h3>
-                    <p>Discover the best spots offering timeless cinematic backdrops from Burj Khalifa to heritage alleys.</p>
+                    <h3 id="blog1-title">Top 5 Iconic Locations in Dubai</h3>
+                    <p id="blog1-desc">Discover the best spots offering timeless cinematic backdrops from Burj Khalifa to heritage alleys.</p>
                 </div>
             </div>
 
-            <div class="blog-card" onclick="openBlogModal('Styling Guide: What to Wear for Your Shoot', 'August 02, 2026', 'p.jpg', `Your wardrobe sets the tone and aesthetic grade of your entire pre-wedding cinematic film. Here is how our expert stylists recommend curating your outfits for Dubai.<br><br><strong>Bold Contrasts:</strong> Vibrant reds, deep emeralds, or royal blues create a striking, magical contrast against Dubai's neutral desert sands and sleek glass skyscrapers.<br><br><strong>Flowing Silhouettes:</strong> Long trail gowns, sarees with dramatic pallus, or sleek evening suits catch the gentle breeze of the Marina and desert winds, adding organic motion to video frames.<br><br><strong>Comfort Meets Luxury:</strong> Since moving across iconic locations involves walking and quick outfit transitions, packing a pair of comfortable walking shoes alongside your statement footwear ensures you stay fresh and radiant throughout the day.`)">
+            <div class="blog-card" onclick="openBlogModal('Styling Guide: What to Wear for Your Shoot', 'August 02, 2026', 'p.jpg', `Your wardrobe sets the tone and aesthetic grade of your entire pre-wedding cinematic film. Here is how our expert stylists recommend curating your outfits for Dubai.<br><br><strong>Bold Contrasts:</strong> Vibrant reds, deep emeralds, or royal blues create a striking, magical contrast against Dubai's neutral desert sands and sleek glass skyscrapers.<br><br><strong>Flowing Silhouettes:</strong> Long trail gowns, sarees with dramatic pallus, or sleek evening suits catch the gentle breeze of the Marina and desert winds, adding organic motion to video frames.`)">
                 <div class="blog-img-wrap">
                     <img src="p.jpg" alt="Styling Guide: What to Wear">
                 </div>
@@ -787,7 +787,7 @@
         </div>
     </section>
 
-    <!-- Modern Full-Width Spread Footer -->
+    <!-- Footer -->
     <footer class="site-footer">
         <div class="footer-content-wrap">
             <div class="footer-col-left">
@@ -825,7 +825,7 @@
 
         <div class="footer-bottom-bar">
             <p style="opacity: 0.5; font-size: 0.75rem;">© 2026 Dubai Cinematic Shoots. All rights reserved.</p>
-            
+
             <div class="footer-legal">
                 <a href="#home" onclick="alert('Privacy Policy: All customer and media data are strictly protected and confidential.'); return false;">Privacy Policy</a>
                 <span>•</span>
@@ -960,7 +960,7 @@
             closeModal('themeModal');
         }
 
-        // Admin Panel Image Fetcher Sync
+        // Admin Panel Dynamic Sync & Image Fetcher
         document.addEventListener("DOMContentLoaded", () => {
             const heroBg = localStorage.getItem('heroImage');
             const loc1Img = localStorage.getItem('loc1Image');
@@ -983,6 +983,29 @@
             if(bookingImg) {
                 const bookImgEl = document.getElementById('booking-img');
                 if(bookImgEl) bookImgEl.src = bookingImg;
+            }
+
+            // Sync Admin Text Updates for Testimonial & Blog
+            const savedTestText = localStorage.getItem('test1Text');
+            const savedTestClient = localStorage.getItem('test1Client');
+            const savedBlogTitle = localStorage.getItem('blog1Title');
+            const savedBlogDesc = localStorage.getItem('blog1Desc');
+
+            if(savedTestText) {
+                const tEl = document.getElementById('test1-text');
+                if(tEl) tEl.innerText = `"${savedTestText}"`;
+            }
+            if(savedTestClient) {
+                const cEl = document.getElementById('test1-client');
+                if(cEl) cEl.innerText = savedTestClient;
+            }
+            if(savedBlogTitle) {
+                const bTitle = document.getElementById('blog1-title');
+                if(bTitle) bTitle.innerText = savedBlogTitle;
+            }
+            if(savedBlogDesc) {
+                const bDesc = document.getElementById('blog1-desc');
+                if(bDesc) bDesc.innerText = savedBlogDesc;
             }
         });
     </script>
