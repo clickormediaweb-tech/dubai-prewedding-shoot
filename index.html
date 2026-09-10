@@ -48,8 +48,8 @@
         nav a:hover { color: #885f41; }
         .btn-primary { background: var(--accent); color: #000; border: none; padding: 10px 20px; border-radius: 30px; cursor: pointer; font-weight: bold; text-decoration: none; display: inline-block; transition: 0.3s; }
         .btn-primary:hover { background: #d4c2b0; transform: scale(1.05); }
-        .btn-dark { background: #1A1A1A; color: #fff; border: none; padding: 15px; border-radius: 30px; cursor: pointer; font-weight: bold; width: 100%; transition: 0.3s; }
-        .btn-dark:hover { background: #333; }
+        .btn-dark { background: #1A1A1A; color: #fff; border: none; padding: 16px; border-radius: 12px; cursor: pointer; font-weight: bold; width: 100%; transition: 0.3s; box-shadow: 0 10px 20px rgba(0,0,0,0.15); }
+        .btn-dark:hover { background: #333; transform: translateY(-2px); }
 
         /* Glassmorphism */
         .glass-card, .glass-form {
@@ -131,7 +131,7 @@
         .flip-card {
             background-color: transparent;
             width: 100%;
-            height: 380px; /* Chote cards */
+            height: 380px;
             perspective: 1000px;
             cursor: pointer;
         }
@@ -188,7 +188,7 @@
         .process-card h4 { font-size: 1.3rem; margin-bottom: 10px; }
         .process-card p { font-size: 0.9rem; opacity: 0.75; line-height: 1.5; }
 
-        /* --- TESTIMONIALS SECTION (Attractive 3D Glass Look with Images) --- */
+        /* --- TESTIMONIALS SECTION --- */
         .testimonials-section { padding: 6rem 5%; background: linear-gradient(135deg, #f7f4ee 0%, #ece5dc 100%); }
         .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem; margin-top: 3rem; }
         
@@ -209,10 +209,10 @@
         .client-info h5 { font-size: 1.1rem; font-family: var(--font-heading); }
         .client-info span { font-size: 0.75rem; opacity: 0.6; text-transform: uppercase; letter-spacing: 1px; color: #885f41; font-weight: bold; }
 
-        /* --- BLOGS SECTION (Cinematic Large Cards like Reference) --- */
+        /* --- BLOGS SECTION --- */
         .blogs-section { padding: 6rem 5%; background-color: var(--primary-light); }
         .blogs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 3rem; margin-top: 3rem; }
-        .blog-card { background: white; border-radius: 18px; overflow: hidden; border: 1px solid #eae5de; box-shadow: 0 10px 30px rgba(0,0,0,0.04); transition: 0.4s; }
+        .blog-card { background: white; border-radius: 18px; overflow: hidden; border: 1px solid #eae5de; box-shadow: 0 10px 30px rgba(0,0,0,0.04); transition: 0.4s; cursor: pointer; }
         .blog-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
         .blog-img-wrap { height: 260px; width: 100%; overflow: hidden; position: relative; }
         .blog-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
@@ -222,15 +222,75 @@
         .blog-body h3 { font-size: 1.5rem; margin-bottom: 12px; line-height: 1.3; font-family: var(--font-heading); }
         .blog-body p { font-size: 0.95rem; opacity: 0.75; line-height: 1.6; margin-bottom: 20px; }
 
-        /* Booking Section */
-        .booking-section { padding: 5rem 5%; display: flex; gap: 4rem; align-items: stretch; background: #f0ebe1; }
-        .booking-form-wrap { flex: 1; display: flex; flex-direction: column; justify-content: center; }
-        .booking-form-wrap h2 { font-size: 2.5rem; margin-bottom: 10px; }
-        .booking-form-wrap p { margin-bottom: 30px; opacity: 0.7; }
-        .glass-form input, .glass-form select, .glass-form textarea { width: 100%; padding: 14px; margin-bottom: 15px; border: 1px solid rgba(0,0,0,0.1); border-radius: 10px; background: rgba(255,255,255,0.5); font-family: var(--font-body); outline: none; }
+        /* --- STUNNING 3D AESTHETIC BOOKING SECTION --- */
+        .booking-section { 
+            padding: 7rem 5%; 
+            display: flex; 
+            gap: 4rem; 
+            align-items: center; 
+            background: linear-gradient(135deg, #f3efe6 0%, #e6dfd1 100%);
+            position: relative;
+        }
+        .booking-form-wrap { 
+            flex: 1; 
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            border-radius: 24px;
+            padding: 45px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(229, 213, 197, 0.3) inset;
+            transform: perspective(1000px);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+        .booking-form-wrap:hover {
+            box-shadow: 0 30px 60px rgba(184, 151, 83, 0.15), 0 0 0 1px rgba(229, 213, 197, 0.6) inset;
+        }
+        .booking-form-wrap h2 { font-size: 2.5rem; margin-bottom: 10px; font-family: var(--font-heading); color: #111; }
+        .booking-form-wrap p { margin-bottom: 25px; opacity: 0.75; font-size: 1.05rem; }
         
-        .video-preview { flex: 1; border-radius: 20px; overflow: hidden; position: relative; min-height: 400px; background: #000; }
-        .video-preview img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+        .glass-form input, .glass-form select, .glass-form textarea { 
+            width: 100%; 
+            padding: 16px; 
+            margin-bottom: 18px; 
+            border: 1px solid rgba(212, 195, 179, 0.5); 
+            border-radius: 12px; 
+            background: rgba(255, 255, 255, 0.85); 
+            font-family: var(--font-body); 
+            outline: none; 
+            font-size: 0.95rem;
+            transition: 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02) inset;
+        }
+        .glass-form input:focus, .glass-form select:focus, .glass-form textarea:focus {
+            border-color: #b89753;
+            background: #ffffff;
+            box-shadow: 0 0 0 4px rgba(184, 151, 83, 0.12), 0 4px 10px rgba(0,0,0,0.02) inset;
+        }
+
+        /* Clean Date Input Style (No mm/dd/yyyy clutter) */
+        input[type="date"] {
+            position: relative;
+            color: #333;
+        }
+        input[type="date"]::-webkit-calendar-picker-indicator {
+            cursor: pointer;
+            opacity: 0.8;
+            filter: sepia(100%) hue-rotate(30deg) saturate(300%);
+        }
+
+        .video-preview { 
+            flex: 1; 
+            border-radius: 24px; 
+            overflow: hidden; 
+            position: relative; 
+            min-height: 520px; 
+            background: #000;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+            border: 4px solid rgba(255,255,255,0.8);
+        }
+        .video-preview img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform 0.8s ease; }
+        .video-preview:hover img { transform: scale(1.04); }
 
         /* Gallery Section */
         .gallery-section { padding: 6rem 5%; background-color: var(--primary-light); overflow: hidden; }
@@ -283,11 +343,7 @@
             max-width: 90vw; max-height: 85vh; object-fit: contain; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.8);
         }
 
-        /* Clean Date Input Style */
-        input[type="date"] { position: relative; color: #333; background: rgba(255, 255, 255, 0.7); }
-        input[type="date"]::-webkit-calendar-picker-indicator { cursor: pointer; opacity: 0.8; filter: none; }
-
-        /* --- RESTORED PROFESSIONAL FOOTER --- */
+        /* Professional Footer */
         .site-footer { 
             background: linear-gradient(135deg, #0f172a 0%, #070a10 100%); 
             color: white; padding: 3rem 5% 1.5rem 5%; 
@@ -403,7 +459,7 @@
             <form class="modal-form" id="themeForm" onsubmit="handleThemeModal(event)">
                 <input type="text" id="themeName" placeholder="Your Name" required>
                 <input type="tel" id="themePhone" placeholder="WhatsApp / Phone Number" required>
-                <input type="date" id="themeDate" placeholder="Select Date" required>
+                <input type="date" id="themeDate" aria-label="Select Date" required>
                 <select id="themeLocation">
                     <option value="Desert Safari">Desert Safari</option>
                     <option value="Burj Khalifa">Burj Khalifa</option>
@@ -583,7 +639,7 @@
         </div>
     </section>
 
-    <!-- --- TESTIMONIALS SECTION (Attractive 3D Glass with Images) --- -->
+    <!-- --- TESTIMONIALS SECTION --- -->
     <section id="testimonials" class="testimonials-section">
         <div class="section-header">
             <span class="eyebrow">Client Love</span>
@@ -624,7 +680,7 @@
         </div>
     </section>
 
-    <!-- --- BLOGS SECTION (Cinematic Large Cards) --- -->
+    <!-- --- BLOGS SECTION --- -->
     <section id="blogs" class="blogs-section">
         <div class="section-header">
             <span class="eyebrow">Journal</span>
@@ -655,15 +711,15 @@
         </div>
     </section>
 
-    <!-- Booking Section -->
+    <!-- Stunning 3D Aesthetic Booking Section -->
     <section id="booking" class="booking-section">
-        <div class="booking-form-wrap glass-form">
+        <div class="booking-form-wrap">
             <h2>Book Your Pre-Wedding Shoot</h2>
             <p>Fill out your details below. We'll handle the rest.</p>
-            <form id="bookingForm" onsubmit="handleBooking(event)">
+            <form id="bookingForm" class="glass-form" onsubmit="handleBooking(event)">
                 <input type="text" id="bookName" placeholder="Your Full Name" required>
                 <input type="tel" id="bookPhone" placeholder="WhatsApp / Phone Number" required>
-                <input type="date" id="bookDate" placeholder="Select Date" required>
+                <input type="date" id="bookDate" aria-label="Select Date" required>
                 <select id="bookLocation" required>
                     <option value="">Choose Location</option>
                     <option value="Desert Safari">Desert Safari</option>
