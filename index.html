@@ -75,12 +75,12 @@
         /* Cinematic Popups (Modals) */
         .modal-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.92); backdrop-filter: blur(15px);
+            background: rgba(0, 0, 0, 0.95); backdrop-filter: blur(15px);
             z-index: 99999; display: none; align-items: center; justify-content: center;
         }
         .modal-content {
-            background: #111; border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 20px; padding: 3rem; width: 92%; max-width: 1000px; color: white;
+            background: #111; border: 1px solid rgba(229, 213, 197, 0.3);
+            border-radius: 20px; padding: 3rem; width: 95%; max-width: 1200px; color: white;
             position: relative; box-shadow: 0 30px 60px rgba(0,0,0,0.95); max-height: 90vh; overflow-y: auto;
         }
         .modal-content h3 { font-size: 2.5rem; margin-bottom: 10px; color: var(--accent); font-family: var(--font-heading); }
@@ -93,22 +93,6 @@
         }
         .modal-form input::placeholder, .modal-form textarea::placeholder { color: rgba(255,255,255,0.5); }
         .modal-form select option { background: #141414; color: white; }
-
-        /* Clean Date Input Styling (Removes dd/mm/yyyy clutter) */
-        input[type="date"] {
-            position: relative;
-            color: #fff;
-        }
-        input[type="date"]::-webkit-calendar-picker-indicator {
-            filter: invert(1);
-            cursor: pointer;
-        }
-        .glass-form input[type="date"] {
-            color: #333;
-        }
-        .glass-form input[type="date"]::-webkit-calendar-picker-indicator {
-            filter: none;
-        }
 
         /* Locations Section */
         .locations-section { padding: 8rem 5%; background-color: var(--primary-light); }
@@ -163,32 +147,31 @@
         .story-thumb img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; transition: transform 0.6s ease; }
         .story-thumb:hover img { transform: scale(1.08); }
 
-        /* Full-Page Cinematic Gallery View (No Clipping, Full Images & Videos) */
+        /* Full-Page Cinematic Gallery View (No Cutting, Full Photos & Videos) */
         .full-gallery-grid { 
             display: grid; 
-            grid-template-columns: repeat(2, 1fr); 
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
             gap: 25px; 
-            margin-top: 30px; 
+            margin-top: 25px; 
         }
         .gallery-item {
             position: relative;
             border-radius: 16px;
             overflow: hidden;
             background: #000;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.7);
             border: 1px solid rgba(255,255,255,0.1);
         }
         .gallery-item img, .gallery-item video { 
             width: 100%; 
-            height: auto; 
-            max-height: 480px;
-            object-fit: contain; 
+            height: 380px; 
+            object-fit: cover; 
             display: block; 
             background: #000;
-            transition: transform 0.5s ease; 
+            transition: transform 0.6s ease; 
         }
         .gallery-item:hover img, .gallery-item:hover video { 
-            transform: scale(1.02); 
+            transform: scale(1.05); 
         }
         .gallery-label {
             position: absolute;
@@ -199,6 +182,7 @@
             font-family: var(--font-heading);
             font-size: 1.1rem;
             letter-spacing: 1px;
+            pointer-events: none;
         }
 
         /* Footer */
@@ -308,8 +292,7 @@
             <form class="modal-form" id="themeForm" onsubmit="handleThemeModal(event)">
                 <input type="text" id="themeName" placeholder="Your Name" required>
                 <input type="tel" id="themePhone" placeholder="WhatsApp / Phone Number" required>
-                <!-- Clean Date Input without dd/mm/yyyy clutter -->
-                <input type="date" id="themeDate" placeholder="Select Date" aria-label="Select Date" required>
+                <input type="date" id="themeDate" required>
                 <select id="themeLocation">
                     <option value="Desert Safari">Desert Safari</option>
                     <option value="Burj Khalifa">Burj Khalifa</option>
@@ -322,51 +305,52 @@
         </div>
     </div>
 
-    <!-- Modal 3: Cinematic Full-Page Gallery Viewer with Videos & Full Images -->
+    <!-- Modal 3: Cinematic Full-Page Gallery Viewer with Video & Full Pictures -->
     <div id="galleryModal" class="modal-overlay">
-        <div class="modal-content" style="max-width: 1200px;">
+        <div class="modal-content">
             <button class="close-btn" onclick="closeModal('galleryModal')">✖️</button>
             <h3>Dubai Cinematic Gallery & Films</h3>
             <p style="margin-bottom: 15px; opacity: 0.7; font-style: italic; font-family: var(--font-heading);">Explore our complete collection of captured love stories and cinematic teaser films.</p>
             <div class="full-gallery-grid">
-                <!-- Video Item -->
+                <!-- Local Video File -->
                 <div class="gallery-item">
                     <video autoplay muted loop playsinline>
-                        <source src="https://assets.mixkit.co/videos/preview/mixkit-bride-and-groom-walking-in-a-field-41584-large.mp4" type="video/mp4">
+                        <source src="e70face9970f12f58dee10981c5a674e.mp4" type="video/mp4">
                     </video>
-                    <div class="gallery-label">Cinematic Teaser Film 01</div>
+                    <div class="gallery-label">Cinematic Highlights Film</div>
                 </div>
-                <!-- Image Items (Full Display) -->
+                <!-- Gallery Pictures -->
                 <div class="gallery-item">
-                    <img src="f.jpg" alt="Dubai Pre-wedding">
+                    <img src="f.jpg" alt="Gallery">
                     <div class="gallery-label">Downtown Dubai Romance</div>
                 </div>
                 <div class="gallery-item">
-                    <img src="g.jpg" alt="Dubai Pre-wedding">
+                    <img src="g.jpg" alt="Gallery">
                     <div class="gallery-label">Luxury Yacht Shoot</div>
                 </div>
                 <div class="gallery-item">
-                    <img src="d.jpg" alt="Dubai Pre-wedding">
+                    <img src="d.jpg" alt="Gallery">
                     <div class="gallery-label">Burj Khalifa View</div>
                 </div>
-                <!-- Video Item 2 -->
                 <div class="gallery-item">
-                    <video autoplay muted loop playsinline>
-                        <source src="https://assets.mixkit.co/videos/preview/mixkit-happy-couple-running-on-the-beach-at-sunset-41603-large.mp4" type="video/mp4">
-                    </video>
-                    <div class="gallery-label">Sunset Cinematic Highlights</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="frame 04 dubai.png" alt="Dubai Pre-wedding">
+                    <img src="frame 04 dubai.png" alt="Gallery">
                     <div class="gallery-label">Royal Palace Architecture</div>
                 </div>
                 <div class="gallery-item">
-                    <img src="frame 01 dubai.png" alt="Dubai Pre-wedding">
+                    <img src="frame 01 dubai.png" alt="Gallery">
                     <div class="gallery-label">Palm Jumeirah Elegance</div>
                 </div>
                 <div class="gallery-item">
-                    <img src="frame 02 dubai.png" alt="Dubai Pre-wedding">
+                    <img src="frame 02 dubai.png" alt="Gallery">
                     <div class="gallery-label">Desert Skyline Magic</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="p.jpg" alt="Gallery">
+                    <div class="gallery-label">Desert Safari Sunset</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="n.jpg" alt="Gallery">
+                    <div class="gallery-label">Romantic Evening Lights</div>
                 </div>
             </div>
         </div>
@@ -412,8 +396,7 @@
             <form id="bookingForm" onsubmit="handleBooking(event)">
                 <input type="text" id="bookName" placeholder="Your Full Name" required>
                 <input type="tel" id="bookPhone" placeholder="WhatsApp / Phone Number" required>
-                <!-- Clean Date Input without dd/mm/yyyy clutter -->
-                <input type="date" id="bookDate" placeholder="Select Date" aria-label="Select Date" required>
+                <input type="date" id="bookDate" required>
                 <select id="bookLocation" required>
                     <option value="">Choose Location</option>
                     <option value="Desert Safari">Desert Safari</option>
@@ -494,7 +477,6 @@
 
     <!-- Scripts -->
     <script>
-        // Single unified global modal control handlers
         function openModal(id) {
             const modal = document.getElementById(id);
             if (modal) {
