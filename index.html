@@ -223,100 +223,50 @@
             .footer-content-wrap, .footer-bottom-bar { flex-direction: column; text-align: center; justify-content: center; }
             .footer-socials { justify-content: center; }
         }
-    /* --- Mobile Responsive Media Queries --- */
-        @media (max-width: 992px) {
-            .hero-content {
-                flex-direction: column;
-                text-align: center;
-                gap: 3rem;
-                margin-top: 80px;
-            }
-            .hero-text h1 {
-                font-size: 3rem;
-            }
-            .booking-widget {
-                width: 100%;
-                max-width: 400px;
-                margin: 0 auto;
-            }
-            .booking-section {
-                flex-direction: column;
-                gap: 2rem;
-            }
-        }
-
-        @media (max-width: 768px) {
+    @media (max-width: 768px) {
+            /* Header ko compact aur neat banane ke liye */
             header {
-                padding: 1rem 5%;
+                padding: 10px 15px;
                 flex-direction: column;
-                gap: 10px;
+                gap: 8px;
+            }
+            .logo, .header-logo {
+                font-size: 1.1rem;
             }
             nav {
-                display: flex;
                 gap: 10px;
-                flex-wrap: wrap;
-                justify-content: center;
             }
             nav a {
-                margin: 0 6px;
+                font-size: 0.75rem;
+            }
+            .book-btn-header, .header-cta {
+                padding: 6px 14px;
                 font-size: 0.8rem;
             }
+
+            /* Hero section overlap fix karne ke liye */
+            .hero-content {
+                margin-top: 20px; /* Upar ka extra gap hatane ke liye taaki text chup na ho */
+                flex-direction: column;
+                text-align: center;
+                gap: 1.5px;
+            }
             .hero-text h1 {
-                font-size: 2.3rem;
+                font-size: 2rem !important; /* Font size chota kiya taaki screen par fit aaye */
+                line-height: 1.2;
             }
             .hero-text .subtitle {
-                font-size: 1.4rem;
+                font-size: 1rem !important;
             }
-            .section-header h2 {
-                font-size: 2.5rem;
+            
+            /* Glassmorphism booking widget ko mobile friendly banane ke liye */
+            .booking-widget {
+                width: 90%;
+                max-width: 320px;
+                margin: 20px auto;
+                padding: 20px;
             }
-            .location-card {
-                flex: 0 0 280px;
-                width: 280px;
-                height: 380px;
-            }
-            .modal-content {
-                padding: 1.5rem;
-                width: 95%;
-            }
-        }
-        /* --- Responsive Header & Navbar Styles --- */
-        @media (max-width: 768px) {
-            header {
-                padding: 15px 5%;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                gap: 12px;
-                text-align: center;
-            }
-
-            header .logo, .header-logo {
-                font-size: 1.2rem;
-            }
-
-            nav {
-                display: flex;
-                justify-content: center;
-                flex-wrap: wrap;
-                gap: 15px;
-                width: 100%;
-                margin: 5px 0;
-            }
-
-            nav a {
-                font-size: 0.8rem;
-                letter-spacing: 1px;
-                margin: 0;
-            }
-
-            /* Agar header mein koi 'Book Now' ya CTA button hai toh usko bhi mobile mein center karne ke liye */
-            .header-cta, .book-btn-header {
-                width: 100%;
-                text-align: center;
-                margin-top: 5px;
-            }
-        }
+    }
     </style>
 </head>
 <body>
