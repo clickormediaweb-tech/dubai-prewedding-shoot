@@ -86,12 +86,29 @@
         .modal-content h3 { font-size: 2.5rem; margin-bottom: 10px; color: var(--accent); font-family: var(--font-heading); }
         .close-btn { position: absolute; top: 20px; right: 25px; font-size: 1.8rem; cursor: pointer; color: white; border: none; background: transparent; transition: 0.3s; z-index: 10; }
         .close-btn:hover { color: var(--accent); transform: rotate(90deg); }
+        
         .modal-form input, .modal-form textarea, .modal-form select {
             width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid rgba(255,255,255,0.2);
             border-radius: 8px; background: rgba(255,255,255,0.1); color: white; font-family: var(--font-body); outline: none;
         }
         .modal-form input::placeholder, .modal-form textarea::placeholder { color: rgba(255,255,255,0.5); }
         .modal-form select option { background: #141414; color: white; }
+
+        /* Clean Date Input Styling (Removes dd/mm/yyyy clutter) */
+        input[type="date"] {
+            position: relative;
+            color: #fff;
+        }
+        input[type="date"]::-webkit-calendar-picker-indicator {
+            filter: invert(1);
+            cursor: pointer;
+        }
+        .glass-form input[type="date"] {
+            color: #333;
+        }
+        .glass-form input[type="date"]::-webkit-calendar-picker-indicator {
+            filter: none;
+        }
 
         /* Locations Section */
         .locations-section { padding: 8rem 5%; background-color: var(--primary-light); }
@@ -122,13 +139,6 @@
         .booking-form-wrap p { margin-bottom: 30px; opacity: 0.7; }
         .glass-form input, .glass-form select, .glass-form textarea { width: 100%; padding: 14px; margin-bottom: 15px; border: 1px solid rgba(0,0,0,0.1); border-radius: 10px; background: rgba(255,255,255,0.5); font-family: var(--font-body); outline: none; }
         
-        /* Custom Styling for Date Input without dd/mm/yyyy clutter */
-        input[type="date"] {
-            appearance: none;
-            -webkit-appearance: none;
-            min-height: 48px;
-        }
-
         .video-preview { flex: 1; border-radius: 20px; overflow: hidden; position: relative; min-height: 400px; background: #000; }
         .video-preview img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
 
@@ -298,7 +308,8 @@
             <form class="modal-form" id="themeForm" onsubmit="handleThemeModal(event)">
                 <input type="text" id="themeName" placeholder="Your Name" required>
                 <input type="tel" id="themePhone" placeholder="WhatsApp / Phone Number" required>
-                <input type="date" id="themeDate" aria-label="Select Date" required>
+                <!-- Clean Date Input without dd/mm/yyyy clutter -->
+                <input type="date" id="themeDate" placeholder="Select Date" aria-label="Select Date" required>
                 <select id="themeLocation">
                     <option value="Desert Safari">Desert Safari</option>
                     <option value="Burj Khalifa">Burj Khalifa</option>
@@ -401,7 +412,8 @@
             <form id="bookingForm" onsubmit="handleBooking(event)">
                 <input type="text" id="bookName" placeholder="Your Full Name" required>
                 <input type="tel" id="bookPhone" placeholder="WhatsApp / Phone Number" required>
-                <input type="date" id="bookDate" aria-label="Select Date" required>
+                <!-- Clean Date Input without dd/mm/yyyy clutter -->
+                <input type="date" id="bookDate" placeholder="Select Date" aria-label="Select Date" required>
                 <select id="bookLocation" required>
                     <option value="">Choose Location</option>
                     <option value="Desert Safari">Desert Safari</option>
@@ -482,6 +494,7 @@
 
     <!-- Scripts -->
     <script>
+        // Single unified global modal control handlers
         function openModal(id) {
             const modal = document.getElementById(id);
             if (modal) {
