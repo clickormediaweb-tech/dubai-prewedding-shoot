@@ -124,14 +124,14 @@
         .card-overlay .number { font-size: 0.85rem; color: var(--accent); letter-spacing: 2px; margin-bottom: 5px; font-weight: bold; }
         .card-overlay h4 { font-size: 1.5rem; margin-bottom: 8px; font-family: var(--font-heading); }
 
-        /* --- PACKAGES SECTION (3D FLIP CARDS) --- */
+        /* --- PACKAGES SECTION (3 Cards in a Row, Smaller 3D Flip Cards) --- */
         .packages-section { padding: 6rem 5%; background-color: #f3efe6; }
-        .packages-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; margin-top: 3rem; }
+        .packages-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 3rem; }
         
         .flip-card {
             background-color: transparent;
             width: 100%;
-            height: 480px;
+            height: 380px;
             perspective: 1000px;
             cursor: pointer;
         }
@@ -155,7 +155,7 @@
             -webkit-backface-visibility: hidden;
             backface-visibility: hidden;
             border-radius: 16px;
-            padding: 40px 30px;
+            padding: 30px 25px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -171,12 +171,12 @@
             transform: rotateY(180deg);
             border: 1px solid #333;
         }
-        .package-title { font-size: 2rem; font-family: var(--font-heading); margin-bottom: 15px; }
-        .package-short-desc { font-size: 0.95rem; opacity: 0.8; line-height: 1.5; }
-        .flip-hint { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: #885f41; margin-top: 15px; font-weight: bold; }
+        .package-title { font-size: 1.6rem; font-family: var(--font-heading); margin-bottom: 10px; }
+        .package-short-desc { font-size: 0.9rem; opacity: 0.8; line-height: 1.4; }
+        .flip-hint { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; color: #885f41; margin-top: 10px; font-weight: bold; }
         
-        .flip-card-back ul { list-style: none; margin: 15px 0; }
-        .flip-card-back ul li { padding: 6px 0; font-size: 0.9rem; border-bottom: 1px solid rgba(255,255,255,0.1); position: relative; padding-left: 20px; }
+        .flip-card-back ul { list-style: none; margin: 10px 0; }
+        .flip-card-back ul li { padding: 5px 0; font-size: 0.85rem; border-bottom: 1px solid rgba(255,255,255,0.1); position: relative; padding-left: 18px; }
         .flip-card-back ul li::before { content: "✓"; position: absolute; left: 0; color: var(--accent); }
 
         /* --- PROCESS SECTION --- */
@@ -188,23 +188,39 @@
         .process-card h4 { font-size: 1.3rem; margin-bottom: 10px; }
         .process-card p { font-size: 0.9rem; opacity: 0.75; line-height: 1.5; }
 
-        /* --- TESTIMONIALS SECTION --- */
+        /* --- TESTIMONIALS SECTION (Cinematic with Client Images) --- */
         .testimonials-section { padding: 6rem 5%; background-color: #f7f4ee; }
-        .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 3rem; }
-        .testimonial-card { background: #ffffff; padding: 35px; border-radius: 16px; border: 1px solid #e6dccf; box-shadow: 0 5px 20px rgba(0,0,0,0.04); }
+        .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem; margin-top: 3rem; }
+        .testimonial-card { 
+            background: #ffffff; border-radius: 16px; overflow: hidden; 
+            border: 1px solid #e6dccf; box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            display: flex; flex-direction: column; transition: 0.3s;
+        }
+        .testimonial-card:hover { transform: translateY(-5px); }
+        .testimonial-img-wrap { width: 100%; height: 260px; overflow: hidden; position: relative; }
+        .testimonial-img-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform 0.6s ease; }
+        .testimonial-card:hover .testimonial-img-wrap img { transform: scale(1.05); }
+        .testimonial-body { padding: 30px; display: flex; flex-direction: column; justify-content: space-between; flex: 1; }
         .testimonial-card p { font-style: italic; font-family: var(--font-heading); font-size: 1.05rem; line-height: 1.6; margin-bottom: 20px; color: #333; }
-        .client-info h5 { font-size: 1.1rem; font-family: var(--font-heading); }
-        .client-info span { font-size: 0.8rem; opacity: 0.6; text-transform: uppercase; letter-spacing: 1px; }
+        .client-info h5 { font-size: 1.2rem; font-family: var(--font-heading); color: #111; }
+        .client-info span { font-size: 0.8rem; color: #b89753; text-transform: uppercase; letter-spacing: 1px; font-weight: bold; }
 
-        /* --- BLOGS SECTION --- */
+        /* --- BLOGS SECTION (Aesthetic Cards with Images) --- */
         .blogs-section { padding: 6rem 5%; background-color: var(--primary-light); }
-        .blogs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; margin-top: 3rem; }
-        .blog-card { background: white; border-radius: 16px; overflow: hidden; border: 1px solid #eae5de; box-shadow: 0 5px 15px rgba(0,0,0,0.03); transition: 0.3s; }
-        .blog-card:hover { transform: translateY(-5px); }
-        .blog-body { padding: 25px; }
+        .blogs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 2.5rem; margin-top: 3rem; }
+        .blog-card { 
+            background: white; border-radius: 16px; overflow: hidden; 
+            border: 1px solid #eae5de; box-shadow: 0 10px 30px rgba(0,0,0,0.04); transition: 0.3s; 
+            display: flex; flex-direction: column; cursor: pointer;
+        }
+        .blog-card:hover { transform: translateY(-6px); box-shadow: 0 15px 40px rgba(0,0,0,0.08); }
+        .blog-img-wrap { width: 100%; height: 240px; overflow: hidden; position: relative; }
+        .blog-img-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform 0.6s ease; }
+        .blog-card:hover .blog-img-wrap img { transform: scale(1.08); }
+        .blog-body { padding: 30px; }
         .blog-date { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: #885f41; margin-bottom: 8px; font-weight: bold; }
         .blog-body h3 { font-size: 1.4rem; margin-bottom: 12px; line-height: 1.3; }
-        .blog-body p { font-size: 0.9rem; opacity: 0.75; line-height: 1.5; margin-bottom: 20px; }
+        .blog-body p { font-size: 0.9rem; opacity: 0.75; line-height: 1.5; }
 
         /* Booking Section - Proportional & Compact */
         .booking-section { padding: 5rem 5%; display: flex; gap: 4rem; align-items: center; background: #f0ebe1; }
@@ -291,12 +307,17 @@
         .footer-socials a:hover { background: var(--accent); color: #000; transform: translateY(-3px); }
         .footer-bottom-bar { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; padding-top: 1.5rem; text-align: center; }
 
+        @media (max-width: 1024px) {
+            .packages-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
         @media (max-width: 992px) {
             .hero-content { flex-direction: column; text-align: center; gap: 3rem; margin-top: 80px; }
             .hero-text h1 { font-size: 3rem; }
             .booking-widget { width: 100%; max-width: 400px; margin: 0 auto; }
             .booking-section { flex-direction: column; gap: 2rem; align-items: stretch; }
             .video-preview { height: 350px; }
+            .packages-grid { grid-template-columns: 1fr; }
         }
 
         @media (max-width: 768px) {
@@ -429,7 +450,7 @@
         </div>
     </section>
 
-    <!-- --- PACKAGES SECTION (3D FLIP CARDS) --- -->
+    <!-- --- PACKAGES SECTION (3 Cards in a Row, Smaller 3D Flip Cards) --- -->
     <section id="packages" class="packages-section">
         <div class="section-header">
             <span class="eyebrow">Investment</span>
@@ -488,6 +509,32 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Royal Elite Package Flip Card -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <div>
+                            <div class="package-title">Royal Dubai Elite</div>
+                            <div class="package-short-desc">The ultimate luxury cinematic experience featuring private yacht and exclusive spots.</div>
+                        </div>
+                        <div class="flip-hint">Hover / Tap to View Inclusions ↻</div>
+                    </div>
+                    <div class="flip-card-back">
+                        <div>
+                            <div class="package-title" style="color: var(--accent);">Elite Inclusions</div>
+                            <ul>
+                                <li>Yacht & Desert Luxury Shoot</li>
+                                <li>Dedicated Drone Pilot & Crew</li>
+                                <li>Cinematic Story Film & Teaser</li>
+                                <li>All Edited High-Res Photos</li>
+                                <li>VIP Concierge & Styling Support</li>
+                            </ul>
+                        </div>
+                        <a href="#booking" class="btn-primary" style="text-align:center; display:block;" onclick="setPackageSelection('Royal Dubai Elite')">Inquire Now</a>
+                    </div>
+                </div>
+            </div>
         </div>
         
         <div style="margin-top: 40px; background: #fff; padding: 25px; border-radius: 12px; border: 1px solid #eae5de;">
@@ -527,7 +574,7 @@
         </div>
     </section>
 
-    <!-- --- TESTIMONIALS SECTION --- -->
+    <!-- --- TESTIMONIALS SECTION (Cinematic with Client Images) --- -->
     <section id="testimonials" class="testimonials-section">
         <div class="section-header">
             <span class="eyebrow">Client Love</span>
@@ -536,30 +583,45 @@
         </div>
         <div class="testimonials-grid">
             <div class="testimonial-card">
-                <p>"Our pre-wedding shoot in Dubai felt like a dream! The team made us feel extremely comfortable, and the Burj Khalifa photos are breathtaking."</p>
-                <div class="client-info">
-                    <h5>Aarav & Meera</h5>
-                    <span>Classic Package</span>
+                <div class="testimonial-img-wrap" onclick="openSingleMedia('img', 'f.jpg')">
+                    <img src="f.jpg" alt="Aarav & Meera">
+                </div>
+                <div class="testimonial-body">
+                    <p>"Our pre-wedding shoot in Dubai felt like a dream! The team made us feel extremely comfortable, and the Burj Khalifa photos are breathtaking."</p>
+                    <div class="client-info">
+                        <h5>Aarav & Meera</h5>
+                        <span>Classic Package</span>
+                    </div>
                 </div>
             </div>
             <div class="testimonial-card">
-                <p>"Absolute professionals! From the next-day unedited preview to the final cinematic gallery, everything was handled seamlessly."</p>
-                <div class="client-info">
-                    <h5>Rohan & Simran</h5>
-                    <span>Premium Package</span>
+                <div class="testimonial-img-wrap" onclick="openSingleMedia('img', 'g.jpg')">
+                    <img src="g.jpg" alt="Rohan & Simran">
+                </div>
+                <div class="testimonial-body">
+                    <p>"Absolute professionals! From the next-day unedited preview to the final cinematic gallery, everything was handled seamlessly."</p>
+                    <div class="client-info">
+                        <h5>Rohan & Simran</h5>
+                        <span>Premium Package</span>
+                    </div>
                 </div>
             </div>
             <div class="testimonial-card">
-                <p>"The Indian travel guide and end-to-end assistance made things so stress-free. Absolute best choice in Dubai!"</p>
-                <div class="client-info">
-                    <h5>Karan & Priya</h5>
-                    <span>Custom Shoot</span>
+                <div class="testimonial-img-wrap" onclick="openSingleMedia('img', 'd.jpg')">
+                    <img src="d.jpg" alt="Karan & Priya">
+                </div>
+                <div class="testimonial-body">
+                    <p>"The Indian travel guide and end-to-end assistance made things so stress-free. Absolute best choice in Dubai!"</p>
+                    <div class="client-info">
+                        <h5>Karan & Priya</h5>
+                        <span>Custom Shoot</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- --- BLOGS SECTION --- -->
+    <!-- --- BLOGS SECTION (Aesthetic Cards with Images) --- -->
     <section id="blogs" class="blogs-section">
         <div class="section-header">
             <span class="eyebrow">Journal</span>
@@ -567,14 +629,20 @@
             <p>Expert guides for your upcoming Dubai photography session.</p>
         </div>
         <div class="blogs-grid">
-            <div class="blog-card">
+            <div class="blog-card" onclick="openSingleMedia('img', 'frame 02 dubai.png')">
+                <div class="blog-img-wrap">
+                    <img src="frame 02 dubai.png" alt="Top 5 Iconic Locations in Dubai">
+                </div>
                 <div class="blog-body">
                     <div class="blog-date">August 15, 2026</div>
                     <h3>Top 5 Iconic Locations in Dubai</h3>
                     <p>Discover the best spots offering timeless cinematic backdrops from Burj Khalifa to heritage alleys.</p>
                 </div>
             </div>
-            <div class="blog-card">
+            <div class="blog-card" onclick="openSingleMedia('img', 'p.jpg')">
+                <div class="blog-img-wrap">
+                    <img src="p.jpg" alt="Styling Guide: What to Wear">
+                </div>
                 <div class="blog-body">
                     <div class="blog-date">August 02, 2026</div>
                     <h3>Styling Guide: What to Wear</h3>
@@ -655,7 +723,7 @@
                     <a href="#process">Process</a>
                     <a href="#testimonials">Testimonials</a>
                     <a href="#blogs">Blogs</a>
-                    <a href="#booking">Booking</a>
+                    <a href="#gallery">Gallery</a>
                     <a href="admin.html" target="_blank" style="color: var(--accent); font-weight: bold;">⚙️ Admin</a>
                 </nav>
             </div>
