@@ -29,7 +29,7 @@
 
         /* 3D Cinematic Glassmorphism Container */
         .admin-container {
-            max-width: 850px;
+            max-width: 900px;
             width: 100%;
             background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(20px);
@@ -80,11 +80,12 @@
         }
 
         label { display: block; font-weight: bold; margin-bottom: 10px; font-size: 0.95rem; color: #333; }
-        input[type="file"] {
-            width: 100%; padding: 10px; background: #faf8f5; border: 1px solid #ddd;
-            border-radius: 8px; font-size: 0.9rem; cursor: pointer; transition: 0.3s;
+        input[type="file"], input[type="text"], textarea {
+            width: 100%; padding: 12px; background: #faf8f5; border: 1px solid #ddd;
+            border-radius: 8px; font-size: 0.9rem; font-family: var(--font-body); outline: none; transition: 0.3s;
         }
-        input[type="file"]:hover { border-color: #b89753; }
+        input[type="file"]:hover, input[type="text"]:focus, textarea:focus { border-color: #b89753; background: #fff; }
+        textarea { resize: vertical; height: 90px; }
 
         .btn-save {
             background: #1A1A1A; color: white; border: none; padding: 15px 25px;
@@ -126,7 +127,7 @@
 
 <div class="admin-container">
     <h2>Admin Control Panel</h2>
-    <p class="subtitle">Manage website visual assets and monitor customer inquiries in real-time.</p>
+    <p class="subtitle">Manage website visual assets, text content, and monitor customer inquiries in real-time.</p>
 
     <div class="section-title">🖼️ Website Asset Management</div>
 
@@ -138,9 +139,6 @@
     <div class="form-group">
         <label>2. Location Cards Default Image</label>
         <input type="file" id="locFile" accept="image/*">
-        <input type="file" id="locFile" accept="image/*">
-         <input type="file" id="locFile" accept="image/*">
-
     </div>
 
     <div class="form-group">
@@ -149,12 +147,34 @@
     </div>
 
     <div class="form-group">
-        <label>4. Gallery Grid Item Images (Select multiple or replace primary gallery items)</label>
+        <label>4. Gallery Grid Item Images</label>
         <input type="file" id="galleryFile" accept="image/*">
     </div>
 
-    <button class="btn-save" onclick="saveImages()">Save & Update Website</button>
-    <div id="successMsg" class="success-msg">✨ Successfully Updated Website Assets!</div>
+    <div class="section-title">✍️ Content & Text Customization</div>
+
+    <div class="form-group">
+        <label>Testimonial 1 Review Text</label>
+        <textarea id="test1Text" placeholder="Enter review text..."></textarea>
+    </div>
+
+    <div class="form-group">
+        <label>Testimonial 1 Client Name & Details</label>
+        <input type="text" id="test1Client" placeholder="e.g. Aarav & Meera (Classic Package)">
+    </div>
+
+    <div class="form-group">
+        <label>Blog 1 Title</label>
+        <input type="text" id="blog1Title" placeholder="Enter blog title...">
+    </div>
+
+    <div class="form-group">
+        <label>Blog 1 Short Description</label>
+        <textarea id="blog1Desc" placeholder="Enter short summary..."></textarea>
+    </div>
+
+    <button class="btn-save" onclick="saveAdminChanges()">Save & Update Website</button>
+    <div id="successMsg" class="success-msg">✨ Successfully Updated Website Assets & Content!</div>
 
     <!-- Client Booking List Section -->
     <div class="bookings-section">
@@ -197,7 +217,7 @@
         });
     }
 
-    async function saveImages() {
+    async function saveAdminChanges() {
         const heroInput = document.getElementById('heroFile').files[0];
         const locInput = document.getElementById('locFile').files[0];
         const bookInput = document.getElementById('bookFile').files[0];
@@ -207,6 +227,17 @@
         if (locInput) localStorage.setItem('loc1Image', await convertToBase64(locInput));
         if (bookInput) localStorage.setItem('bookingImage', await convertToBase64(bookInput));
         if (galleryInput) localStorage.setItem('galleryNewImage', await convertToBase64(galleryInput));
+
+        // Save dynamic text changes
+        const test1Text = document.getElementById('test1Text').value;
+        const test1Client = document.getElementById('test1Client').value;
+        const blog1Title = document.getElementById('blog1Title').value;
+        const blog1Desc = document.getElementById('blog1Desc').value;
+
+        if(test1Text) localStorage.setItem('test1Text', test1Text);
+        if(test1Client) localStorage.setItem('test1Client', test1Client);
+        if(blog1Title) localStorage.setItem('blog1Title', blog1Title);
+        if(blog1Desc) localStorage.setItem('blog1Desc', blog1Desc);
 
         const msg = document.getElementById('successMsg');
         msg.style.display = 'block';
