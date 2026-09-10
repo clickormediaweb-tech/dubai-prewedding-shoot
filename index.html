@@ -124,14 +124,14 @@
         .card-overlay .number { font-size: 0.85rem; color: var(--accent); letter-spacing: 2px; margin-bottom: 5px; font-weight: bold; }
         .card-overlay h4 { font-size: 1.5rem; margin-bottom: 8px; font-family: var(--font-heading); }
 
-        /* --- PACKAGES SECTION (3D FLIP CARDS) --- */
+        /* --- PACKAGES SECTION (3 Compact 3D Flip Cards) --- */
         .packages-section { padding: 6rem 5%; background-color: #f3efe6; }
-        .packages-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; margin-top: 3rem; }
+        .packages-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 3rem; }
         
         .flip-card {
             background-color: transparent;
             width: 100%;
-            height: 480px;
+            height: 380px; /* Chote cards */
             perspective: 1000px;
             cursor: pointer;
         }
@@ -142,8 +142,8 @@
             text-align: left;
             transition: transform 0.8s;
             transform-style: preserve-3d;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+            border-radius: 14px;
         }
         .flip-card:hover .flip-card-inner {
             transform: rotateY(180deg);
@@ -154,8 +154,8 @@
             height: 100%;
             -webkit-backface-visibility: hidden;
             backface-visibility: hidden;
-            border-radius: 16px;
-            padding: 40px 30px;
+            border-radius: 14px;
+            padding: 30px 20px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -171,13 +171,12 @@
             transform: rotateY(180deg);
             border: 1px solid #333;
         }
-        .package-title { font-size: 2rem; font-family: var(--font-heading); margin-bottom: 15px; }
-        .package-price { font-size: 1.2rem; color: #b89753; font-weight: bold; margin-bottom: 15px; }
-        .package-short-desc { font-size: 0.95rem; opacity: 0.8; line-height: 1.5; }
-        .flip-hint { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: #885f41; margin-top: 15px; font-weight: bold; }
+        .package-title { font-size: 1.6rem; font-family: var(--font-heading); margin-bottom: 10px; }
+        .package-short-desc { font-size: 0.85rem; opacity: 0.8; line-height: 1.4; }
+        .flip-hint { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; color: #885f41; font-weight: bold; }
         
-        .flip-card-back ul { list-style: none; margin: 15px 0; }
-        .flip-card-back ul li { padding: 6px 0; font-size: 0.9rem; border-bottom: 1px solid rgba(255,255,255,0.1); position: relative; padding-left: 20px; }
+        .flip-card-back ul { list-style: none; margin: 10px 0; }
+        .flip-card-back ul li { padding: 5px 0; font-size: 0.85rem; border-bottom: 1px solid rgba(255,255,255,0.1); position: relative; padding-left: 18px; }
         .flip-card-back ul li::before { content: "✓"; position: absolute; left: 0; color: var(--accent); }
 
         /* --- PROCESS SECTION --- */
@@ -189,24 +188,39 @@
         .process-card h4 { font-size: 1.3rem; margin-bottom: 10px; }
         .process-card p { font-size: 0.9rem; opacity: 0.75; line-height: 1.5; }
 
-        /* --- TESTIMONIALS SECTION --- */
-        .testimonials-section { padding: 6rem 5%; background-color: #f7f4ee; }
-        .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 3rem; }
-        .testimonial-card { background: #ffffff; padding: 35px; border-radius: 16px; border: 1px solid #e6dccf; box-shadow: 0 5px 20px rgba(0,0,0,0.04); }
-        .testimonial-card p { font-style: italic; font-family: var(--font-heading); font-size: 1.05rem; line-height: 1.6; margin-bottom: 20px; color: #333; }
+        /* --- TESTIMONIALS SECTION (Attractive 3D Glass Look with Images) --- */
+        .testimonials-section { padding: 6rem 5%; background: linear-gradient(135deg, #f7f4ee 0%, #ece5dc 100%); }
+        .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem; margin-top: 3rem; }
+        
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(229, 213, 197, 0.6);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.06);
+            transition: transform 0.4s ease;
+        }
+        .testimonial-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(184, 151, 83, 0.15); }
+        
+        .client-avatar-row { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; }
+        .client-avatar-row img { width: 65px; height: 65px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent); }
+        .testimonial-card p { font-style: italic; font-family: var(--font-heading); font-size: 1rem; line-height: 1.6; margin-bottom: 20px; color: #333; }
         .client-info h5 { font-size: 1.1rem; font-family: var(--font-heading); }
-        .client-info span { font-size: 0.8rem; opacity: 0.6; text-transform: uppercase; letter-spacing: 1px; }
+        .client-info span { font-size: 0.75rem; opacity: 0.6; text-transform: uppercase; letter-spacing: 1px; color: #885f41; font-weight: bold; }
 
-        /* --- BLOGS SECTION --- */
+        /* --- BLOGS SECTION (Cinematic Large Cards like Reference) --- */
         .blogs-section { padding: 6rem 5%; background-color: var(--primary-light); }
-        .blogs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; margin-top: 3rem; }
-        .blog-card { background: white; border-radius: 16px; overflow: hidden; border: 1px solid #eae5de; box-shadow: 0 5px 15px rgba(0,0,0,0.03); transition: 0.3s; }
-        .blog-card:hover { transform: translateY(-5px); }
-        .blog-img { height: 220px; width: 100%; object-fit: cover; }
-        .blog-body { padding: 25px; }
+        .blogs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 3rem; margin-top: 3rem; }
+        .blog-card { background: white; border-radius: 18px; overflow: hidden; border: 1px solid #eae5de; box-shadow: 0 10px 30px rgba(0,0,0,0.04); transition: 0.4s; }
+        .blog-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
+        .blog-img-wrap { height: 260px; width: 100%; overflow: hidden; position: relative; }
+        .blog-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+        .blog-card:hover .blog-img-wrap img { transform: scale(1.06); }
+        .blog-body { padding: 30px; }
         .blog-date { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: #885f41; margin-bottom: 8px; font-weight: bold; }
-        .blog-body h3 { font-size: 1.4rem; margin-bottom: 12px; line-height: 1.3; }
-        .blog-body p { font-size: 0.9rem; opacity: 0.75; line-height: 1.5; margin-bottom: 20px; }
+        .blog-body h3 { font-size: 1.5rem; margin-bottom: 12px; line-height: 1.3; font-family: var(--font-heading); }
+        .blog-body p { font-size: 0.95rem; opacity: 0.75; line-height: 1.6; margin-bottom: 20px; }
 
         /* Booking Section */
         .booking-section { padding: 5rem 5%; display: flex; gap: 4rem; align-items: stretch; background: #f0ebe1; }
@@ -273,31 +287,46 @@
         input[type="date"] { position: relative; color: #333; background: rgba(255, 255, 255, 0.7); }
         input[type="date"]::-webkit-calendar-picker-indicator { cursor: pointer; opacity: 0.8; filter: none; }
 
-        /* Footer */
+        /* --- RESTORED PROFESSIONAL FOOTER --- */
         .site-footer { 
             background: linear-gradient(135deg, #0f172a 0%, #070a10 100%); 
-            color: white; padding: 3rem 5% 1.5rem 5%; border-top: 1px solid rgba(255,255,255,0.1);
+            color: white; padding: 3rem 5% 1.5rem 5%; 
+            border-top: 1px solid rgba(255,255,255,0.1);
+            box-shadow: inset 0 15px 25px rgba(0,0,0,0.5);
         }
         .footer-content-wrap {
             display: flex; justify-content: space-between; align-items: center; 
-            flex-wrap: wrap; gap: 2rem; padding-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,0.1);
+            flex-wrap: wrap; gap: 2rem; padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
         }
         .footer-logo { font-family: var(--font-heading); font-size: 1.5rem; line-height: 1.2; }
         .footer-logo span { font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; display: block; opacity: 0.7; font-family: var(--font-body); }
+        
         .footer-col-center { text-align: center; }
-        .footer-nav { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+        .footer-nav { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
         .footer-nav a { color: white; text-decoration: none; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; opacity: 0.7; transition: 0.3s; }
         .footer-nav a:hover { opacity: 1; color: var(--accent); }
+        
+        .footer-legal { font-size: 0.8rem; }
+        .footer-legal a { color: rgba(255,255,255,0.7); text-decoration: none; margin: 0 8px; transition: 0.3s; }
+        .footer-legal a:hover { color: var(--accent); text-decoration: underline; }
+        .footer-legal span { opacity: 0.4; }
+
         .footer-socials { display: flex; justify-content: flex-end; gap: 12px; }
         .footer-socials a { color: white; background: rgba(255, 255, 255, 0.08); width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border-radius: 50%; border: 1px solid rgba(255,255,255,0.15); transition: 0.3s; }
         .footer-socials a:hover { background: var(--accent); color: #000; transform: translateY(-3px); }
-        .footer-bottom-bar { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; padding-top: 1.5rem; text-align: center; }
+
+        .footer-bottom-bar {
+            display: flex; justify-content: space-between; align-items: center;
+            flex-wrap: wrap; gap: 1rem; padding-top: 1.5rem; text-align: center;
+        }
 
         @media (max-width: 992px) {
             .hero-content { flex-direction: column; text-align: center; gap: 3rem; margin-top: 80px; }
             .hero-text h1 { font-size: 3rem; }
             .booking-widget { width: 100%; max-width: 400px; margin: 0 auto; }
             .booking-section { flex-direction: column; gap: 2rem; }
+            .packages-grid { grid-template-columns: 1fr; }
         }
 
         @media (max-width: 768px) {
@@ -320,12 +349,13 @@
         <div class="logo">Dubai <br><span>Pre-Wedding Shoot</span></div>
         <nav>
             <a href="#home">Home</a>
+            <a href="#locations">Destination</a>
             <a href="#packages">Packages</a>
-            <a href="#testimonials">Testimonials</a>
-            <a href="#gallery">Gallery</a>
             <a href="#process">Process</a>
+            <a href="#testimonials">Testimonials</a>
             <a href="#blogs">Blogs</a>
-
+            <a href="#gallery">Gallery</a>
+            <a href="#booking">Booking</a>
         </nav>
         <a href="#booking" class="btn-primary">🗓️ Enquire Now</a>
     </header>
@@ -359,8 +389,8 @@
             <h3>Cinematic Packages</h3>
             <p style="margin-bottom: 20px; opacity: 0.8;">Choose the perfect cinematic experience for your love story.</p>
             <ul style="list-style: none; line-height: 1.8;">
-                <li>🌟 <strong>Classic Package:</strong> 2 Locations, 1 Photographer, Cinematic Video</li>
-                <li>👑 <strong>Premium Package:</strong> 4 Locations, 2 Photographers, Teaser & Film</li>
+                <li>🌟 <strong>Classic Package:</strong> Half Day Shoot, 1 Photographer, Cinematic Video</li>
+                <li>👑 <strong>Premium Package:</strong> Full Day Shoot, 2 Photographers, Teaser & Film</li>
             </ul>
             <a href="#packages" class="btn-primary" style="width:100%; text-align:center; margin-top:20px; display:block;" onclick="closeModal('packagesModal')">View All Packages Below</a>
         </div>
@@ -431,33 +461,33 @@
         </div>
     </section>
 
-    <!-- --- PACKAGES SECTION (3D FLIP CARDS) --- -->
+    <!-- --- PACKAGES SECTION (3 Compact 3D Flip Cards) --- -->
     <section id="packages" class="packages-section">
         <div class="section-header">
             <span class="eyebrow">Investment</span>
             <h2>Our Pre-Wedding Packages</h2>
-            <p>Hover or tap cards to flip and view complete short inclusions[cite: 1].</p>
+            <p>Hover or tap cards to flip and view complete short inclusions.</p>
         </div>
         <div class="packages-grid">
-            <!-- Classic Package Flip Card -->
+            <!-- Classic Package -->
             <div class="flip-card">
                 <div class="flip-card-inner">
                     <div class="flip-card-front">
                         <div>
                             <div class="package-title">The Classic Package</div>
-                            <div class="package-short-desc">Perfect for couples who want a beautiful and intimate pre-wedding experience[cite: 1] in Dubai.</div>
+                            <div class="package-short-desc">Perfect for couples who want a beautiful and intimate pre-wedding experience in Dubai.</div>
                         </div>
-                        <div class="flip-hint">Hover / Tap to View Inclusions ↻</div>
+                        <div class="flip-hint">Hover / Tap to View ↻</div>
                     </div>
                     <div class="flip-card-back">
                         <div>
                             <div class="package-title" style="color: var(--accent);">Classic Inclusions</div>
                             <ul>
-                                <li>Half Day Shoot at 2 Locations</li>
+                                <li>Half Day Shoot (2 Locations)</li>
                                 <li>1 Professional Photographer</li>
                                 <li>1 Cinematic Video</li>
-                                <li>20 Edited High-Res Photos</li>
-                                <li>Indian Travel Guide Included</li>
+                                <li>20 High-Res Edited Photos</li>
+                                <li>Indian Travel Guide</li>
                             </ul>
                         </div>
                         <a href="#booking" class="btn-primary" style="text-align:center; display:block;" onclick="setPackageSelection('Classic Package (Downtown / Burj View)')">Inquire Now</a>
@@ -465,24 +495,24 @@
                 </div>
             </div>
 
-            <!-- Premium Package Flip Card -->
+            <!-- Premium Package -->
             <div class="flip-card">
                 <div class="flip-card-inner">
                     <div class="flip-card-front">
                         <div>
                             <div class="package-title">The Premium Package</div>
-                            <div class="package-short-desc">Elevate your pre-wedding experience[cite: 1] with extensive multi-location luxury coverage.</div>
+                            <div class="package-short-desc">Elevate your pre-wedding experience with extensive multi-location luxury coverage.</div>
                         </div>
-                        <div class="flip-hint">Hover / Tap to View Inclusions ↻</div>
+                        <div class="flip-hint">Hover / Tap to View ↻</div>
                     </div>
                     <div class="flip-card-back">
                         <div>
                             <div class="package-title" style="color: var(--accent);">Premium Inclusions</div>
                             <ul>
-                                <li>Full Day Shoot at 4 Locations</li>
+                                <li>Full Day Shoot (4 Locations)</li>
                                 <li>2 Professional Photographers</li>
-                                <li>1 Cinematic Video & 40s Teaser</li>
-                                <li>30 Edited High-Res Photos</li>
+                                <li>Cinematic Film + 40s Teaser</li>
+                                <li>30 High-Res Edited Photos</li>
                                 <li>End-to-end Assistance</li>
                             </ul>
                         </div>
@@ -490,11 +520,37 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Royal Elite Package -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <div>
+                            <div class="package-title">Royal Elite Package</div>
+                            <div class="package-short-desc">The ultimate VIP luxury experience featuring private yacht and royal desert setups.</div>
+                        </div>
+                        <div class="flip-hint">Hover / Tap to View ↻</div>
+                    </div>
+                    <div class="flip-card-back">
+                        <div>
+                            <div class="package-title" style="color: var(--accent);">Royal Inclusions</div>
+                            <ul>
+                                <li>Multi-Day Luxury Shoot</li>
+                                <li>Yacht & Desert Safari Access</li>
+                                <li>Full Cinematic Story Film</li>
+                                <li>Unlimited Edited Photos</li>
+                                <li>VIP Styling Support</li>
+                            </ul>
+                        </div>
+                        <a href="#booking" class="btn-primary" style="text-align:center; display:block;" onclick="setPackageSelection('Royal Elite Package')">Inquire Now</a>
+                    </div>
+                </div>
+            </div>
         </div>
         
         <div style="margin-top: 40px; background: #fff; padding: 25px; border-radius: 12px; border: 1px solid #eae5de;">
             <h4 style="font-family: var(--font-heading); margin-bottom: 10px;">Booking Conditions:</h4>
-            <p style="font-size: 0.9rem; opacity: 0.8; line-height: 1.6;">30% deposit to book your spot (Bank Transfer or GPay). Rest 70% paid after photoshoot. Unedited photos sent via G-Drive the next day[cite: 1]!</p>
+            <p style="font-size: 0.9rem; opacity: 0.8; line-height: 1.6;">30% deposit to book your spot (Bank Transfer or GPay). Rest 70% paid after photoshoot. Unedited photos sent via G-Drive the next day!</p>
         </div>
     </section>
 
@@ -519,17 +575,17 @@
             <div class="process-card">
                 <div class="process-num">03</div>
                 <h4>Next-Day Preview</h4>
-                <p>Receive unedited photos via G-Drive the very next day[cite: 1].</p>
+                <p>Receive unedited photos via G-Drive the very next day.</p>
             </div>
             <div class="process-card">
                 <div class="process-num">04</div>
                 <h4>Final Delivery</h4>
-                <p>Get your fully edited cinematic gallery within 7 working days[cite: 1].</p>
+                <p>Get your fully edited cinematic gallery within 7 working days.</p>
             </div>
         </div>
     </section>
 
-    <!-- --- TESTIMONIALS SECTION --- -->
+    <!-- --- TESTIMONIALS SECTION (Attractive 3D Glass with Images) --- -->
     <section id="testimonials" class="testimonials-section">
         <div class="section-header">
             <span class="eyebrow">Client Love</span>
@@ -538,30 +594,39 @@
         </div>
         <div class="testimonials-grid">
             <div class="testimonial-card">
+                <div class="client-avatar-row">
+                    <img src="f.jpg" alt="Aarav & Meera">
+                    <div class="client-info">
+                        <h5>Aarav & Meera</h5>
+                        <span>Classic Package</span>
+                    </div>
+                </div>
                 <p>"Our pre-wedding shoot in Dubai felt like a dream! The team made us feel extremely comfortable, and the Burj Khalifa photos are breathtaking."</p>
-                <div class="client-info">
-                    <h5>Aarav & Meera</h5>
-                    <span>Classic Package</span>
-                </div>
             </div>
             <div class="testimonial-card">
+                <div class="client-avatar-row">
+                    <img src="g.jpg" alt="Rohan & Simran">
+                    <div class="client-info">
+                        <h5>Rohan & Simran</h5>
+                        <span>Premium Package</span>
+                    </div>
+                </div>
                 <p>"Absolute professionals! From the next-day unedited preview to the final cinematic gallery, everything was handled seamlessly."</p>
-                <div class="client-info">
-                    <h5>Rohan & Simran</h5>
-                    <span>Premium Package</span>
-                </div>
             </div>
             <div class="testimonial-card">
-                <p>"The Indian travel guide and end-to-end assistance made things so stress-free. Absolute best choice in Dubai!"</p>
-                <div class="client-info">
-                    <h5>Karan & Priya</h5>
-                    <span>Custom Shoot</span>
+                <div class="client-avatar-row">
+                    <img src="d.jpg" alt="Karan & Priya">
+                    <div class="client-info">
+                        <h5>Karan & Priya</h5>
+                        <span>Royal Elite</span>
+                    </div>
                 </div>
+                <p>"The Indian travel guide and end-to-end assistance made things so stress-free. Absolute best choice in Dubai!"</p>
             </div>
         </div>
     </section>
 
-    <!-- --- BLOGS SECTION --- -->
+    <!-- --- BLOGS SECTION (Cinematic Large Cards) --- -->
     <section id="blogs" class="blogs-section">
         <div class="section-header">
             <span class="eyebrow">Journal</span>
@@ -569,18 +634,24 @@
             <p>Expert guides for your upcoming Dubai photography session.</p>
         </div>
         <div class="blogs-grid">
-            <div class="blog-card">
+            <div class="blog-card" onclick="openSingleMedia('img', 'p.jpg')">
+                <div class="blog-img-wrap">
+                    <img src="p.jpg" alt="Desert Locations">
+                </div>
                 <div class="blog-body">
                     <div class="blog-date">August 15, 2026</div>
-                    <h3>Top 5 Iconic Locations in Dubai</h3>
-                    <p>Discover the best spots offering timeless cinematic backdrops from Burj Khalifa to heritage alleys.</p>
+                    <h3>Top 5 Romantic Desert Locations for Your Dubai Pre-Wedding Shoot</h3>
+                    <p>As a Dubai-based pre-wedding photographer, I've captured countless love stories amidst the rolling sand dunes and under the breathtaking desert sky.</p>
                 </div>
             </div>
-            <div class="blog-card">
+            <div class="blog-card" onclick="openSingleMedia('img', 'frame 01 dubai.png')">
+                <div class="blog-img-wrap">
+                    <img src="frame 01 dubai.png" alt="Styling Guide">
+                </div>
                 <div class="blog-body">
                     <div class="blog-date">August 02, 2026</div>
-                    <h3>Styling Guide: What to Wear</h3>
-                    <p>Contrasting colors like rich reds or pastels work absolute magic against Dubai's glass skyscrapers.</p>
+                    <h3>Styling Guide: What to Wear Against Dubai Skylines</h3>
+                    <p>Contrasting colors like rich reds or elegant pastels work absolute magic against Dubai's modern glass skyscrapers and sunset horizons.</p>
                 </div>
             </div>
         </div>
@@ -605,6 +676,7 @@
                     <option value="">Select Package</option>
                     <option value="Classic Package (Downtown / Burj View)">Classic Package</option>
                     <option value="Premium Package (Multi-Location Dubai)">Premium Package</option>
+                    <option value="Royal Elite Package">Royal Elite Package</option>
                     <option value="Custom Theme Request">Custom Theme Request</option>
                 </select>
                 <textarea id="bookMessage" rows="3" placeholder="Any other enquiry or custom requirements..."></textarea>
@@ -641,7 +713,7 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Restored Professional Footer -->
     <footer class="site-footer">
         <div class="footer-content-wrap">
             <div class="footer-col-left">
@@ -664,14 +736,28 @@
 
             <div class="footer-col-right">
                 <div class="footer-socials">
-                    <a href="#" target="_blank" title="Instagram">📸</a>
-                    <a href="#" target="_blank" title="Facebook">📘</a>
+                    <a href="#" target="_blank" title="Instagram">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    </a>
+                    <a href="#" target="_blank" title="Facebook">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                    </a>
+                    <a href="#" target="_blank" title="Twitter">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+                    </a>
                 </div>
             </div>
         </div>
 
         <div class="footer-bottom-bar">
             <p style="opacity: 0.5; font-size: 0.75rem;">© 2026 Dubai Cinematic Shoots. All rights reserved.</p>
+            
+            <div class="footer-legal">
+                <a href="#home" onclick="alert('Privacy Policy: All client data and media are strictly secure and confidential.');">Privacy Policy</a>
+                <span>•</span>
+                <a href="#home" onclick="alert('Terms & Conditions: 30% advance deposit required for booking confirmation.');">Terms & Conditions</a>
+            </div>
+
             <p style="opacity: 0.8; font-size: 0.8rem; letter-spacing: 1px;">Design & Crafted by <span style="color: var(--accent); font-weight: bold;">ClickOrMedia</span></p>
         </div>
     </footer>
