@@ -44,11 +44,11 @@
         }
         .logo { font-family: var(--font-heading); font-size: 1.4rem; line-height: 1.1; }
         .logo span { font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; display: block; font-family: var(--font-body); }
-        
+
         nav { display: flex; align-items: center; gap: 6px; }
         nav a { margin: 0 6px; text-decoration: none; color: var(--text-dark); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; font-weight: 600; }
         nav a:hover { color: #885f41; }
-        
+
         /* Mobile Menu Toggle Button */
         .menu-toggle {
             display: none;
@@ -291,30 +291,18 @@
             max-width: 90vw; max-height: 85vh; object-fit: contain; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.8);
         }
 
-        /* Clean Date Input Style (No calendar pop-up clutter, treated like text input) */
-        input[type="date"] {
-            position: relative;
-            color: #333;
-            background: rgba(255, 255, 255, 0.7);
-            appearance: none;
-            -webkit-appearance: none;
-            min-height: 45px;
-        }
-        input[type="date"]::-webkit-calendar-picker-indicator {
-            cursor: pointer;
-            opacity: 0.8;
-            filter: none;
-        }
+        /* Clean Date Text Input Style */
+        input[type="text"] { font-family: var(--font-body); }
 
-        /* Clean & Compact Professional Footer */
+        /* --- CLEAN & WELL-SORTED PROFESSIONAL FOOTER --- */
         .site-footer { 
             background: linear-gradient(135deg, #0f172a 0%, #070a10 100%); 
             color: white; 
-            padding: 2.5rem 5% 1.2rem 5%; 
+            padding: 3rem 5% 1.5rem 5%; 
             border-top: 1px solid rgba(255,255,255,0.1);
         }
         .footer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; padding-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,0.1); align-items: start; }
-        .footer-col h4 { font-family: var(--font-heading); font-size: 1rem; margin-bottom: 10px; color: var(--accent); letter-spacing: 0.5px; }
+        .footer-col h4 { font-family: var(--font-heading); font-size: 1.1rem; margin-bottom: 10px; color: var(--accent); letter-spacing: 0.5px; }
         .footer-col p { font-size: 0.8rem; opacity: 0.75; line-height: 1.5; margin-bottom: 6px; }
         .footer-links-list { list-style: none; }
         .footer-links-list li { margin-bottom: 5px; }
@@ -352,7 +340,7 @@
             }
             nav.active { display: flex; }
             nav a { margin: 10px 0; font-size: 0.9rem; }
-            
+
             .hero { padding: 100px 4% 40px 4%; min-height: 100vh; }
             .hero-content { flex-direction: column; text-align: center; gap: 2rem; margin-top: 20px; }
             .hero-text h1 { font-size: 2.6rem; }
@@ -366,6 +354,7 @@
         @media (max-width: 576px) {
             header { padding: 10px 15px; }
             .logo { font-size: 1.1rem; }
+            .btn-primary { padding: 7px 14px; font-size: 0.75rem; }
             .hero { padding-top: 120px; }
             .hero-text h1 { font-size: 2rem; }
             .hero-text .subtitle { font-size: 1rem; }
@@ -391,9 +380,8 @@
             <a href="#testimonials" onclick="toggleMenu()">Testimonials</a>
             <a href="#blogs" onclick="toggleMenu()">Blogs</a>
             <a href="#gallery" onclick="toggleMenu()">Gallery</a>
-            <a href="admin.html" target="_blank" style="color: var(--accent); font-weight: bold;">⚙️ Admin</a>
         </nav>
-        <a href="#booking" class="btn-primary">🗓️ Enquire Now</a>
+        <a href="#booking" class="btn-primary">Enquire</a>
     </header>
 
     <!-- Hero Section -->
@@ -441,7 +429,7 @@
             <form class="modal-form" id="themeForm" onsubmit="handleThemeModal(event)">
                 <input type="text" id="themeName" placeholder="Your Name" required>
                 <input type="tel" id="themePhone" placeholder="WhatsApp / Phone Number" required>
-                <input type="date" id="themeDate" placeholder="Select Date" required>
+                <input type="text" id="themeDate" placeholder="Select Date (e.g., 25 Dec 2026)" required>
                 <select id="themeLocation">
                     <option value="Desert Safari">Desert Safari</option>
                     <option value="Burj Khalifa">Burj Khalifa</option>
@@ -491,7 +479,7 @@
         </div>
     </div>
 
-    <!-- Locations Section (9 Locations with Auto-Scroll Animation) -->
+    <!-- Locations Section (Auto-Scrolling 9 Locations) -->
     <section id="locations" class="locations-section">
         <div class="section-header">
             <span class="eyebrow">Iconic destinations</span>
@@ -500,7 +488,6 @@
         </div>
         <div class="cards-scroll-container">
             <div class="cards-scroll-row">
-                <!-- Original Set of 9 Locations -->
                 <div class="location-card" onclick="openSingleMedia('img', 'p.jpg')"><img id="loc1-img" src="p.jpg" alt="Downtown"><div class="card-overlay"><span class="number">01</span><h4 id="loc1-text">Downtown - Wings of Mexico</h4></div></div>
                 <div class="location-card" onclick="openSingleMedia('img', 'd.jpg')"><img id="loc2-img" src="d.jpg" alt="Burj Park"><div class="card-overlay"><span class="number">02</span><h4 id="loc2-text">Burj Park - Fountains</h4></div></div>
                 <div class="location-card" onclick="openSingleMedia('img', 'frame 01 dubai.png')"><img id="loc3-img" src="frame 01 dubai.png" alt="Yacht"><div class="card-overlay"><span class="number">03</span><h4 id="loc3-text">Yacht - Marina & Atlantis</h4></div></div>
@@ -511,7 +498,7 @@
                 <div class="location-card" onclick="openSingleMedia('img', 'r.jpeg')"><img src="r.jpeg" alt="Creek Harbour"><div class="card-overlay"><span class="number">08</span><h4>Dubai Creek Harbour</h4></div></div>
                 <div class="location-card" onclick="openSingleMedia('img', 'a.jpeg')"><img src="a.jpeg" alt="Vincitore"><div class="card-overlay"><span class="number">09</span><h4>Vincitore Boulevard</h4></div></div>
 
-                <!-- Duplicate Set for Seamless Infinite Auto-Scroll -->
+                <!-- Duplicate for Smooth Infinite Scroll -->
                 <div class="location-card" onclick="openSingleMedia('img', 'p.jpg')"><img src="p.jpg" alt="Downtown"><div class="card-overlay"><span class="number">01</span><h4>Downtown - Wings of Mexico</h4></div></div>
                 <div class="location-card" onclick="openSingleMedia('img', 'd.jpg')"><img src="d.jpg" alt="Burj Park"><div class="card-overlay"><span class="number">02</span><h4>Burj Park - Fountains</h4></div></div>
                 <div class="location-card" onclick="openSingleMedia('img', 'frame 01 dubai.png')"><img src="frame 01 dubai.png" alt="Yacht"><div class="card-overlay"><span class="number">03</span><h4>Yacht - Marina & Atlantis</h4></div></div>
@@ -1006,6 +993,7 @@
                 const client = localStorage.getItem(`test${i}Client`);
                 if(img) {
                     const el = document.getElementById(`test${i}-img`);
+                    if(el) el.innerText = img; // wait, let's target src
                     if(el) el.src = img;
                 }
                 if(txt) {
