@@ -13,6 +13,7 @@
             --primary-light: #F9F8F6;
             --text-dark: #1A1A1A;
             --accent: #E5D5C5;
+            --hover-color: #885f41;
             --font-heading: 'Playfair Display', serif;
             --font-body: 'Lato', sans-serif;
         }
@@ -46,7 +47,7 @@
         .logo span { font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; display: block; font-family: var(--font-body); }
         nav { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; }
         nav a { margin: 0 6px; text-decoration: none; color: var(--text-dark); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; font-weight: 600; }
-        nav a:hover { color: #885f41; }
+        nav a:hover { color: var(--hover-color); }
         .btn-primary { background: var(--accent); color: #000; border: none; padding: 9px 18px; border-radius: 30px; cursor: pointer; font-weight: bold; text-decoration: none; display: inline-block; transition: 0.3s; font-size: 0.85rem; }
         .btn-primary:hover { background: #d4c2b0; transform: scale(1.05); }
         .btn-dark { background: #1A1A1A; color: #fff; border: none; padding: 12px; border-radius: 30px; cursor: pointer; font-weight: bold; width: 100%; transition: 0.3s; }
@@ -336,80 +337,68 @@
         input[type="date"] { position: relative; color: #333; background: rgba(255, 255, 255, 0.7); }
         input[type="date"]::-webkit-calendar-picker-indicator { cursor: pointer; opacity: 0.8; filter: none; }
 
-        /* --- 3D CINEMATIC PROFESSIONAL FOOTER --- */
+        /* --- COMPACT & WELL-SORTED PROFESSIONAL FOOTER --- */
         .site-footer { 
             background: linear-gradient(135deg, #0f172a 0%, #070a10 100%); 
             color: white; 
-            padding: 3.5rem 5% 1.5rem 5%; 
+            padding: 3rem 5% 1.5rem 5%; 
             border-top: 1px solid rgba(255,255,255,0.1);
-            transform: perspective(1000px);
-            box-shadow: inset 0 20px 40px rgba(0,0,0,0.6);
         }
         .footer-grid {
             display: grid;
-            grid-template-columns: 1.5fr 1fr 1.2fr;
-            gap: 3rem;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
             padding-bottom: 2.5rem;
             border-bottom: 1px solid rgba(255,255,255,0.1);
             align-items: start;
         }
         .footer-col h4 {
             font-family: var(--font-heading);
-            font-size: 1.15rem;
-            margin-bottom: 14px;
+            font-size: 1.1rem;
+            margin-bottom: 12px;
             color: var(--accent);
-            letter-spacing: 1px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            letter-spacing: 0.5px;
         }
         .footer-col p {
-            font-size: 0.88rem;
+            font-size: 0.82rem;
             opacity: 0.75;
-            line-height: 1.6;
-            margin-bottom: 10px;
-            transition: transform 0.3s ease, opacity 0.3s ease;
-        }
-        .footer-col p:hover {
-            opacity: 1;
-            transform: translateX(4px);
+            line-height: 1.5;
+            margin-bottom: 8px;
         }
         .footer-links-list {
             list-style: none;
         }
         .footer-links-list li {
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
         .footer-links-list a {
             color: rgba(255,255,255,0.75);
             text-decoration: none;
-            font-size: 0.88rem;
-            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
-            display: inline-block;
+            font-size: 0.82rem;
+            transition: 0.3s;
         }
         .footer-links-list a:hover {
             color: var(--accent);
-            transform: translateX(6px) scale(1.02);
-            text-shadow: 0 2px 8px rgba(229, 213, 197, 0.4);
+            padding-left: 4px;
         }
         .footer-socials { 
             display: flex; 
-            gap: 12px; 
-            margin-top: 15px; 
+            gap: 10px; 
+            margin-top: 12px; 
         }
         .footer-socials a { 
             color: white; 
             background: rgba(255, 255, 255, 0.08); 
-            width: 36px; height: 36px; 
+            width: 32px; height: 32px; 
             display: flex; align-items: center; justify-content: center; 
             border-radius: 50%; 
             border: 1px solid rgba(255,255,255,0.15); 
-            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1); 
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            transition: 0.3s; 
         }
         .footer-socials a:hover { 
             background: var(--accent); 
             color: #000; 
-            transform: translateY(-4px) scale(1.1); 
-            box-shadow: 0 8px 20px rgba(229, 213, 197, 0.4);
+            transform: translateY(-2px); 
         }
         .footer-bottom-bar {
             display: flex; 
@@ -419,33 +408,35 @@
             gap: 1rem; 
             padding-top: 1.5rem; 
             text-align: center;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             opacity: 0.7;
         }
         .footer-legal {
             display: flex;
-            gap: 15px;
+            gap: 12px;
             align-items: center;
             justify-content: center;
         }
         .footer-legal a {
             color: rgba(255,255,255,0.8);
             text-decoration: none;
-            transition: all 0.3s ease;
+            transition: 0.3s;
         }
         .footer-legal a:hover {
             color: var(--accent);
             text-decoration: underline;
-            transform: translateY(-2px);
         }
 
         /* --- RESPONSIVE BREAKPOINTS --- */
         @media (max-width: 1024px) {
             .packages-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
         }
 
         @media (max-width: 992px) {
-            header { padding: 0.9rem 4%; }
+            header {
+                padding: 0.9rem 4%;
+            }
             nav { gap: 2px; }
             nav a { margin: 0 4px; font-size: 0.7rem; }
             .btn-primary { padding: 7px 12px; font-size: 0.75rem; }
@@ -466,7 +457,6 @@
             .booking-section { flex-direction: column; gap: 2rem; align-items: stretch; }
             .video-preview { height: 300px; }
             .packages-grid { grid-template-columns: 1fr; }
-            .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
         }
 
         @media (max-width: 576px) {
@@ -497,15 +487,15 @@
             }
             .footer-grid {
                 grid-template-columns: 1fr;
-                gap: 2rem;
-                text-align: left;
+                gap: 1.8rem;
+                text-align: center;
             }
             .footer-socials {
-                justify-content: flex-start;
+                justify-content: center;
             }
             .footer-bottom-bar {
                 flex-direction: column;
-                gap: 12px;
+                gap: 10px;
             }
         }
     </style>
@@ -649,7 +639,7 @@
                     <div class="flip-card-front">
                         <div>
                             <div class="package-title" id="pkg1-title">The Classic Package</div>
-                            <div class="package-short-desc" id="pkg1-desc">Perfect for couples who want a beautiful and intimate pre-wedding experience in Dubai.<br><br>A Classic Dubai Package typically spans 4 to 5 days and offers the perfect balance between futuristic landmarks and traditional heritage.</div>
+                            <div class="package-short-desc" id="pkg1-desc">Perfect for couples who want a beautiful and intimate pre-wedding experience in Dubai.<br><br>A Classic Dubai Package typically spans 4 to 5 days and offers the perfect balance between the city’s futuristic landmarks and traditional culture.</div>
                         </div>
                         <div class="flip-hint">Hover / Tap to View Inclusions ↻</div>
                     </div>
@@ -675,7 +665,7 @@
                     <div class="flip-card-front">
                         <div>
                             <div class="package-title" id="pkg2-title">The Premium Package</div>
-                            <div class="package-short-desc" id="pkg2-desc">Designed for high-end couples seeking absolute elegance and privacy, covering extensive cinematic coverage, private transport, and styling support.<br><br>Elevate your experience with multi-location luxury coverage.</div>
+                            <div class="package-short-desc" id="pkg2-desc">Designed for high-end couples seeking absolute elegance and privacy, this elite tier covers extensive cinematic coverage, private transport, and styling support.<br><br>Elevate your experience with extensive multi-location luxury coverage.</div>
                         </div>
                         <div class="flip-hint">Hover / Tap to View Inclusions ↻</div>
                     </div>
@@ -701,7 +691,7 @@
                     <div class="flip-card-front">
                         <div>
                             <div class="package-title" id="pkg3-title">Royal Dubai Elite</div>
-                            <div class="package-short-desc" id="pkg3-desc">A premium pre-wedding package providing a luxury cinematic production across iconic locations like desert dunes, Burj Khalifa, and private beaches.<br><br>The ultimate luxury experience featuring private yacht and exclusive spots.</div>
+                            <div class="package-short-desc" id="pkg3-desc"><br>A premium pre-wedding package in Dubai providing a luxury cinematic production across iconic locations like desert dunes, Burj Khalifa, and private beaches.<br><br>The ultimate luxury experience featuring private yacht and exclusive spots.</div>
                         </div>
                         <div class="flip-hint">Hover / Tap to View Inclusions ↻</div>
                     </div>
@@ -916,23 +906,23 @@
         </div>
     </section>
 
-    <!-- --- 3D CINEMATIC PROFESSIONAL FOOTER --- -->
+    <!-- --- WELL-SORTED, COMPACT PROFESSIONAL FOOTER --- -->
     <footer class="site-footer">
         <div class="footer-grid">
             <!-- Column 1: Brand & Bio -->
             <div class="footer-col">
                 <div class="footer-logo" style="margin-bottom: 8px;">Dubai <span>Pre-Wedding Shoot</span></div>
                 <p style="font-style: italic; color: var(--accent); margin-bottom: 8px;">Let's Capture Your Love Story in Dubai ❤️</p>
-                <p>Contact us today to book your unforgettable pre-wedding photoshoot in Dubai with our expert cinematic team.</p>
+                <p>Book your unforgettable pre-wedding photoshoot with our expert team.</p>
                 <div class="footer-socials">
                     <a href="#" target="_blank" title="Instagram">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
                     </a>
                     <a href="#" target="_blank" title="Facebook">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
                     </a>
                     <a href="#" target="_blank" title="Twitter">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
                     </a>
                 </div>
             </div>
@@ -950,11 +940,20 @@
                 </ul>
             </div>
 
-            <!-- Column 3: Contact Details (Shifted Left & Sorted) -->
+            <!-- Column 3: Contact Details -->
             <div class="footer-col">
                 <h4>Contact Us</h4>
-                <p>📍 510 Act Two Tower,<br>Downtown Dubai, UAE</p>
-                <p style="margin-top: 8px;">📞 UAE: +971 58 824 7347<br>📞 India: +91 98552 09906</p>
+                <p>📍 510 Act Two Tower, Downtown Dubai, UAE</p>
+                <p style="margin-top: 6px;">📞 UAE: +971 58 824 7347<br>📞 India: +91 98552 09906</p>
+            </div>
+
+            <!-- Column 4: Admin Portal Access -->
+            <div class="footer-col">
+                <h4>Management</h4>
+                <p>Studio asset & inquiry control portal.</p>
+                <div style="margin-top: 10px;">
+                    <a href="admin.html" target="_blank" class="btn-primary" style="padding: 6px 14px; font-size: 0.75rem;">⚙️ Admin Panel</a>
+                </div>
             </div>
         </div>
 
