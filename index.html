@@ -39,14 +39,31 @@
         header {
             position: fixed; top: 0; width: 100%; padding: 1.2rem 5%;
             display: flex; justify-content: space-between; align-items: center;
-            z-index: 100; background: rgba(249, 248, 246, 0.98); backdrop-filter: blur(10px);
+            z-index: 1000; background: rgba(249, 248, 246, 0.98); backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(0,0,0,0.05);
         }
         .logo { font-family: var(--font-heading); font-size: 1.4rem; line-height: 1.1; }
         .logo span { font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; display: block; font-family: var(--font-body); }
-        nav { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; }
+        
+        nav { display: flex; align-items: center; gap: 6px; }
         nav a { margin: 0 6px; text-decoration: none; color: var(--text-dark); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; font-weight: 600; }
         nav a:hover { color: #885f41; }
+        
+        /* Mobile Menu Toggle Button */
+        .menu-toggle {
+            display: none;
+            background: #1A1A1A;
+            color: white;
+            border: none;
+            padding: 8px 14px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
         .btn-primary { background: var(--accent); color: #000; border: none; padding: 9px 18px; border-radius: 30px; cursor: pointer; font-weight: bold; text-decoration: none; display: inline-block; transition: 0.3s; font-size: 0.85rem; }
         .btn-primary:hover { background: #d4c2b0; transform: scale(1.05); }
         .btn-dark { background: #1A1A1A; color: #fff; border: none; padding: 12px; border-radius: 30px; cursor: pointer; font-weight: bold; width: 100%; transition: 0.3s; }
@@ -104,9 +121,9 @@
         .modal-form input::placeholder, .modal-form textarea::placeholder { color: rgba(255,255,255,0.5); }
         .modal-form select option { background: #141414; color: white; }
 
-        /* Locations Section with Auto-Scrolling Animation */
-        .locations-section { padding: 6rem 0; background-color: var(--primary-light); overflow: hidden; }
-        .locations-section .section-header { padding: 0 5%; margin-bottom: 3rem; max-width: 700px; }
+        /* Locations Section with Auto-Scroll Animation (9 Locations) */
+        .locations-section { padding: 5rem 0; background-color: var(--primary-light); overflow: hidden; }
+        .locations-section .section-header { padding: 0 5%; margin-bottom: 2.5rem; max-width: 700px; }
         .eyebrow { font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase; color: #885f41; font-weight: bold; display: block; margin-bottom: 8px; }
         .section-header h2 { font-size: 3rem; margin-bottom: 12px; line-height: 1.2; }
         .section-header p { font-size: 1.05rem; opacity: 0.75; font-style: italic; font-family: var(--font-heading); }
@@ -136,9 +153,7 @@
         .packages-section { padding: 5rem 5%; background-color: #f3efe6; }
         .packages-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 2.5rem; }
 
-        .flip-card {
-            background-color: transparent; width: 100%; height: 380px; perspective: 1000px; cursor: pointer;
-        }
+        .flip-card { background-color: transparent; width: 100%; height: 380px; perspective: 1000px; cursor: pointer; }
         .flip-card-inner {
             position: relative; width: 100%; height: 100%; text-align: left; transition: transform 0.8s;
             transform-style: preserve-3d; box-shadow: 0 10px 30px rgba(0,0,0,0.08); border-radius: 16px;
@@ -276,37 +291,68 @@
             max-width: 90vw; max-height: 85vh; object-fit: contain; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.8);
         }
 
-        /* Clean Date Input Style */
-        input[type="date"] { position: relative; color: #333; background: rgba(255, 255, 255, 0.7); }
-        input[type="date"]::-webkit-calendar-picker-indicator { cursor: pointer; opacity: 0.8; filter: none; }
+        /* Clean Date Input Style (No calendar pop-up clutter, treated like text input) */
+        input[type="date"] {
+            position: relative;
+            color: #333;
+            background: rgba(255, 255, 255, 0.7);
+            appearance: none;
+            -webkit-appearance: none;
+            min-height: 45px;
+        }
+        input[type="date"]::-webkit-calendar-picker-indicator {
+            cursor: pointer;
+            opacity: 0.8;
+            filter: none;
+        }
 
-        /* Professional Footer */
-        .site-footer { background: linear-gradient(135deg, #0f172a 0%, #070a10 100%); color: white; padding: 3rem 5% 1.5rem 5%; border-top: 1px solid rgba(255,255,255,0.1); }
-        .footer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; padding-bottom: 2.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); align-items: start; }
-        .footer-col h4 { font-family: var(--font-heading); font-size: 1.1rem; margin-bottom: 12px; color: var(--accent); letter-spacing: 0.5px; }
-        .footer-col p { font-size: 0.82rem; opacity: 0.75; line-height: 1.5; margin-bottom: 8px; }
+        /* Clean & Compact Professional Footer */
+        .site-footer { 
+            background: linear-gradient(135deg, #0f172a 0%, #070a10 100%); 
+            color: white; 
+            padding: 2.5rem 5% 1.2rem 5%; 
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        .footer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; padding-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,0.1); align-items: start; }
+        .footer-col h4 { font-family: var(--font-heading); font-size: 1rem; margin-bottom: 10px; color: var(--accent); letter-spacing: 0.5px; }
+        .footer-col p { font-size: 0.8rem; opacity: 0.75; line-height: 1.5; margin-bottom: 6px; }
         .footer-links-list { list-style: none; }
-        .footer-links-list li { margin-bottom: 6px; }
-        .footer-links-list a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 0.82rem; transition: 0.3s; }
+        .footer-links-list li { margin-bottom: 5px; }
+        .footer-links-list a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 0.8rem; transition: 0.3s; }
         .footer-links-list a:hover { color: var(--accent); padding-left: 4px; }
-        .footer-socials { display: flex; gap: 10px; margin-top: 12px; }
-        .footer-socials a { color: white; background: rgba(255, 255, 255, 0.08); width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 50%; border: 1px solid rgba(255,255,255,0.15); transition: 0.3s; }
+        .footer-socials { display: flex; gap: 8px; margin-top: 10px; }
+        .footer-socials a { color: white; background: rgba(255, 255, 255, 0.08); width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; border-radius: 50%; border: 1px solid rgba(255,255,255,0.15); transition: 0.3s; }
         .footer-socials a:hover { background: var(--accent); color: #000; transform: translateY(-2px); }
-        .footer-bottom-bar { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; padding-top: 1.5rem; text-align: center; font-size: 0.75rem; opacity: 0.7; }
-        .footer-legal { display: flex; gap: 12px; align-items: center; justify-content: center; }
+        .footer-bottom-bar { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.8rem; padding-top: 1.2rem; text-align: center; font-size: 0.72rem; opacity: 0.7; }
+        .footer-legal { display: flex; gap: 10px; align-items: center; justify-content: center; }
         .footer-legal a { color: rgba(255,255,255,0.8); text-decoration: none; transition: 0.3s; }
         .footer-legal a:hover { color: var(--accent); text-decoration: underline; }
 
+        /* --- RESPONSIVE BREAKPOINTS & MOBILE MENU --- */
         @media (max-width: 1024px) {
             .packages-grid { grid-template-columns: repeat(2, 1fr); }
-            .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+            .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
         }
 
         @media (max-width: 992px) {
-            header { padding: 0.9rem 4%; }
-            nav { gap: 2px; }
-            nav a { margin: 0 4px; font-size: 0.7rem; }
-            .btn-primary { padding: 7px 12px; font-size: 0.75rem; }
+            .menu-toggle { display: block; }
+            nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(249, 248, 246, 0.98);
+                backdrop-filter: blur(15px);
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                border-bottom: 1px solid rgba(0,0,0,0.1);
+                box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            }
+            nav.active { display: flex; }
+            nav a { margin: 10px 0; font-size: 0.9rem; }
+            
             .hero { padding: 100px 4% 40px 4%; min-height: 100vh; }
             .hero-content { flex-direction: column; text-align: center; gap: 2rem; margin-top: 20px; }
             .hero-text h1 { font-size: 2.6rem; }
@@ -318,20 +364,17 @@
         }
 
         @media (max-width: 576px) {
-            header { flex-direction: column; gap: 6px; padding: 8px; text-align: center; }
+            header { padding: 10px 15px; }
             .logo { font-size: 1.1rem; }
-            nav { justify-content: center; gap: 4px; }
-            nav a { font-size: 0.65rem; margin: 0 2px; }
-            .btn-primary { display: none; }
             .hero { padding-top: 120px; }
             .hero-text h1 { font-size: 2rem; }
             .hero-text .subtitle { font-size: 1rem; }
             .section-header h2 { font-size: 2rem; }
             .gallery-top-row { flex-direction: column; align-items: flex-start; gap: 12px; }
             .view-gallery-btn { width: 100%; justify-content: center; }
-            .footer-grid { grid-template-columns: 1fr; gap: 1.8rem; text-align: center; }
+            .footer-grid { grid-template-columns: 1fr; gap: 1.5rem; text-align: center; }
             .footer-socials { justify-content: center; }
-            .footer-bottom-bar { flex-direction: column; gap: 10px; }
+            .footer-bottom-bar { flex-direction: column; gap: 8px; }
         }
     </style>
 </head>
@@ -340,13 +383,15 @@
     <!-- Header -->
     <header class="navbar">
         <div class="logo">Dubai <br><span>Pre-Wedding Shoot</span></div>
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#packages">Packages</a>
-            <a href="#process">Process</a>
-            <a href="#testimonials">Testimonials</a>
-            <a href="#blogs">Blogs</a>
-            <a href="#gallery">Gallery</a>
+        <button class="menu-toggle" onclick="toggleMenu()">Menu ☰</button>
+        <nav id="navMenu">
+            <a href="#home" onclick="toggleMenu()">Home</a>
+            <a href="#packages" onclick="toggleMenu()">Packages</a>
+            <a href="#process" onclick="toggleMenu()">Process</a>
+            <a href="#testimonials" onclick="toggleMenu()">Testimonials</a>
+            <a href="#blogs" onclick="toggleMenu()">Blogs</a>
+            <a href="#gallery" onclick="toggleMenu()">Gallery</a>
+            <a href="admin.html" target="_blank" style="color: var(--accent); font-weight: bold;">⚙️ Admin</a>
         </nav>
         <a href="#booking" class="btn-primary">🗓️ Enquire Now</a>
     </header>
@@ -456,26 +501,26 @@
         <div class="cards-scroll-container">
             <div class="cards-scroll-row">
                 <!-- Original Set of 9 Locations -->
-                <div class="location-card"><img id="loc1-img" src="p.jpg" alt="Downtown"><div class="card-overlay"><span class="number">01</span><h4 id="loc1-text">Downtown - Wings of Mexico</h4></div></div>
-                <div class="location-card"><img id="loc2-img" src="d.jpg" alt="Burj Park"><div class="card-overlay"><span class="number">02</span><h4 id="loc2-text">Burj Park - Fountains</h4></div></div>
-                <div class="location-card"><img id="loc3-img" src="frame 01 dubai.png" alt="Yacht"><div class="card-overlay"><span class="number">03</span><h4 id="loc3-text">Yacht - Marina & Atlantis</h4></div></div>
-                <div class="location-card"><img id="loc4-img" src="f.jpg" alt="Al Seef"><div class="card-overlay"><span class="number">04</span><h4 id="loc4-text">Al Seef - Old Dubai</h4></div></div>
-                <div class="location-card"><img id="loc5-img" src="g.jpg" alt="Beach"><div class="card-overlay"><span class="number">05</span><h4 id="loc5-text">Beach - Burj Al Arab</h4></div></div>
-                <div class="location-card"><img id="loc6-img" src="y.jpg" alt="Half Road"><div class="card-overlay"><span class="number">06</span><h4 id="loc6-text">Half Road Desert - Sports Car</h4></div></div>
-                <div class="location-card"><img id="loc7-img" src="n.jpg" alt="Dunes"><div class="card-overlay"><span class="number">07</span><h4 id="loc7-text">Dunes Desert</h4></div></div>
-                <div class="location-card"><img id="loc8-img" src="r.jpeg" alt="Creek Harbour"><div class="card-overlay"><span class="number">08</span><h4 id="loc8-text">Dubai Creek Harbour</h4></div></div>
-                <div class="location-card"><img id="loc9-img" src="a.jpeg" alt="Vincitore"><div class="card-overlay"><span class="number">09</span><h4 id="loc9-text">Vincitore Boulevard</h4></div></div>
+                <div class="location-card" onclick="openSingleMedia('img', 'p.jpg')"><img id="loc1-img" src="p.jpg" alt="Downtown"><div class="card-overlay"><span class="number">01</span><h4 id="loc1-text">Downtown - Wings of Mexico</h4></div></div>
+                <div class="location-card" onclick="openSingleMedia('img', 'd.jpg')"><img id="loc2-img" src="d.jpg" alt="Burj Park"><div class="card-overlay"><span class="number">02</span><h4 id="loc2-text">Burj Park - Fountains</h4></div></div>
+                <div class="location-card" onclick="openSingleMedia('img', 'frame 01 dubai.png')"><img id="loc3-img" src="frame 01 dubai.png" alt="Yacht"><div class="card-overlay"><span class="number">03</span><h4 id="loc3-text">Yacht - Marina & Atlantis</h4></div></div>
+                <div class="location-card" onclick="openSingleMedia('img', 'f.jpg')"><img src="f.jpg" alt="Al Seef"><div class="card-overlay"><span class="number">04</span><h4>Al Seef - Old Dubai</h4></div></div>
+                <div class="location-card" onclick="openSingleMedia('img', 'g.jpg')"><img src="g.jpg" alt="Beach"><div class="card-overlay"><span class="number">05</span><h4>Beach - Burj Al Arab</h4></div></div>
+                <div class="location-card" onclick="openSingleMedia('img', 'y.jpg')"><img src="y.jpg" alt="Half Road"><div class="card-overlay"><span class="number">06</span><h4>Half Road Desert - Sports Car</h4></div></div>
+                <div class="location-card" onclick="openSingleMedia('img', 'n.jpg')"><img src="n.jpg" alt="Dunes"><div class="card-overlay"><span class="number">07</span><h4>Dunes Desert</h4></div></div>
+                <div class="location-card" onclick="openSingleMedia('img', 'r.jpeg')"><img src="r.jpeg" alt="Creek Harbour"><div class="card-overlay"><span class="number">08</span><h4>Dubai Creek Harbour</h4></div></div>
+                <div class="location-card" onclick="openSingleMedia('img', 'a.jpeg')"><img src="a.jpeg" alt="Vincitore"><div class="card-overlay"><span class="number">09</span><h4>Vincitore Boulevard</h4></div></div>
 
                 <!-- Duplicate Set for Seamless Infinite Auto-Scroll -->
-                <div class="location-card"><img src="p.jpg" alt="Downtown"><div class="card-overlay"><span class="number">01</span><h4>Downtown - Wings of Mexico</h4></div></div>
-                <div class="location-card"><img src="d.jpg" alt="Burj Park"><div class="card-overlay"><span class="number">02</span><h4>Burj Park - Fountains</h4></div></div>
-                <div class="location-card"><img src="frame 01 dubai.png" alt="Yacht"><div class="card-overlay"><span class="number">03</span><h4>Yacht - Marina & Atlantis</h4></div></div>
-                <div class="location-card"><img src="f.jpg" alt="Al Seef"><div class="card-overlay"><span class="number">04</span><h4>Al Seef - Old Dubai</h4></div></div>
-                <div class="location-card"><img src="g.jpg" alt="Beach"><div class="card-overlay"><span class="number">05</span><h4>Beach - Burj Al Arab</h4></div></div>
-                <div class="location-card"><img src="y.jpg" alt="Half Road"><div class="card-overlay"><span class="number">06</span><h4>Half Road Desert - Sports Car</h4></div></div>
-                <div class="location-card"><img src="n.jpg" alt="Dunes"><div class="card-overlay"><span class="number">07</span><h4>Dunes Desert</h4></div></div>
-                <div class="location-card"><img src="r.jpeg" alt="Creek Harbour"><div class="card-overlay"><span class="number">08</span><h4>Dubai Creek Harbour</h4></div></div>
-                <div class="location-card"><img src="a.jpeg" alt="Vincitore"><div class="card-overlay"><span class="number">09</span><h4>Vincitore Boulevard</h4></div></div>
+                <div class="location-card" onclick="openSingleMedia('img', 'p.jpg')"><img src="p.jpg" alt="Downtown"><div class="card-overlay"><span class="number">01</span><h4>Downtown - Wings of Mexico</h4></div></div>
+                <div class="location-card" onclick="openSingleMedia('img', 'd.jpg')"><img src="d.jpg" alt="Burj Park"><div class="card-overlay"><span class="number">02</span><h4>Burj Park - Fountains</h4></div></div>
+                <div class="location-card" onclick="openSingleMedia('img', 'frame 01 dubai.png')"><img src="frame 01 dubai.png" alt="Yacht"><div class="card-overlay"><span class="number">03</span><h4>Yacht - Marina & Atlantis</h4></div></div>
+                <div class="location-card" onclick="openSingleMedia('img', 'f.jpg')"><img src="f.jpg" alt="Al Seef"><div class="card-overlay"><span class="number">04</span><h4>Al Seef - Old Dubai</h4></div></div>
+                <div class="location-card" onclick="openSingleMedia('img', 'g.jpg')"><img src="g.jpg" alt="Beach"><div class="card-overlay"><span class="number">05</span><h4>Beach - Burj Al Arab</h4></div></div>
+                <div class="location-card" onclick="openSingleMedia('img', 'y.jpg')"><img src="y.jpg" alt="Half Road"><div class="card-overlay"><span class="number">06</span><h4>Half Road Desert - Sports Car</h4></div></div>
+                <div class="location-card" onclick="openSingleMedia('img', 'n.jpg')"><img src="n.jpg" alt="Dunes"><div class="card-overlay"><span class="number">07</span><h4>Dunes Desert</h4></div></div>
+                <div class="location-card" onclick="openSingleMedia('img', 'r.jpeg')"><img src="r.jpeg" alt="Creek Harbour"><div class="card-overlay"><span class="number">08</span><h4>Dubai Creek Harbour</h4></div></div>
+                <div class="location-card" onclick="openSingleMedia('img', 'a.jpeg')"><img src="a.jpeg" alt="Vincitore"><div class="card-overlay"><span class="number">09</span><h4>Vincitore Boulevard</h4></div></div>
             </div>
         </div>
     </section>
@@ -713,7 +758,7 @@
             <form id="bookingForm" onsubmit="handleBooking(event)">
                 <input type="text" id="bookName" placeholder="Your Full Name" required>
                 <input type="tel" id="bookPhone" placeholder="WhatsApp / Phone Number" required>
-                <input type="date" id="bookDate" placeholder="Select Date" required>
+                <input type="text" id="bookDate" placeholder="Select Date (e.g., 25 Dec 2026)" required>
                 <select id="bookLocation" required>
                     <option value="">Choose Location</option>
                     <option value="Desert Safari">Desert Safari</option>
@@ -765,18 +810,18 @@
     <footer class="site-footer">
         <div class="footer-grid">
             <div class="footer-col">
-                <div class="footer-logo" style="margin-bottom: 10px;">Dubai <span>Pre-Wedding Shoot</span></div>
-                <p style="font-style: italic; color: var(--accent); margin-bottom: 10px;">Let's Capture Your Love Story in Dubai ❤️</p>
-                <p>Contact us today to book your unforgettable pre-wedding photoshoot in Dubai with our expert cinematic team.</p>
+                <div class="footer-logo" style="margin-bottom: 8px;">Dubai <span>Pre-Wedding Shoot</span></div>
+                <p style="font-style: italic; color: var(--accent); margin-bottom: 8px;">Let's Capture Your Love Story in Dubai ❤️</p>
+                <p>Contact us today to book your unforgettable pre-wedding photoshoot.</p>
                 <div class="footer-socials">
                     <a href="#" target="_blank" title="Instagram">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
                     </a>
                     <a href="#" target="_blank" title="Facebook">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
                     </a>
                     <a href="#" target="_blank" title="Twitter">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
                     </a>
                 </div>
             </div>
@@ -795,15 +840,15 @@
 
             <div class="footer-col">
                 <h4>Contact Us</h4>
-                <p>📍 510 Act Two Tower,<br>Downtown Dubai, UAE</p>
-                <p style="margin-top: 8px;">📞 UAE: +971 58 824 7347<br>📞 India: +91 98552 09906</p>
+                <p>📍 510 Act Two Tower, Downtown Dubai, UAE</p>
+                <p style="margin-top: 6px;">📞 UAE: +971 58 824 7347<br>📞 India: +91 98552 09906</p>
             </div>
 
             <div class="footer-col">
                 <h4>Management</h4>
-                <p>Authorized access for studio asset and inquiry management.</p>
-                <div style="margin-top: 12px;">
-                    <a href="admin.html" target="_blank" class="btn-primary" style="padding: 7px 16px; font-size: 0.75rem;">⚙️ Admin Panel</a>
+                <p>Studio asset & inquiry access.</p>
+                <div style="margin-top: 10px;">
+                    <a href="admin.html" target="_blank" class="btn-primary" style="padding: 6px 14px; font-size: 0.7rem;">⚙️ Admin Panel</a>
                 </div>
             </div>
         </div>
@@ -821,6 +866,12 @@
 
     <!-- Scripts -->
     <script>
+        // Toggle Mobile Menu
+        function toggleMenu() {
+            const menu = document.getElementById('navMenu');
+            menu.classList.toggle('active');
+        }
+
         document.addEventListener('contextmenu', function(e) {
             if (e.target.nodeName === 'IMG' || e.target.nodeName === 'VIDEO') {
                 e.preventDefault();
@@ -873,7 +924,7 @@
                 <div class="blog-modal-header">${date}</div>
                 <h2 class="blog-modal-title">${title}</h2>
                 <img src="${imgSrc}" alt="${title}" class="blog-modal-img">
-                <div class="blog-blog-body">${contentHtml}</div>
+                <div class="blog-modal-body">${contentHtml}</div>
             `;
             document.getElementById('blogModal').style.display = 'flex';
             document.body.style.overflow = 'hidden';
@@ -920,7 +971,7 @@
             closeModal('themeModal');
         }
 
-        // Dynamic Synchronization (Hero, Booking, Locations, Packages, Testimonials, Blogs)
+        // Dynamic Synchronization
         document.addEventListener("DOMContentLoaded", () => {
             const heroBg = localStorage.getItem('heroImage');
             const bookingImg = localStorage.getItem('bookingImage');
@@ -932,20 +983,6 @@
             if(bookingImg) {
                 const bookImgEl = document.getElementById('booking-img');
                 if(bookImgEl) bookImgEl.src = bookingImg;
-            }
-
-            // Sync Locations (3 main display nodes or text)
-            for(let i=1; i<=3; i++) {
-                const img = localStorage.getItem(`loc${i}Img`);
-                const title = localStorage.getItem(`loc${i}Title`);
-                if(img) {
-                    const el = document.getElementById(`loc${i}-img`);
-                    if(el) el.src = img;
-                }
-                if(title) {
-                    const el = document.getElementById(`loc${i}-text`);
-                    if(el) el.innerText = title;
-                }
             }
 
             // Sync Packages (3)
@@ -997,6 +1034,20 @@
                 if(d) {
                     const el = document.getElementById(`blog${i}-desc`);
                     if(el) el.innerText = d;
+                }
+            }
+
+            // Sync Gallery Grid Items (2 to 9)
+            for(let i=2; i<=9; i++) {
+                const img = localStorage.getItem(`gal${i}Img`);
+                const lbl = localStorage.getItem(`gal${i}Text`);
+                if(img) {
+                    const el = document.getElementById(`gal${i}-img`);
+                    if(el) el.src = img;
+                }
+                if(lbl) {
+                    const el = document.getElementById(`gal${i}-label`);
+                    if(el) el.innerText = lbl;
                 }
             }
         });
