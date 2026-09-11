@@ -336,68 +336,80 @@
         input[type="date"] { position: relative; color: #333; background: rgba(255, 255, 255, 0.7); }
         input[type="date"]::-webkit-calendar-picker-indicator { cursor: pointer; opacity: 0.8; filter: none; }
 
-        /* --- COMPACT & WELL-SORTED PROFESSIONAL FOOTER --- */
+        /* --- 3D CINEMATIC PROFESSIONAL FOOTER --- */
         .site-footer { 
             background: linear-gradient(135deg, #0f172a 0%, #070a10 100%); 
             color: white; 
-            padding: 3rem 5% 1.5rem 5%; 
+            padding: 3.5rem 5% 1.5rem 5%; 
             border-top: 1px solid rgba(255,255,255,0.1);
+            transform: perspective(1000px);
+            box-shadow: inset 0 20px 40px rgba(0,0,0,0.6);
         }
         .footer-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
+            grid-template-columns: 1.5fr 1fr 1.2fr;
+            gap: 3rem;
             padding-bottom: 2.5rem;
             border-bottom: 1px solid rgba(255,255,255,0.1);
             align-items: start;
         }
         .footer-col h4 {
             font-family: var(--font-heading);
-            font-size: 1.1rem;
-            margin-bottom: 12px;
+            font-size: 1.15rem;
+            margin-bottom: 14px;
             color: var(--accent);
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
         .footer-col p {
-            font-size: 0.82rem;
+            font-size: 0.88rem;
             opacity: 0.75;
-            line-height: 1.5;
-            margin-bottom: 8px;
+            line-height: 1.6;
+            margin-bottom: 10px;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+        .footer-col p:hover {
+            opacity: 1;
+            transform: translateX(4px);
         }
         .footer-links-list {
             list-style: none;
         }
         .footer-links-list li {
-            margin-bottom: 6px;
+            margin-bottom: 8px;
         }
         .footer-links-list a {
             color: rgba(255,255,255,0.75);
             text-decoration: none;
-            font-size: 0.82rem;
-            transition: 0.3s;
+            font-size: 0.88rem;
+            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+            display: inline-block;
         }
         .footer-links-list a:hover {
             color: var(--accent);
-            padding-left: 4px;
+            transform: translateX(6px) scale(1.02);
+            text-shadow: 0 2px 8px rgba(229, 213, 197, 0.4);
         }
         .footer-socials { 
             display: flex; 
-            gap: 10px; 
-            margin-top: 12px; 
+            gap: 12px; 
+            margin-top: 15px; 
         }
         .footer-socials a { 
             color: white; 
             background: rgba(255, 255, 255, 0.08); 
-            width: 32px; height: 32px; 
+            width: 36px; height: 36px; 
             display: flex; align-items: center; justify-content: center; 
             border-radius: 50%; 
             border: 1px solid rgba(255,255,255,0.15); 
-            transition: 0.3s; 
+            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1); 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
         .footer-socials a:hover { 
             background: var(--accent); 
             color: #000; 
-            transform: translateY(-2px); 
+            transform: translateY(-4px) scale(1.1); 
+            box-shadow: 0 8px 20px rgba(229, 213, 197, 0.4);
         }
         .footer-bottom-bar {
             display: flex; 
@@ -407,35 +419,33 @@
             gap: 1rem; 
             padding-top: 1.5rem; 
             text-align: center;
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             opacity: 0.7;
         }
         .footer-legal {
             display: flex;
-            gap: 12px;
+            gap: 15px;
             align-items: center;
             justify-content: center;
         }
         .footer-legal a {
             color: rgba(255,255,255,0.8);
             text-decoration: none;
-            transition: 0.3s;
+            transition: all 0.3s ease;
         }
         .footer-legal a:hover {
             color: var(--accent);
             text-decoration: underline;
+            transform: translateY(-2px);
         }
 
         /* --- RESPONSIVE BREAKPOINTS --- */
         @media (max-width: 1024px) {
             .packages-grid { grid-template-columns: repeat(2, 1fr); }
-            .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
         }
 
         @media (max-width: 992px) {
-            header {
-                padding: 0.9rem 4%;
-            }
+            header { padding: 0.9rem 4%; }
             nav { gap: 2px; }
             nav a { margin: 0 4px; font-size: 0.7rem; }
             .btn-primary { padding: 7px 12px; font-size: 0.75rem; }
@@ -456,6 +466,7 @@
             .booking-section { flex-direction: column; gap: 2rem; align-items: stretch; }
             .video-preview { height: 300px; }
             .packages-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
         }
 
         @media (max-width: 576px) {
@@ -486,15 +497,15 @@
             }
             .footer-grid {
                 grid-template-columns: 1fr;
-                gap: 1.8rem;
-                text-align: center;
+                gap: 2rem;
+                text-align: left;
             }
             .footer-socials {
-                justify-content: center;
+                justify-content: flex-start;
             }
             .footer-bottom-bar {
                 flex-direction: column;
-                gap: 10px;
+                gap: 12px;
             }
         }
     </style>
@@ -638,7 +649,7 @@
                     <div class="flip-card-front">
                         <div>
                             <div class="package-title" id="pkg1-title">The Classic Package</div>
-                            <div class="package-short-desc" id="pkg1-desc">Perfect for couples who want a beautiful and intimate pre-wedding experience in Dubai[cite: 1].<br><br>A Classic Dubai Package typically spans 4 to 5 days and offers the perfect balance between the city’s futuristic landmarks and traditional culture.</div>
+                            <div class="package-short-desc" id="pkg1-desc">Perfect for couples who want a beautiful and intimate pre-wedding experience in Dubai.<br><br>A Classic Dubai Package typically spans 4 to 5 days and offers the perfect balance between futuristic landmarks and traditional heritage.</div>
                         </div>
                         <div class="flip-hint">Hover / Tap to View Inclusions ↻</div>
                     </div>
@@ -664,7 +675,7 @@
                     <div class="flip-card-front">
                         <div>
                             <div class="package-title" id="pkg2-title">The Premium Package</div>
-                            <div class="package-short-desc" id="pkg2-desc">Designed for high-end couples seeking absolute elegance and privacy, this elite tier covers extensive cinematic coverage, private transport, and styling support.<br><br>Elevate your experience with extensive multi-location luxury coverage[cite: 1].</div>
+                            <div class="package-short-desc" id="pkg2-desc">Designed for high-end couples seeking absolute elegance and privacy, covering extensive cinematic coverage, private transport, and styling support.<br><br>Elevate your experience with multi-location luxury coverage.</div>
                         </div>
                         <div class="flip-hint">Hover / Tap to View Inclusions ↻</div>
                     </div>
@@ -690,7 +701,7 @@
                     <div class="flip-card-front">
                         <div>
                             <div class="package-title" id="pkg3-title">Royal Dubai Elite</div>
-                            <div class="package-short-desc" id="pkg3-desc"><br>A premium pre-wedding package in Dubai providing a luxury cinematic production across iconic locations like desert dunes, Burj Khalifa, and private beaches.<br><br>The ultimate luxury experience featuring private yacht and exclusive spots.</div>
+                            <div class="package-short-desc" id="pkg3-desc">A premium pre-wedding package providing a luxury cinematic production across iconic locations like desert dunes, Burj Khalifa, and private beaches.<br><br>The ultimate luxury experience featuring private yacht and exclusive spots.</div>
                         </div>
                         <div class="flip-hint">Hover / Tap to View Inclusions ↻</div>
                     </div>
@@ -905,13 +916,13 @@
         </div>
     </section>
 
-    <!-- --- WELL-SORTED, CLEAN PROFESSIONAL FOOTER --- -->
+    <!-- --- 3D CINEMATIC PROFESSIONAL FOOTER --- -->
     <footer class="site-footer">
         <div class="footer-grid">
             <!-- Column 1: Brand & Bio -->
             <div class="footer-col">
-                <div class="footer-logo" style="margin-bottom: 10px;">Dubai <span>Pre-Wedding Shoot</span></div>
-                <p style="font-style: italic; color: var(--accent); margin-bottom: 10px;">Let's Capture Your Love Story in Dubai ❤️</p>
+                <div class="footer-logo" style="margin-bottom: 8px;">Dubai <span>Pre-Wedding Shoot</span></div>
+                <p style="font-style: italic; color: var(--accent); margin-bottom: 8px;">Let's Capture Your Love Story in Dubai ❤️</p>
                 <p>Contact us today to book your unforgettable pre-wedding photoshoot in Dubai with our expert cinematic team.</p>
                 <div class="footer-socials">
                     <a href="#" target="_blank" title="Instagram">
@@ -939,20 +950,11 @@
                 </ul>
             </div>
 
-            <!-- Column 3: Contact Details -->
+            <!-- Column 3: Contact Details (Shifted Left & Sorted) -->
             <div class="footer-col">
                 <h4>Contact Us</h4>
                 <p>📍 510 Act Two Tower,<br>Downtown Dubai, UAE</p>
                 <p style="margin-top: 8px;">📞 UAE: +971 58 824 7347<br>📞 India: +91 98552 09906</p>
-            </div>
-
-            <!-- Column 4: Admin & Portal Access -->
-            <div class="footer-col">
-                <h4>Management</h4>
-                <p>Authorized access for studio asset and inquiry management.</p>
-                <div style="margin-top: 12px;">
-                    <a href="admin.html" target="_blank" class="btn-primary" style="padding: 7px 16px; font-size: 0.75rem;">⚙️ Admin Panel</a>
-                </div>
             </div>
         </div>
 
