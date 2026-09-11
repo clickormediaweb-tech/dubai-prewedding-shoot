@@ -40,7 +40,7 @@
 
         h2 { font-family: var(--font-heading); font-size: 2.4rem; margin-bottom: 8px; color: #111; }
         .subtitle { color: #666; margin-bottom: 35px; font-size: 1rem; font-style: italic; font-family: var(--font-heading); }
-        
+
         .section-title {
             font-family: var(--font-heading);
             font-size: 1.4rem;
@@ -73,7 +73,7 @@
             letter-spacing: 1px; text-transform: uppercase;
         }
         .btn-save:hover { background: #b89753; transform: translateY(-3px); }
-        
+
         .success-msg {
             color: #2e7d32; background: #e8f5e9; border: 1px solid #c8e6c9;
             padding: 12px; border-radius: 8px; font-weight: bold; text-align: center;
@@ -105,23 +105,17 @@
         <input type="file" id="bookFile" accept="image/*">
     </div>
 
-    <!-- 2. LOCATION CARDS (3 CARDS) -->
-    <div class="section-title">📍 Location Cards (3 Cards)</div>
-    <div class="form-group">
-        <label>Location Card 1 (Image & Title)</label>
-        <input type="file" id="loc1File" accept="image/*">
-        <input type="text" id="loc1Title" placeholder="Location 1 Title">
-    </div>
-    <div class="form-group">
-        <label>Location Card 2 (Image & Title)</label>
-        <input type="file" id="loc2File" accept="image/*">
-        <input type="text" id="loc2Title" placeholder="Location 2 Title">
-    </div>
-    <div class="form-group">
-        <label>Location Card 3 (Image & Title)</label>
-        <input type="file" id="loc3File" accept="image/*">
-        <input type="text" id="loc3Title" placeholder="Location 3 Title">
-    </div>
+    <!-- 2. LOCATION CARDS (9 CARDS) -->
+    <div class="section-title">📍 Location Cards (9 Cards)</div>
+    <div class="form-group"><label>Location Card 1 (Image & Title)</label><input type="file" id="loc1File" accept="image/*"><input type="text" id="loc1Title" placeholder="Location 1 Title"></div>
+    <div class="form-group"><label>Location Card 2 (Image & Title)</label><input type="file" id="loc2File" accept="image/*"><input type="text" id="loc2Title" placeholder="Location 2 Title"></div>
+    <div class="form-group"><label>Location Card 3 (Image & Title)</label><input type="file" id="loc3File" accept="image/*"><input type="text" id="loc3Title" placeholder="Location 3 Title"></div>
+    <div class="form-group"><label>Location Card 4 (Image & Title)</label><input type="file" id="loc4File" accept="image/*"><input type="text" id="loc4Title" placeholder="Location 4 Title"></div>
+    <div class="form-group"><label>Location Card 5 (Image & Title)</label><input type="file" id="loc5File" accept="image/*"><input type="text" id="loc5Title" placeholder="Location 5 Title"></div>
+    <div class="form-group"><label>Location Card 6 (Image & Title)</label><input type="file" id="loc6File" accept="image/*"><input type="text" id="loc6Title" placeholder="Location 6 Title"></div>
+    <div class="form-group"><label>Location Card 7 (Image & Title)</label><input type="file" id="loc7File" accept="image/*"><input type="text" id="loc7Title" placeholder="Location 7 Title"></div>
+    <div class="form-group"><label>Location Card 8 (Image & Title)</label><input type="file" id="loc8File" accept="image/*"><input type="text" id="loc8Title" placeholder="Location 8 Title"></div>
+    <div class="form-group"><label>Location Card 9 (Image & Title)</label><input type="file" id="loc9File" accept="image/*"><input type="text" id="loc9Title" placeholder="Location 9 Title"></div>
 
     <!-- 3. PACKAGES CARDS (3 CARDS) -->
     <div class="section-title">📦 Packages Cards (3 Cards)</div>
@@ -248,8 +242,8 @@
         if (heroFile) localStorage.setItem('heroImage', await convertToBase64(heroFile));
         if (bookFile) localStorage.setItem('bookingImage', await convertToBase64(bookFile));
 
-        // Locations (3)
-        for(let i=1; i<=3; i++) {
+        // Locations (9 Cards)
+        for(let i=1; i<=9; i++) {
             const f = document.getElementById(`loc${i}File`).files[0];
             const t = document.getElementById(`loc${i}Title`).value;
             if(f) localStorage.setItem(`loc${i}Img`, await convertToBase64(f));
