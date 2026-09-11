@@ -28,22 +28,6 @@
             user-select: none;
         }
 
-        /* Sabhi Images, Videos aur Background Elements par saving/dragging block karne ke liye */
-        img, video {
-            -webkit-user-drag: none;
-            user-select: none;
-            pointer-events: none !important;
-        }
-
-        .hero, .video-preview {
-            -webkit-touch-callout: none;
-        }
-
-        /* Buttons aur interactive elements active rakhne ke liye */
-        button, a, input, select, textarea, .close-btn, .gallery-item, .story-thumb, .location-card, .testimonial-img-wrap, .blog-card, .widget-features li {
-            pointer-events: auto !important;
-        }
-
         h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: 400; }
 
         /* Navbar */
@@ -147,7 +131,8 @@
         }
 
         .location-card { flex: 0 0 300px; width: 300px; height: 400px; border-radius: 15px; overflow: hidden; position: relative; cursor: pointer; box-shadow: 0 10px 25px rgba(0,0,0,0.1); background: #000; }
-        .location-card img { width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform 0.6s ease; }
+        .location-card img { width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform 0.6s ease; pointer-events: none; }
+        .location-card:hover img { transform: scale(1.08); }
 
         .card-overlay {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
@@ -200,7 +185,8 @@
         }
         .testimonial-card:hover { transform: translateY(-5px); }
         .testimonial-img-wrap { width: 100%; height: 220px; overflow: hidden; position: relative; cursor: pointer; }
-        .testimonial-img-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform 0.6s ease; }
+        .testimonial-img-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform 0.6s ease; pointer-events: none; }
+        .testimonial-card:hover .testimonial-img-wrap img { transform: scale(1.05); }
         .testimonial-body { padding: 25px; display: flex; flex-direction: column; justify-content: space-between; flex: 1; }
         .testimonial-card p { font-style: italic; font-family: var(--font-heading); font-size: 1rem; line-height: 1.5; margin-bottom: 15px; color: #333; }
         .client-info h5 { font-size: 1.1rem; font-family: var(--font-heading); color: #111; }
@@ -215,7 +201,8 @@
         }
         .blog-card:hover { transform: translateY(-5px); box-shadow: 0 12px 30px rgba(0,0,0,0.08); }
         .blog-img-wrap { width: 100%; height: 150px; overflow: hidden; position: relative; }
-        .blog-img-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform 0.6s ease; }
+        .blog-img-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform 0.6s ease; pointer-events: none; }
+        .blog-card:hover .blog-img-wrap img { transform: scale(1.08); }
         .blog-body { padding: 18px; }
         .blog-date { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 2px; color: #885f41; margin-bottom: 5px; font-weight: bold; }
         .blog-body h3 { font-size: 1.05rem; margin-bottom: 6px; line-height: 1.3; font-family: var(--font-heading); }
@@ -232,7 +219,7 @@
         }
         .blog-modal-header { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 3px; color: #885f41; margin-bottom: 8px; font-weight: bold; }
         .blog-modal-title { font-size: 2.2rem; font-family: var(--font-heading); margin-bottom: 18px; line-height: 1.2; color: #111; }
-        .blog-modal-img { width: 100%; height: 300px; object-fit: cover; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 12px 30px rgba(0,0,0,0.15); }
+        .blog-modal-img { width: 100%; height: 300px; object-fit: cover; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 12px 30px rgba(0,0,0,0.15); pointer-events: none; }
         .blog-modal-body { font-size: 1rem; line-height: 1.7; opacity: 0.85; font-family: var(--font-body); color: #333; }
         .blog-modal-body p { margin-bottom: 15px; }
 
@@ -244,7 +231,7 @@
         .glass-form input, .glass-form select, .glass-form textarea { width: 100%; padding: 11px 14px; margin-bottom: 12px; border: 1px solid rgba(0,0,0,0.1); border-radius: 10px; background: rgba(255,255,255,0.6); font-family: var(--font-body); outline: none; font-size: 0.95rem; }
 
         .video-preview { flex: 1; border-radius: 20px; overflow: hidden; position: relative; height: 480px; background: #000; box-shadow: 0 15px 35px rgba(0,0,0,0.08); }
-        .video-preview img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+        .video-preview img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; pointer-events: none; }
 
         /* Gallery Section */
         .gallery-section { padding: 5rem 5%; background-color: var(--primary-light); overflow: hidden; }
@@ -267,7 +254,8 @@
         }
 
         .story-thumb { flex: 0 0 280px; width: 280px; height: 380px; border-radius: 16px; overflow: hidden; cursor: pointer; position: relative; box-shadow: 0 10px 25px rgba(0,0,0,0.1); background: #000; }
-        .story-thumb img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; transition: transform 0.6s ease; }
+        .story-thumb img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; transition: transform 0.6s ease; pointer-events: none; }
+        .story-thumb:hover img { transform: scale(1.08); }
 
         /* Full Gallery Modal Styling */
         #galleryModal .modal-content { background: #F9F8F6; color: #1A1A1A; border: 1px solid #E5D5C5; max-width: 1100px; padding: 2.5rem; }
@@ -280,7 +268,8 @@
             box-shadow: 0 8px 20px rgba(0,0,0,0.06); border: 1px solid #ddd; height: 220px;
             display: flex; align-items: center; justify-content: center; cursor: pointer;
         }
-        .gallery-item img, .gallery-item video { width: 100%; height: 100%; object-fit: cover; background: #f4f1ea; display: block; transition: transform 0.4s ease; }
+        .gallery-item img, .gallery-item video { width: 100%; height: 100%; object-fit: cover; background: #f4f1ea; display: block; transition: transform 0.4s ease; pointer-events: none; }
+        .gallery-item:hover img, .gallery-item:hover video { transform: scale(1.03); }
         .gallery-label {
             position: absolute; bottom: 0; left: 0; width: 100%; padding: 8px 12px;
             background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); color: #fff;
@@ -294,6 +283,7 @@
         }
         #singleImageModal img, #singleImageModal video {
             max-width: 90vw; max-height: 85vh; object-fit: contain; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.8);
+            pointer-events: none;
         }
 
         /* Clean Text Input Style for Date */
@@ -493,26 +483,26 @@
         </div>
         <div class="cards-scroll-container">
             <div class="cards-scroll-row">
-                <div class="location-card" onclick="openSingleMedia('img', 'p.jpg')"><img id="loc1-img" src="p.jpg" alt="Downtown"><div class="card-overlay"><span class="number">01</span><h4 id="loc1-text">Downtown - Wings of Mexico</h4></div></div>
-                <div class="location-card" onclick="openSingleMedia('img', 'd.jpg')"><img id="loc2-img" src="d.jpg" alt="Burj Park"><div class="card-overlay"><span class="number">02</span><h4 id="loc2-text">Burj Park - Fountains</h4></div></div>
-                <div class="location-card" onclick="openSingleMedia('img', 'frame 01 dubai.png')"><img id="loc3-img" src="frame 01 dubai.png" alt="Yacht"><div class="card-overlay"><span class="number">03</span><h4 id="loc3-text">Yacht - Marina & Atlantis</h4></div></div>
-                <div class="location-card" onclick="openSingleMedia('img', 'f.jpg')"><img src="f.jpg" alt="Al Seef"><div class="card-overlay"><span class="number">04</span><h4>Al Seef - Old Dubai</h4></div></div>
-                <div class="location-card" onclick="openSingleMedia('img', 'g.jpg')"><img src="g.jpg" alt="Beach"><div class="card-overlay"><span class="number">05</span><h4>Beach - Burj Al Arab</h4></div></div>
-                <div class="location-card" onclick="openSingleMedia('img', 'y.jpg')"><img src="y.jpg" alt="Half Road"><div class="card-overlay"><span class="number">06</span><h4>Half Road Desert - Sports Car</h4></div></div>
-                <div class="location-card" onclick="openSingleMedia('img', 'n.jpg')"><img src="n.jpg" alt="Dunes"><div class="card-overlay"><span class="number">07</span><h4>Dunes Desert</h4></div></div>
-                <div class="location-card" onclick="openSingleMedia('img', 'r.jpeg')"><img src="r.jpeg" alt="Creek Harbour"><div class="card-overlay"><span class="number">08</span><h4>Dubai Creek Harbour</h4></div></div>
-                <div class="location-card" onclick="openSingleMedia('img', 'a.jpeg')"><img src="a.jpeg" alt="Vincitore"><div class="card-overlay"><span class="number">09</span><h4>Vincitore Boulevard</h4></div></div>
+                <div class="location-card" onclick="openSingleMedia('img', document.getElementById('loc1-img').src)"><img id="loc1-img" src="p.jpg" alt="Downtown"><div class="card-overlay"><span class="number">01</span><h4 id="loc1-text">Downtown - Wings of Mexico</h4></div></div>
+                <div class="location-card" onclick="openSingleMedia('img', document.getElementById('loc2-img').src)"><img id="loc2-img" src="d.jpg" alt="Burj Park"><div class="card-overlay"><span class="number">02</span><h4 id="loc2-text">Burj Park - Fountains</h4></div></div>
+                <div class="location-card" onclick="openSingleMedia('img', document.getElementById('loc3-img').src)"><img id="loc3-img" src="frame 01 dubai.png" alt="Yacht"><div class="card-overlay"><span class="number">03</span><h4 id="loc3-text">Yacht - Marina & Atlantis</h4></div></div>
+                <div class="location-card" onclick="openSingleMedia('img', document.getElementById('loc4-img').src)"><img id="loc4-img" src="f.jpg" alt="Al Seef"><div class="card-overlay"><span class="number">04</span><h4 id="loc4-text">Al Seef - Old Dubai</h4></div></div>
+                <div class="location-card" onclick="openSingleMedia('img', document.getElementById('loc5-img').src)"><img id="loc5-img" src="g.jpg" alt="Beach"><div class="card-overlay"><span class="number">05</span><h4 id="loc5-text">Beach - Burj Al Arab</h4></div></div>
+                <div class="location-card" onclick="openSingleMedia('img', document.getElementById('loc6-img').src)"><img id="loc6-img" src="y.jpg" alt="Half Road"><div class="card-overlay"><span class="number">06</span><h4 id="loc6-text">Half Road Desert - Sports Car</h4></div></div>
+                <div class="location-card" onclick="openSingleMedia('img', document.getElementById('loc7-img').src)"><img id="loc7-img" src="n.jpg" alt="Dunes"><div class="card-overlay"><span class="number">07</span><h4 id="loc7-text">Dunes Desert</h4></div></div>
+                <div class="location-card" onclick="openSingleMedia('img', document.getElementById('loc8-img').src)"><img id="loc8-img" src="r.jpeg" alt="Creek Harbour"><div class="card-overlay"><span class="number">08</span><h4 id="loc8-text">Dubai Creek Harbour</h4></div></div>
+                <div class="location-card" onclick="openSingleMedia('img', document.getElementById('loc9-img').src)"><img id="loc9-img" src="a.jpeg" alt="Vincitore"><div class="card-overlay"><span class="number">09</span><h4 id="loc9-text">Vincitore Boulevard</h4></div></div>
 
                 <!-- Duplicate for Smooth Infinite Scroll -->
-                <div class="location-card" onclick="openSingleMedia('img', 'p.jpg')"><img src="p.jpg" alt="Downtown"><div class="card-overlay"><span class="number">01</span><h4>Downtown - Wings of Mexico</h4></div></div>
-                <div class="location-card" onclick="openSingleMedia('img', 'd.jpg')"><img src="d.jpg" alt="Burj Park"><div class="card-overlay"><span class="number">02</span><h4>Burj Park - Fountains</h4></div></div>
-                <div class="location-card" onclick="openSingleMedia('img', 'frame 01 dubai.png')"><img src="frame 01 dubai.png" alt="Yacht"><div class="card-overlay"><span class="number">03</span><h4>Yacht - Marina & Atlantis</h4></div></div>
-                <div class="location-card" onclick="openSingleMedia('img', 'f.jpg')"><img src="f.jpg" alt="Al Seef"><div class="card-overlay"><span class="number">04</span><h4>Al Seef - Old Dubai</h4></div></div>
-                <div class="location-card" onclick="openSingleMedia('img', 'g.jpg')"><img src="g.jpg" alt="Beach"><div class="card-overlay"><span class="number">05</span><h4>Beach - Burj Al Arab</h4></div></div>
-                <div class="location-card" onclick="openSingleMedia('img', 'y.jpg')"><img src="y.jpg" alt="Half Road"><div class="card-overlay"><span class="number">06</span><h4>Half Road Desert - Sports Car</h4></div></div>
-                <div class="location-card" onclick="openSingleMedia('img', 'n.jpg')"><img src="n.jpg" alt="Dunes"><div class="card-overlay"><span class="number">07</span><h4>Dunes Desert</h4></div></div>
-                <div class="location-card" onclick="openSingleMedia('img', 'r.jpeg')"><img src="r.jpeg" alt="Creek Harbour"><div class="card-overlay"><span class="number">08</span><h4>Dubai Creek Harbour</h4></div></div>
-                <div class="location-card" onclick="openSingleMedia('img', 'a.jpeg')"><img src="a.jpeg" alt="Vincitore"><div class="card-overlay"><span class="number">09</span><h4>Vincitore Boulevard</h4></div></div>
+                <div class="location-card" onclick="openSingleMedia('img', document.getElementById('loc1-img').src)"><img src="p.jpg" alt="Downtown"><div class="card-overlay"><span class="number">01</span><h4>Downtown - Wings of Mexico</h4></div></div>
+                <div class="location-card" onclick="openSingleMedia('img', document.getElementById('loc2-img').src)"><img src="d.jpg" alt="Burj Park"><div class="card-overlay"><span class="number">02</span><h4>Burj Park - Fountains</h4></div></div>
+                <div class="location-card" onclick="openSingleMedia('img', document.getElementById('loc3-img').src)"><img src="frame 01 dubai.png" alt="Yacht"><div class="card-overlay"><span class="number">03</span><h4>Yacht - Marina & Atlantis</h4></div></div>
+                <div class="location-card" onclick="openSingleMedia('img', document.getElementById('loc4-img').src)"><img src="f.jpg" alt="Al Seef"><div class="card-overlay"><span class="number">04</span><h4>Al Seef - Old Dubai</h4></div></div>
+                <div class="location-card" onclick="openSingleMedia('img', document.getElementById('loc5-img').src)"><img src="g.jpg" alt="Beach"><div class="card-overlay"><span class="number">05</span><h4>Beach - Burj Al Arab</h4></div></div>
+                <div class="location-card" onclick="openSingleMedia('img', document.getElementById('loc6-img').src)"><img src="y.jpg" alt="Half Road"><div class="card-overlay"><span class="number">06</span><h4>Half Road Desert - Sports Car</h4></div></div>
+                <div class="location-card" onclick="openSingleMedia('img', document.getElementById('loc7-img').src)"><img src="n.jpg" alt="Dunes"><div class="card-overlay"><span class="number">07</span><h4>Dunes Desert</h4></div></div>
+                <div class="location-card" onclick="openSingleMedia('img', document.getElementById('loc8-img').src)"><img src="r.jpeg" alt="Creek Harbour"><div class="card-overlay"><span class="number">08</span><h4>Dubai Creek Harbour</h4></div></div>
+                <div class="location-card" onclick="openSingleMedia('img', document.getElementById('loc9-img').src)"><img src="a.jpeg" alt="Vincitore"><div class="card-overlay"><span class="number">09</span><h4>Vincitore Boulevard</h4></div></div>
             </div>
         </div>
     </section>
@@ -873,9 +863,9 @@
             menu.classList.toggle('active');
         }
 
-        // Global Right-Click & Drag Block on Images/Videos
+        // Prevent Right-Click & Drag Saving on Images/Videos globally
         document.addEventListener('contextmenu', function(e) {
-            if (e.target.nodeName === 'IMG' || e.target.nodeName === 'VIDEO' || e.target.closest('.hero') || e.target.closest('.video-preview')) {
+            if (e.target.nodeName === 'IMG' || e.target.nodeName === 'VIDEO' || e.target.closest('.location-card') || e.target.closest('.story-thumb') || e.target.closest('.testimonial-img-wrap') || e.target.closest('.blog-img-wrap') || e.target.closest('.gallery-item')) {
                 e.preventDefault();
             }
         });
@@ -978,7 +968,7 @@
             closeModal('themeModal');
         }
 
-        // Dynamic Synchronization
+        // Full Admin Dynamic Synchronization (Hero, Booking, Locations 1-9, Packages, Testimonials, Blogs, Gallery)
         document.addEventListener("DOMContentLoaded", () => {
             const heroBg = localStorage.getItem('heroImage');
             const bookingImg = localStorage.getItem('bookingImage');
@@ -990,6 +980,20 @@
             if(bookingImg) {
                 const bookImgEl = document.getElementById('booking-img');
                 if(bookImgEl) bookImgEl.src = bookingImg;
+            }
+
+            // Sync Locations (1 to 9)
+            for(let i=1; i<=9; i++) {
+                const img = localStorage.getItem(`loc${i}Img`);
+                const title = localStorage.getItem(`loc${i}Title`);
+                if(img) {
+                    const el = document.getElementById(`loc${i}-img`);
+                    if(el) el.src = img;
+                }
+                if(title) {
+                    const el = document.getElementById(`loc${i}-text`);
+                    if(el) el.innerText = title;
+                }
             }
 
             // Sync Packages (3)
