@@ -37,17 +37,17 @@
 
         /* Navbar */
         header {
-            position: fixed; top: 0; width: 100%; padding: 1rem 4%;
+            position: fixed; top: 0; width: 100%; padding: 1.2rem 5%;
             display: flex; justify-content: space-between; align-items: center;
             z-index: 100; background: rgba(249, 248, 246, 0.98); backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(0,0,0,0.05);
         }
-        .logo { font-family: var(--font-heading); font-size: 1.3rem; line-height: 1.1; }
-        .logo span { font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; display: block; font-family: var(--font-body); }
-        nav { display: flex; align-items: center; flex-wrap: wrap; gap: 4px; }
-        nav a { margin: 0 5px; text-decoration: none; color: var(--text-dark); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; font-weight: 600; }
+        .logo { font-family: var(--font-heading); font-size: 1.4rem; line-height: 1.1; }
+        .logo span { font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; display: block; font-family: var(--font-body); }
+        nav { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; }
+        nav a { margin: 0 6px; text-decoration: none; color: var(--text-dark); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; font-weight: 600; }
         nav a:hover { color: #885f41; }
-        .btn-primary { background: var(--accent); color: #000; border: none; padding: 8px 16px; border-radius: 30px; cursor: pointer; font-weight: bold; text-decoration: none; display: inline-block; transition: 0.3s; font-size: 0.8rem; }
+        .btn-primary { background: var(--accent); color: #000; border: none; padding: 9px 18px; border-radius: 30px; cursor: pointer; font-weight: bold; text-decoration: none; display: inline-block; transition: 0.3s; font-size: 0.85rem; }
         .btn-primary:hover { background: #d4c2b0; transform: scale(1.05); }
         .btn-dark { background: #1A1A1A; color: #fff; border: none; padding: 12px; border-radius: 30px; cursor: pointer; font-weight: bold; width: 100%; transition: 0.3s; }
         .btn-dark:hover { background: #333; }
@@ -267,7 +267,7 @@
         }
         .gallery-top-row h2 { font-size: 2.5rem; }
         .gallery-top-row p { opacity: 0.7; font-size: 0.95rem; margin-top: 5px; }
-        
+
         .view-gallery-btn { 
             background: #1A1A1A; 
             border: none; 
@@ -336,58 +336,59 @@
         input[type="date"] { position: relative; color: #333; background: rgba(255, 255, 255, 0.7); }
         input[type="date"]::-webkit-calendar-picker-indicator { cursor: pointer; opacity: 0.8; filter: none; }
 
-        /* --- CLEAN & WELL-SORTED FOOTER (Not Overcrowded) --- */
+        /* --- COMPACT & WELL-SORTED PROFESSIONAL FOOTER --- */
         .site-footer { 
             background: linear-gradient(135deg, #0f172a 0%, #070a10 100%); 
             color: white; 
-            padding: 4rem 5% 2rem 5%; 
+            padding: 3rem 5% 1.5rem 5%; 
             border-top: 1px solid rgba(255,255,255,0.1);
         }
         .footer-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 2.5rem;
-            padding-bottom: 3rem;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            padding-bottom: 2.5rem;
             border-bottom: 1px solid rgba(255,255,255,0.1);
+            align-items: start;
         }
         .footer-col h4 {
             font-family: var(--font-heading);
-            font-size: 1.2rem;
-            margin-bottom: 15px;
+            font-size: 1.1rem;
+            margin-bottom: 12px;
             color: var(--accent);
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
         }
         .footer-col p {
-            font-size: 0.88rem;
+            font-size: 0.82rem;
             opacity: 0.75;
-            line-height: 1.6;
-            margin-bottom: 10px;
+            line-height: 1.5;
+            margin-bottom: 8px;
         }
         .footer-links-list {
             list-style: none;
         }
         .footer-links-list li {
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
         .footer-links-list a {
             color: rgba(255,255,255,0.75);
             text-decoration: none;
-            font-size: 0.88rem;
+            font-size: 0.82rem;
             transition: 0.3s;
         }
         .footer-links-list a:hover {
             color: var(--accent);
-            padding-left: 5px;
+            padding-left: 4px;
         }
         .footer-socials { 
             display: flex; 
-            gap: 12px; 
-            margin-top: 15px; 
+            gap: 10px; 
+            margin-top: 12px; 
         }
         .footer-socials a { 
             color: white; 
             background: rgba(255, 255, 255, 0.08); 
-            width: 36px; height: 36px; 
+            width: 32px; height: 32px; 
             display: flex; align-items: center; justify-content: center; 
             border-radius: 50%; 
             border: 1px solid rgba(255,255,255,0.15); 
@@ -396,7 +397,7 @@
         .footer-socials a:hover { 
             background: var(--accent); 
             color: #000; 
-            transform: translateY(-3px); 
+            transform: translateY(-2px); 
         }
         .footer-bottom-bar {
             display: flex; 
@@ -404,14 +405,14 @@
             align-items: center;
             flex-wrap: wrap; 
             gap: 1rem; 
-            padding-top: 2rem; 
+            padding-top: 1.5rem; 
             text-align: center;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             opacity: 0.7;
         }
         .footer-legal {
             display: flex;
-            gap: 15px;
+            gap: 12px;
             align-items: center;
             justify-content: center;
         }
@@ -428,6 +429,7 @@
         /* --- RESPONSIVE BREAKPOINTS --- */
         @media (max-width: 1024px) {
             .packages-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
         }
 
         @media (max-width: 992px) {
@@ -484,7 +486,7 @@
             }
             .footer-grid {
                 grid-template-columns: 1fr;
-                gap: 2rem;
+                gap: 1.8rem;
                 text-align: center;
             }
             .footer-socials {
@@ -492,7 +494,7 @@
             }
             .footer-bottom-bar {
                 flex-direction: column;
-                gap: 12px;
+                gap: 10px;
             }
         }
     </style>
@@ -909,7 +911,7 @@
             <!-- Column 1: Brand & Bio -->
             <div class="footer-col">
                 <div class="footer-logo" style="margin-bottom: 10px;">Dubai <span>Pre-Wedding Shoot</span></div>
-                <p style="font-style: italic; color: var(--accent); margin-bottom: 12px;">Let's Capture Your Love Story in Dubai ❤️</p>
+                <p style="font-style: italic; color: var(--accent); margin-bottom: 10px;">Let's Capture Your Love Story in Dubai ❤️</p>
                 <p>Contact us today to book your unforgettable pre-wedding photoshoot in Dubai with our expert cinematic team.</p>
                 <div class="footer-socials">
                     <a href="#" target="_blank" title="Instagram">
@@ -938,18 +940,18 @@
             </div>
 
             <!-- Column 3: Contact Details -->
-            <div class="footer-col" >
+            <div class="footer-col">
                 <h4>Contact Us</h4>
                 <p>📍 510 Act Two Tower,<br>Downtown Dubai, UAE</p>
-                <p style="margin-top: 10px;">📞 UAE: +971 58 824 7347<br>📞 India: +91 98552 09906</p>
+                <p style="margin-top: 8px;">📞 UAE: +971 58 824 7347<br>📞 India: +91 98552 09906</p>
             </div>
 
             <!-- Column 4: Admin & Portal Access -->
             <div class="footer-col">
                 <h4>Management</h4>
                 <p>Authorized access for studio asset and inquiry management.</p>
-                <div style="margin-top: 15px;">
-                    <a href="admin.html" target="_blank" class="btn-primary" style="padding: 8px 18px; font-size: 0.8rem;">⚙️ Admin Panel</a>
+                <div style="margin-top: 12px;">
+                    <a href="admin.html" target="_blank" class="btn-primary" style="padding: 7px 16px; font-size: 0.75rem;">⚙️ Admin Panel</a>
                 </div>
             </div>
         </div>
